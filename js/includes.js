@@ -46,6 +46,14 @@ function loadIncludes() {
                     }
                 }
 
+                // 자주 묻는 질문 (FAQ)
+                if (currentPage === 'CS_02_01.html') {
+                    const navFaq = document.getElementById('navFaq');
+                    if (navFaq) {
+                        navFaq.classList.add('active');
+                    }
+                }
+
                 // 홈 (Home)
                 if (currentPage === 'DB_01_01.html') {
                     const navHome = document.getElementById('navHome');
