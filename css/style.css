@@ -4256,15 +4256,15 @@ textarea.error:focus {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 48px;
+  height: 36px;
   padding: 0 16px;
   color: var(--text-body);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   transition: 0.2s;
   white-space: nowrap;
   border-radius: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .db-nav-link:hover {
