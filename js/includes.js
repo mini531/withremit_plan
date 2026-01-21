@@ -12,10 +12,15 @@ function loadIncludes() {
         }
     }
 
+    // Check for guest mode
+    const urlParams = new URLSearchParams(window.location.search);
+    const isGuest = urlParams.get('guest') === 'true';
+
     // Load header
     const headerContainer = document.getElementById('headerContainer');
     if (headerContainer) {
-        fetch('includes/header.html')
+        const headerFile = isGuest ? 'includes/header_guest.html' : 'includes/header.html';
+        fetch(headerFile)
             .then(response => response.text())
             .then(data => {
                 headerContainer.innerHTML = data;
@@ -30,7 +35,8 @@ function loadIncludes() {
     // Load sidebar
     const sidebarContainer = document.getElementById('sidebarContainer');
     if (sidebarContainer) {
-        fetch('includes/sidebar.html')
+        const sidebarFile = isGuest ? 'includes/sidebar_guest.html' : 'includes/sidebar.html';
+        fetch(sidebarFile)
             .then(response => response.text())
             .then(data => {
                 sidebarContainer.innerHTML = data;
