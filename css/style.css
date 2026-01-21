@@ -4241,7 +4241,7 @@ textarea.error:focus {
   border-radius: 0;
   border: none;
   box-shadow: none;
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
   overflow: visible;
 }
@@ -4261,15 +4261,15 @@ textarea.error:focus {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 38px;
+  height: 48px;
   padding: 0 16px;
   color: var(--text-body);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   transition: 0.2s;
   white-space: nowrap;
   border-radius: 8px;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .db-nav-link:hover {
@@ -4373,13 +4373,18 @@ textarea.error:focus {
 .db-overlay-mask {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 950;
   display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .db-overlay-mask.active {
   display: block;
+  opacity: 1;
 }
 
 .db-balance-badge {
@@ -6407,22 +6412,22 @@ textarea.error:focus {
 @media (max-width: 1024px) {
   .db-sidebar {
     position: fixed;
-    left: -220px;
-    width: 200px;
-    height: calc(100vh - 80px);
-    top: 80px;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    transform: translateX(-100%);
     z-index: 1000;
     background: #fff;
     border-radius: 0;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
     overflow-y: auto;
+    padding-top: 80px;
   }
 
   .db-sidebar.mobile-open {
-    left: 0px;
-    padding: 15px 0 15px 15px;
-    top: 72px;
-    height: 100%;
+    transform: translateX(0);
+    padding: 80px 0 30px 0;
   }
 
   .db-grid {
@@ -6601,20 +6606,22 @@ textarea.error:focus {
 @media (max-width: 768px) {
   .db-sidebar {
     position: fixed;
-    left: -220px;
-    width: 200px;
-    height: calc(100vh - 55px);
-    max-height: calc(100vh - 55px);
-    top: 55px;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    max-height: 100vh;
+    transform: translateX(-100%);
     z-index: 1100;
     background: #fff;
     box-shadow: var(--shadow-lg);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 20px 0 60px 0;
+    padding: 70px 0 60px 0;
   }
 
   .db-sidebar.mobile-open {
+    transform: translateX(0);
     left: 0;
   }
 

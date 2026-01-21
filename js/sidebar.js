@@ -10,14 +10,28 @@ function initSidebar() {
             if (window.innerWidth > 1024) {
                 document.body.classList.toggle('db-collapsed');
             } else {
-                sidebar.classList.toggle('mobile-open');
-                overlay.classList.toggle('active');
+                const isOpen = sidebar.classList.toggle('mobile-open');
+                if (isOpen) {
+                    overlay.style.display = 'block';
+                    setTimeout(() => overlay.classList.add('active'), 10);
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    setTimeout(() => {
+                        if (!overlay.classList.contains('active')) overlay.style.display = 'none';
+                    }, 300);
+                }
             }
         });
 
         overlay.addEventListener('click', () => {
             sidebar.classList.remove('mobile-open');
             overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                if (!overlay.classList.contains('active')) overlay.style.display = 'none';
+            }, 300);
         });
     }
 
@@ -26,6 +40,10 @@ function initSidebar() {
         closeBtn.addEventListener('click', () => {
             sidebar.classList.remove('mobile-open');
             overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                if (!overlay.classList.contains('active')) overlay.style.display = 'none';
+            }, 300);
         });
     }
 
