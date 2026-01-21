@@ -2,9 +2,9 @@
  * WithRemit Static Site Password Protection
  * 
  * Logic:
- * 1. Check sessionStorage for 'auth_token'.
- * 2. If present and valid (matches hash), allow access.
- * 3. If missing, show full-screen overlay with password prompt.
+ * 1. Check localStorage for 'auth_session'.
+ * 2. If present, valid, and not expired (1 hour), allow access.
+ * 3. If missing or expired, show full-screen overlay with password prompt.
  * 4. Verify password using SHA-256 hash.
  */
 
@@ -13,10 +13,7 @@
     // Password: "withmoney1234!"
     const TARGET_HASH = "fd38aac89c78c7461d871a0ed09111075537b0daf7858503815dc0c3eb7f4340";
     const SESSION_KEY = "wr_auth_session";
-
-    // CSS Styles injected programmatically to ensure they load before external CSS file if needed,
-    // though we also recommend including auth.css.
-    // This script ensures the body is hidden immediately until check passes or overlay is ready.
+    const EXPIRY_TIME_MS = 60 * 60 * 1000; // 1 Hour
 
     function initAuth() {
         if (isAuthenticated()) {
@@ -28,8 +25,28 @@
     }
 
     function isAuthenticated() {
-        const storedHash = sessionStorage.getItem(SESSION_KEY);
-        return storedHash === TARGET_HASH;
+        try {
+            const dataStr = localStorage.getItem(SESSION_KEY);
+            if (!dataStr) return false;
+
+            const data = JSON.parse(dataStr);
+            const now = new Date().getTime();
+
+            // Check if expired
+            if (now > data.expiry) {
+                localStorage.removeItem(SESSION_KEY);
+                return false;
+            }
+
+            // Check hash
+            if (data.hash === TARGET_HASH) {
+                return true;
+            }
+        } catch (e) {
+            console.error("Auth check failed", e);
+            localStorage.removeItem(SESSION_KEY);
+        }
+        return false;
     }
 
     function showLoginOverlay() {
@@ -69,8 +86,12 @@
             try {
                 const hash = await sha256(password);
                 if (hash === TARGET_HASH) {
-                    // Success
-                    sessionStorage.setItem(SESSION_KEY, hash);
+                    // Success - Store with Expiry
+                    const sessionData = {
+                        hash: hash,
+                        expiry: new Date().getTime() + EXPIRY_TIME_MS
+                    };
+                    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
                     unlockPage(overlay);
                 } else {
                     // Fail
@@ -92,7 +113,9 @@
     function unlockPage(overlay) {
         overlay.style.opacity = '0';
         setTimeout(() => {
-            overlay.remove();
+            if (overlay.parentNode) {
+                overlay.remove();
+            }
             document.body.style.overflow = '';
         }, 300);
     }
