@@ -35,20 +35,27 @@ function loadIncludes() {
             .then(data => {
                 sidebarContainer.innerHTML = data;
                 // Mark active navigation
+                // Mark active navigation
                 const currentPage = window.location.pathname.split('/').pop();
-                if (currentPage === 'notice_list.html' || currentPage === 'notice_detail.html') {
+
+                // 공지사항 (Notice)
+                if (currentPage === 'CS_01_01.html' || currentPage === 'CS_01_02.html') {
                     const navNotice = document.getElementById('navNotice');
                     if (navNotice) {
                         navNotice.classList.add('active');
                     }
                 }
-                if (currentPage === 'request_remittance.html') {
+
+                // 해외 송금 신청 (Remittance)
+                if (currentPage === 'RM_01_01.html') {
                     const navRemittance = document.getElementById('navRemittance');
                     if (navRemittance) {
                         navRemittance.classList.add('active');
                     }
                 }
-                if (currentPage === 'remittance_list.html') {
+
+                // 송금 내역 (History)
+                if (currentPage === 'HI_01_01.html') {
                     const navRemittanceList = document.getElementById('navRemittanceList');
                     if (navRemittanceList) {
                         navRemittanceList.classList.add('active');
