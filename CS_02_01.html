@@ -73,6 +73,11 @@
         .col-icon {
             width: 40px;
         }
+
+        .faq-table tbody tr:first-child {
+            border-top: 1px solid #ddd;
+            /* Add border to first row as header is removed */
+        }
     </style>
 </head>
 
@@ -141,13 +146,7 @@
                                 <col style="width: 60px;">
                                 <col>
                             </colgroup>
-                            <thead>
-                                <tr>
-                                    <th class="th-icon"></th>
-                                    <!-- Changed from th-num to avoid display:none on mobile -->
-                                    <th>질문</th>
-                                </tr>
-                            </thead>
+                            <!-- thead removed as requested -->
                             <tbody>
                                 <!-- FAQ Data will be populated here by script, but hardcoding as requested for static file -->
                                 <tr class="faq-row" onclick="toggleFaq(this)">

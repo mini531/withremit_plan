@@ -3088,7 +3088,7 @@ textarea.error:focus {
     gap: 20px;
   }
 
-  .reg-subsection {}
+
 
   .reg-id-cards-vertical {
     display: flex;
@@ -6825,6 +6825,8 @@ textarea.error:focus {
 
   .db-search-box.mobile-active {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .db-mobile-search-toggle {
@@ -7185,106 +7187,69 @@ textarea.error:focus {
     font-size: 1.3rem;
   }
 
-  /* Mobile Search Box Logic for Tablet */
-  @media (min-width: 768px) {
-    .db-search-box {
-      display: none;
-      gap: 8px;
-      margin-bottom: 16px;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-
-    .db-search-box.mobile-active {
-      display: flex;
-    }
-
-    .db-search-type {
-      width: 100%;
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-
-    .db-search-input {
-      width: 100%;
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-
-    .db-search-btn {
-      flex: 1;
-      justify-content: center;
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-
-    .db-reset-btn {
-      flex: 0 0 auto;
-      min-width: 80px;
-      justify-content: center;
-    }
-
-    .db-reset-btn .reset-text {
-      display: inline;
-      margin-left: 4px;
-    }
-
-    .db-reset-btn .reset-btn-text {
-      display: inline;
-      margin-left: 4px;
-    }
-
-    .db-mobile-search-toggle {
-      display: flex;
-    }
-  }
-
+  /* Mobile Search Box Logic for Tablet (< 768px) */
   .db-search-box {
     display: none;
     gap: 8px;
     margin-bottom: 16px;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Allow wrapping for 2 lines */
   }
 
   .db-search-box.mobile-active {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
+  /* Row 1: Select + Input */
   .db-search-type {
-    width: 100%;
-    padding: 8px 28px 8px 10px;
-    font-size: 0.85rem;
+    width: 30%;
+    /* Approx 1/3 */
+    padding: 10px;
+    font-size: 0.9rem;
   }
 
   .db-search-input {
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 0.85rem;
+    width: calc(70% - 8px);
+    /* Remaining width minus gap */
+    padding: 10px;
+    font-size: 0.9rem;
   }
 
+  /* Row 2: Search Btn + Reset Btn */
   .db-search-btn {
-    width: 100%;
+    flex: 1;
+    /* Share remaining space equally */
     justify-content: center;
-    padding: 8px 16px;
-    font-size: 0.85rem;
+    padding: 10px;
+    font-size: 0.9rem;
   }
 
   .db-reset-btn {
-    width: 100%;
+    flex: 1;
+    /* Share remaining space equally */
+    min-width: 80px;
     justify-content: center;
+    padding: 10px;
   }
 
   .db-reset-btn .reset-text {
     display: inline;
+    margin-left: 4px;
   }
 
   .db-reset-btn .reset-btn-text {
     display: inline;
+    margin-left: 4px;
   }
 
   .db-mobile-search-toggle {
     display: flex;
   }
+
+
 
   .db-total-count {
     font-size: 0.85rem;
@@ -7523,6 +7488,22 @@ textarea.error:focus {
   .faq-icon {
     width: 18px;
     margin-right: 4px;
+  }
+
+  /* Mobile Search Box - Stack vertically on small screens */
+  @media (max-width: 480px) {
+    .db-search-box.mobile-active {
+      flex-direction: column;
+    }
+
+    .db-search-type,
+    .db-search-input,
+    .db-search-btn,
+    .db-reset-btn {
+      width: 100% !important;
+      min-width: 100% !important;
+      margin-left: 0 !important;
+    }
   }
 }
 
