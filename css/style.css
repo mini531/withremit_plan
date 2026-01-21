@@ -7185,6 +7185,60 @@ textarea.error:focus {
     font-size: 1.3rem;
   }
 
+  /* Mobile Search Box Logic for Tablet */
+  @media (min-width: 768px) {
+    .db-search-box {
+      display: none;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .db-search-box.mobile-active {
+      display: flex;
+    }
+
+    .db-search-type {
+      width: 100%;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+
+    .db-search-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+
+    .db-search-btn {
+      flex: 1;
+      justify-content: center;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+
+    .db-reset-btn {
+      flex: 0 0 auto;
+      min-width: 80px;
+      justify-content: center;
+    }
+
+    .db-reset-btn .reset-text {
+      display: inline;
+      margin-left: 4px;
+    }
+
+    .db-reset-btn .reset-btn-text {
+      display: inline;
+      margin-left: 4px;
+    }
+
+    .db-mobile-search-toggle {
+      display: flex;
+    }
+  }
+
   .db-search-box {
     display: none;
     gap: 8px;
@@ -7444,6 +7498,31 @@ textarea.error:focus {
 
   .remit-status {
     font-size: 0.7rem;
+  }
+
+  /* FAQ Mobile - Hide Header & Left Align */
+  .db-notice-table.faq-table thead {
+    display: none !important;
+  }
+
+  .db-notice-table.faq-table td.faq-title {
+    text-align: left !important;
+    padding-left: 0;
+  }
+
+  .db-notice-table.faq-table td.faq-content {
+    text-align: left !important;
+    padding: 16px;
+  }
+
+  .db-notice-table.faq-table .col-icon {
+    width: 30px;
+    padding: 10px 4px;
+  }
+
+  .faq-icon {
+    width: 18px;
+    margin-right: 4px;
   }
 }
 
