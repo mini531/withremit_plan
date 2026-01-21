@@ -4305,14 +4305,14 @@ textarea.error:focus {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .db-grid-3col {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 20px;
 }
 
@@ -4320,7 +4320,7 @@ textarea.error:focus {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 20px;
 }
 
@@ -4329,8 +4329,17 @@ textarea.error:focus {
   flex: 0 1 auto !important;
 }
 
-.db-col-info {
+.db-col-info,
+.db-col-calc {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.db-col-info>.db-info-card,
+.db-col-calc>.calculator-card {
+  flex: 1;
 }
 
 .db-info-card {
@@ -4557,18 +4566,7 @@ textarea.error:focus {
 }
 
 /* Dashboard Card Components */
-.db-col-info {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.db-col-calc {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-width: 0;
-}
+/* Dashboard Card Components - Moved and consolidated above */
 
 .db-card-title {
   font-size: 1.25rem;

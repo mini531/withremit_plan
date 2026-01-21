@@ -1,19 +1,22 @@
 ﻿<!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>withremit - 마이 대시보드</title>
-    
+
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
-    
+
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
 </head>
+
 <body class="db-body">
     <div id="headerContainer"></div>
 
@@ -49,11 +52,13 @@
                         <!-- Dashboard Banner Controls -->
                         <div class="db-banner-controls">
                             <button class="db-banner-control-btn" id="dbBannerPlayPause" aria-label="재생/정지">
-                                <svg class="play-icon hidden" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M8 5v14l11-7z"/>
+                                <svg class="play-icon hidden" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
                                 </svg>
-                                <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
                                 </svg>
                             </button>
                             <div class="db-banner-indicators">
@@ -71,124 +76,136 @@
                     <div class="db-col-calc">
                         <!-- Calculator Card -->
                         <div class="calculator-card db-calculator-card">
-                        <h3 class="db-card-title">송금 시뮬레이션</h3>
+                            <h3 class="db-card-title">송금 시뮬레이션</h3>
 
-                        <div class="calc-row">
-                            <div class="calc-row-header">
-                                <label class="calc-label" data-i18n="calc.send">보내실 금액</label>
-                                <span class="calc-max-amount" data-i18n="calc.maxAmount">최대 송금액 6,500,000원</span>
-                            </div>
-                            <div class="calc-input-group">
-                                <div class="calc-input calc-input-with-symbol">
-                                    <span class="calc-currency-symbol-fixed">₩</span>
-                                    <input type="text" class="calc-amount-input" id="sendAmount" value="1,000,000" placeholder="금액 입력">
+                            <div class="calc-row">
+                                <div class="calc-row-header">
+                                    <label class="calc-label" data-i18n="calc.send">보내실 금액</label>
+                                    <span class="calc-max-amount" data-i18n="calc.maxAmount">최대 송금액 6,500,000원</span>
                                 </div>
-                                <div class="calc-currency">
-                                    <img src="images/kr.png" alt="한국" class="calc-currency-flag">
-                                    <span class="calc-currency-code">KRW</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="calc-rate">
-                            <div class="calc-rate-info">
-                                <span class="calc-rate-value" id="exchangeRate">1 KRW = 0.1085 JPY</span>
-                                <span class="calc-rate-label" data-i18n="calc.rate">실시간 환율 적용</span>
-                            </div>
-                            <div class="calc-arrow">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="calc-row">
-                            <label class="calc-label" data-i18n="calc.receive">받으실 금액</label>
-                            <div class="calc-input-group">
-                                <div class="calc-input calc-input-with-symbol">
-                                    <span class="calc-currency-symbol-fixed" id="receiveCurrencySymbol">¥</span>
-                                    <input type="text" class="calc-amount-input receive" id="receiveAmount" value="9,216,590" placeholder="금액 입력">
-                                </div>
-                                <div class="calc-currency-dropdown" id="currencyDropdown">
-                                    <button type="button" class="calc-currency-btn" id="currencyBtn">
-                                        <img src="images/jp.png" alt="일본" class="calc-currency-flag" id="receiveCurrencyFlag">
-                                        <span class="calc-currency-code" id="receiveCurrencyCode">JPY</span>
-                                        <svg class="calc-currency-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                    </button>
-                                    <div class="calc-currency-options" id="currencyOptions">
-                                        <div class="calc-currency-option" data-value="JPY">
-                                            <img src="images/jp.png" alt="일본">
-                                            <span>JPY</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="PHP">
-                                            <img src="images/ph.png" alt="필리핀">
-                                            <span>PHP</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="CNY">
-                                            <img src="images/cn.png" alt="중국">
-                                            <span>CNY</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="NPR">
-                                            <img src="images/np.png" alt="네팔">
-                                            <span>NPR</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="AUD">
-                                            <img src="images/au.png" alt="호주">
-                                            <span>AUD</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="HKD">
-                                            <img src="images/hk.png" alt="홍콩">
-                                            <span>HKD</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="MNT">
-                                            <img src="images/mn.png" alt="몽골">
-                                            <span>MNT</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="VND">
-                                            <img src="images/vn.png" alt="베트남">
-                                            <span>VND</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="LKR">
-                                            <img src="images/lk.png" alt="스리랑카">
-                                            <span>LKR</span>
-                                        </div>
-                                        <div class="calc-currency-option" data-value="BDT">
-                                            <img src="images/bd.png" alt="방글라데시">
-                                            <span>BDT</span>
-                                        </div>
+                                <div class="calc-input-group">
+                                    <div class="calc-input calc-input-with-symbol">
+                                        <span class="calc-currency-symbol-fixed">₩</span>
+                                        <input type="text" class="calc-amount-input" id="sendAmount" value="1,000,000"
+                                            placeholder="금액 입력">
                                     </div>
-                                    <input type="hidden" id="receiveCurrency" value="JPY">
+                                    <div class="calc-currency">
+                                        <img src="images/kr.png" alt="한국" class="calc-currency-flag">
+                                        <span class="calc-currency-code">KRW</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="hidden">
-                            <div id="receiveAmountDisplay"></div>
-                        </div>
-
-                        <div class="calc-fee-box">
-                            <div class="calc-fee-header">
-                                <span data-i18n="calc.deposit">입금할 금액</span>
-                                <span class="calc-fee-total" id="depositAmount">₩1,010,000</span>
+                            <div class="calc-rate">
+                                <div class="calc-rate-info">
+                                    <span class="calc-rate-value" id="exchangeRate">1 KRW = 0.1085 JPY</span>
+                                    <span class="calc-rate-label" data-i18n="calc.rate">실시간 환율 적용</span>
+                                </div>
+                                <div class="calc-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="calc-fee-row">
-                                <span data-i18n="calc.transferFee">송금 수수료</span>
-                                <span id="transferFee">₩10,000</span>
-                            </div>
-                            <div class="calc-fee-row">
-                                <span data-i18n="calc.withdrawalFee">수취 수수료</span>
-                                <span id="withdrawalFee">¥660</span>
-                            </div>
-                        </div>
 
-                        <div class="calc-compare" id="savings">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span>은행 대비 약 <strong>322,581 JPY</strong> 더 받으세요!</span>
-                        </div>
+                            <div class="calc-row">
+                                <label class="calc-label" data-i18n="calc.receive">받으실 금액</label>
+                                <div class="calc-input-group">
+                                    <div class="calc-input calc-input-with-symbol">
+                                        <span class="calc-currency-symbol-fixed" id="receiveCurrencySymbol">¥</span>
+                                        <input type="text" class="calc-amount-input receive" id="receiveAmount"
+                                            value="9,216,590" placeholder="금액 입력">
+                                    </div>
+                                    <div class="calc-currency-dropdown" id="currencyDropdown">
+                                        <button type="button" class="calc-currency-btn" id="currencyBtn">
+                                            <img src="images/jp.png" alt="일본" class="calc-currency-flag"
+                                                id="receiveCurrencyFlag">
+                                            <span class="calc-currency-code" id="receiveCurrencyCode">JPY</span>
+                                            <svg class="calc-currency-arrow" xmlns="http://www.w3.org/2000/svg"
+                                                width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                            </svg>
+                                        </button>
+                                        <div class="calc-currency-options" id="currencyOptions">
+                                            <div class="calc-currency-option" data-value="JPY">
+                                                <img src="images/jp.png" alt="일본">
+                                                <span>JPY</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="PHP">
+                                                <img src="images/ph.png" alt="필리핀">
+                                                <span>PHP</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="CNY">
+                                                <img src="images/cn.png" alt="중국">
+                                                <span>CNY</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="NPR">
+                                                <img src="images/np.png" alt="네팔">
+                                                <span>NPR</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="AUD">
+                                                <img src="images/au.png" alt="호주">
+                                                <span>AUD</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="HKD">
+                                                <img src="images/hk.png" alt="홍콩">
+                                                <span>HKD</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="MNT">
+                                                <img src="images/mn.png" alt="몽골">
+                                                <span>MNT</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="VND">
+                                                <img src="images/vn.png" alt="베트남">
+                                                <span>VND</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="LKR">
+                                                <img src="images/lk.png" alt="스리랑카">
+                                                <span>LKR</span>
+                                            </div>
+                                            <div class="calc-currency-option" data-value="BDT">
+                                                <img src="images/bd.png" alt="방글라데시">
+                                                <span>BDT</span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="receiveCurrency" value="JPY">
+                                    </div>
+                                </div>
+                            </div>
 
-                        <button class="calc-btn" data-i18n="calc.btn" onclick="goToRemittance()">지금 바로 송금하기</button>
+                            <div class="hidden">
+                                <div id="receiveAmountDisplay"></div>
+                            </div>
+
+                            <div class="calc-fee-box">
+                                <div class="calc-fee-header">
+                                    <span data-i18n="calc.deposit">입금할 금액</span>
+                                    <span class="calc-fee-total" id="depositAmount">₩1,010,000</span>
+                                </div>
+                                <div class="calc-fee-row">
+                                    <span data-i18n="calc.transferFee">송금 수수료</span>
+                                    <span id="transferFee">₩10,000</span>
+                                </div>
+                                <div class="calc-fee-row">
+                                    <span data-i18n="calc.withdrawalFee">수취 수수료</span>
+                                    <span id="withdrawalFee">¥660</span>
+                                </div>
+                            </div>
+
+                            <div class="calc-compare" id="savings">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>은행 대비 약 <strong>322,581 JPY</strong> 더 받으세요!</span>
+                            </div>
+
+                            <button class="calc-btn" data-i18n="calc.btn" onclick="goToRemittance()">지금 바로 송금하기</button>
                         </div>
                     </div>
 
@@ -200,11 +217,13 @@
                             <div class="db-main-wallet">
                                 <div class="wallet-val-white">₩ 1,250,000</div>
                                 <div class="wallet-btns">
-                                    <button class="btn btn-white-outline" style="height:44px; padding:0 30px;">내 계좌로 인출</button>
+                                    <button class="btn btn-white-outline" style="height:44px; padding:0 30px;">내 계좌로
+                                        인출</button>
                                 </div>
                             </div>
                             <div class="db-linked-account-white">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                                 </svg>
@@ -218,7 +237,8 @@
                             <div class="db-limit-grid">
                                 <div class="db-limit-item">
                                     <div class="db-limit-icon">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <path d="M12 6v6l4 2"></path>
                                         </svg>
@@ -230,7 +250,8 @@
                                 </div>
                                 <div class="db-limit-item">
                                     <div class="db-limit-icon">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
                                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                             <line x1="16" y1="2" x2="16" y2="6"></line>
                                             <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -244,7 +265,8 @@
                                 </div>
                                 <div class="db-limit-item">
                                     <div class="db-limit-icon">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
                                             <line x1="12" y1="1" x2="12" y2="23"></line>
                                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                                         </svg>
@@ -256,7 +278,8 @@
                                 </div>
                                 <div class="db-limit-item">
                                     <div class="db-limit-icon">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
                                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                                         </svg>
                                     </div>
@@ -288,7 +311,8 @@
                                 <span class="db-ongoing-label">상태</span>
                                 <div class="db-status-inline">
                                     <div class="db-status-icon-mini">
-                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none"
+                                            stroke="currentColor" stroke-width="2">
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <polyline points="12 6 12 12 16 14"></polyline>
                                         </svg>
@@ -306,8 +330,9 @@
                         <div class="db-transaction-list-new">
                             <div class="db-transaction-item-new">
                                 <div class="db-trans-icon deposit">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
-                                        <path d="M12 5v14M5 12l7 7 7-7"/>
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M12 5v14M5 12l7 7 7-7" />
                                     </svg>
                                 </div>
                                 <div class="db-trans-info">
@@ -321,8 +346,9 @@
                             </div>
                             <div class="db-transaction-item-new">
                                 <div class="db-trans-icon withdraw">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
-                                        <path d="M12 19V5M5 12l7-7 7 7"/>
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M12 19V5M5 12l7-7 7 7" />
                                     </svg>
                                 </div>
                                 <div class="db-trans-info">
@@ -336,8 +362,9 @@
                             </div>
                             <div class="db-transaction-item-new">
                                 <div class="db-trans-icon deposit">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
-                                        <path d="M12 5v14M5 12l7 7 7-7"/>
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M12 5v14M5 12l7 7 7-7" />
                                     </svg>
                                 </div>
                                 <div class="db-trans-info">
@@ -347,6 +374,22 @@
                                 <div class="db-trans-amounts">
                                     <div class="db-trans-amount-new deposit">+2,000,000</div>
                                     <div class="db-trans-balance-new">₩ 1,750,000</div>
+                                </div>
+                            </div>
+                            <div class="db-transaction-item-new">
+                                <div class="db-trans-icon withdraw">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M12 19V5M5 12l7-7 7 7" />
+                                    </svg>
+                                </div>
+                                <div class="db-trans-info">
+                                    <div class="db-trans-date-new">2026.01.08</div>
+                                    <div class="db-trans-type-new withdraw">출금</div>
+                                </div>
+                                <div class="db-trans-amounts">
+                                    <div class="db-trans-amount-new withdraw">-500,000</div>
+                                    <div class="db-trans-balance-new">₩ 500,000</div>
                                 </div>
                             </div>
                         </div>
@@ -372,6 +415,15 @@
                                 <div class="db-account-info">
                                     <div class="db-account-name">Sato (일본)</div>
                                     <div class="db-account-bank">미즈호 은행 ****9988</div>
+                                </div>
+                            </div>
+                            <div class="db-account-item">
+                                <div class="db-account-flag">
+                                    <img src="images/ph.png" alt="필리핀">
+                                </div>
+                                <div class="db-account-info">
+                                    <div class="db-account-name">Rizal (필리핀)</div>
+                                    <div class="db-account-bank">BDO Unibank ****4567</div>
                                 </div>
                             </div>
                         </div>
@@ -400,6 +452,14 @@
                                 <span class="db-notice-title">설 연휴 중 농협은행, 지역 농협은행 인터넷 뱅킹 중지 안내</span>
                                 <span class="db-notice-date">2025.01.24</span>
                             </a>
+                            <a href="#" class="db-notice-item">
+                                <span class="db-notice-title">[안내] 서비스 고도화에 따른 시스템 점검 안내 (02/10)</span>
+                                <span class="db-notice-date">2025.01.20</span>
+                            </a>
+                            <a href="#" class="db-notice-item">
+                                <span class="db-notice-title">[이벤트] 친구 초대하고 최대 5만 포인트 받으세요!</span>
+                                <span class="db-notice-date">2025.01.15</span>
+                            </a>
                         </div>
                     </div>
 
@@ -409,7 +469,8 @@
                         <div class="db-help-btns-new">
                             <button class="db-help-btn-new db-help-btn-outline">
                                 <div class="db-help-icon">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                                         <line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -419,7 +480,8 @@
                             </button>
                             <button class="db-help-btn-new db-help-btn-primary">
                                 <div class="db-help-icon">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
                                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                                     </svg>
                                 </div>
@@ -448,25 +510,29 @@
             <div class="contact-info-items">
                 <div class="contact-info-item">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <span>한국어 상담 02-2285-2077</span>
                 </div>
                 <div class="contact-info-item">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <span>日本語 相談 070-8785-1799</span>
                 </div>
                 <div class="contact-info-item">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
+                        <path
+                            d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
                     </svg>
                     <span>FAX 02-2285-2078</span>
                 </div>
                 <div class="contact-info-item">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        <path
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <span>hana@oneremit.co.kr</span>
                 </div>
@@ -513,8 +579,10 @@
     <div id="limitModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                    </path>
                     <line x1="12" y1="9" x2="12" y2="13"></line>
                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                 </svg>
@@ -530,36 +598,36 @@
     </div>
 
     <script>
-    function goToRemittance() {
-        // 통화 코드를 국가 코드로 매핑
-        const currencyToCountry = {
-            'JPY': 'JP',
-            'PHP': 'PH',
-            'CNY': 'CN',
-            'NPR': 'NP',
-            'AUD': 'AU',
-            'HKD': 'HK',
-            'MNT': 'MN',
-            'VND': 'VN',
-            'LKR': 'LK',
-            'BDT': 'BD'
-        };
+        function goToRemittance() {
+            // 통화 코드를 국가 코드로 매핑
+            const currencyToCountry = {
+                'JPY': 'JP',
+                'PHP': 'PH',
+                'CNY': 'CN',
+                'NPR': 'NP',
+                'AUD': 'AU',
+                'HKD': 'HK',
+                'MNT': 'MN',
+                'VND': 'VN',
+                'LKR': 'LK',
+                'BDT': 'BD'
+            };
 
-        const sendAmountInput = document.getElementById('sendAmount');
-        const receiveCurrencyInput = document.getElementById('receiveCurrency');
+            const sendAmountInput = document.getElementById('sendAmount');
+            const receiveCurrencyInput = document.getElementById('receiveCurrency');
 
-        const amount = sendAmountInput.value.replace(/,/g, '');
-        const currency = receiveCurrencyInput.value;
-        const country = currencyToCountry[currency] || 'JP';
+            const amount = sendAmountInput.value.replace(/,/g, '');
+            const currency = receiveCurrencyInput.value;
+            const country = currencyToCountry[currency] || 'JP';
 
-        // URL 파라미터로 전달
-        window.location.href = `RM_01_01.html?amount=${amount}&country=${country}`;
-    }
+            // URL 파라미터로 전달
+            window.location.href = `RM_01_01.html?amount=${amount}&country=${country}`;
+        }
     </script>
 
     <!-- Dashboard Banner Slider Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const slides = document.querySelectorAll('.db-banner-slide');
             const indicators = document.querySelectorAll('.db-banner-indicator');
             const playPauseBtn = document.getElementById('dbBannerPlayPause');
@@ -608,7 +676,7 @@
             }
 
             // 재생/정지 버튼 클릭
-            playPauseBtn.addEventListener('click', function() {
+            playPauseBtn.addEventListener('click', function () {
                 if (isPlaying) {
                     stopAutoSlide();
                 } else {
@@ -618,7 +686,7 @@
 
             // 인디케이터 클릭
             indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', function() {
+                indicator.addEventListener('click', function () {
                     goToSlide(index);
                     // 인디케이터 클릭 시 자동 슬라이드 재시작
                     if (isPlaying) {
@@ -633,6 +701,5 @@
         });
     </script>
 </body>
+
 </html>
-
-
