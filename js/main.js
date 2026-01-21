@@ -11,8 +11,8 @@ const translations = {
         'nav.language': '언어',
         
         // Hero
-        'hero.title': '해외송금,<br><span>더 현명하게</span>',
-        'hero.desc': '보내시는 분의 마음을 담아, 더 빠르고 더 저렴하게 전해드립니다.<br>숨겨진 수수료 없이 투명하게!',
+        'hero.title': '해외송금,<br><span>이제는 쉽고 간편하게</span>',
+        'hero.desc': '보내시는 분의 마음을 담아, 더 빠르고 더 저렴하게 전해드립니다. 언제 어디서나, 글로벌 기준의 빠르고 안전한 송금 솔루션',
         'hero.badge1': '최단 5분 송금',
         'hero.badge2': 'SGI 서울보증보험',
         'hero.badge3': '기획재정부 인가 (2018-7)',
@@ -20,6 +20,7 @@ const translations = {
         // Calculator
         'calc.title': '송금 시뮬레이션',
         'calc.send': '보내실 금액',
+        'calc.maxAmount': '최대 송금액 {limit}원',
         'calc.rate': '실시간 환율 적용',
         'calc.receive': '받으실 금액',
         'calc.result': '상대방이 받는 금액',
@@ -27,7 +28,7 @@ const translations = {
         'calc.btn': '지금 바로 송금하기',
         'calc.deposit': '입금할 금액',
         'calc.transferFee': '송금 수수료',
-        'calc.withdrawalFee': '출금 수수료',
+        'calc.withdrawalFee': '수취 수수료',
         'modal.limit.title': '송금 한도 초과',
         'modal.limit.memo': '외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다. 현재 환율 기준 송금 가능액인 <b>{limit}원</b>으로 조정되었습니다.',
         'modal.ok': '확인',
@@ -35,16 +36,16 @@ const translations = {
         // Features
         'features.title': '왜 withremit인가요?',
         'features.desc': '보내시는 분의 마음을 담아, 더 빠르고 더 저렴하게 전해드립니다.',
-        'features.fast.title': '더 빠르게',
-        'features.fast.desc': '최단 5분 내 송금 완료!<br>급한 송금도 걱정 없이 빠르게 전달됩니다.<br>실시간 송금 현황을 확인하세요.',
-        'features.cheap.title': '더 저렴하게',
-        'features.cheap.desc': '숨겨진 수수료 없이 투명한 환율!<br>은행보다 최대 5배 저렴한 수수료로<br>더 많은 금액을 전달하세요.',
-        'features.safe.title': '더 안전하게',
-        'features.safe.desc': 'SGI 서울보증보험의 이행보증금 설정!<br>기획재정부 정식 인가 업체(등록번호 2018-7)로 안심하고 이용하세요.',
+        'features.fast.title': '보다 빠르고',
+        'features.fast.desc': '최단 5분 내 송금 완료! 급한 송금도 걱정 없이 빠르게 전달됩니다. 실시간 송금 현황을 확인하세요.',
+        'features.cheap.title': '보다 편리하게',
+        'features.cheap.desc': '복잡한 서류나 은행 방문 없이, 24시간 언제 어디서든 몇 번의 클릭만으로 해외 송금을 간단하게 완료하세요.',
+        'features.safe.title': '보다 큰 혜택',
+        'features.safe.desc': '국가가 인증한 업체라 더 든든하게! 보증보험 가입으로 소중한 자산을 안전하게 지켜드립니다.',
         
         // Countries
         'countries.title': '송금 가능 국가',
-        'countries.desc': '아시아 주요 국가로 빠르고 안전하게 송금하세요',
+        'countries.desc': '전 세계 주요 국가로 빠르고 안전하게 송금하세요',
         'country.japan': '일본',
         'country.philippines': '필리핀',
         'country.china': '중국',
@@ -53,16 +54,18 @@ const translations = {
         'country.hongkong': '홍콩',
         'country.mongolia': '몽골',
         'country.vietnam': '베트남',
+        'country.srilanka': '스리랑카',
+        'country.bangladesh': '방글라데시',
         
         // Trust
-        'trust.title': '신뢰할 수 있는 파트너',
-        'trust.desc': '기업 고객을 위한 맞춤형 B2B 해외송금 솔루션을 제공합니다',
-        'trust.business.title': '기업 전용 서비스',
-        'trust.business.desc': '대량 송금, 정기 송금, 급여 지급 등 기업 맞춤형 솔루션을 제공합니다.',
-        'trust.report.title': '투명한 리포트',
-        'trust.report.desc': '실시간 송금 현황과 상세 내역 리포트를 제공하여 관리가 편리합니다.',
-        'trust.support.title': '전담 고객지원',
-        'trust.support.desc': '기업 고객 전담팀이 1:1로 신속하고 정확한 지원을 해드립니다.',
+        'trust.title': '언제나 마음 편한 안심 송금',
+        'trust.desc': '보다 빠르고, 보다 편리하게, 보다 큰 혜택으로 더 큰 만족!',
+        'trust.business.title': '개인형 맞춤 송금',
+        'trust.business.desc': '유학비, 생활비, 선물까지 상황에 맞춰 간편하게! 나에게 꼭 맞는 송금 방식을 제공합니다.',
+        'trust.report.title': '한눈에 보는 송금 내역',
+        'trust.report.desc': '실시간으로 송금 상태를 확인하세요. 복잡한 내역도 가계부처럼 한눈에 관리할 수 있습니다.',
+        'trust.support.title': '친절한 고객 상담',
+        'trust.support.desc': '궁금한 점이 생기면 언제든 문의해 주세요. 전문 상담팀이 친절하고 빠르게 도와드립니다.',
         
         // CTA
         'cta.title': '지금 바로 시작하세요',
@@ -100,8 +103,8 @@ const translations = {
         'nav.language': 'Language',
         
         // Hero
-        'hero.title': 'International Remittance,<br><span>Smarter Way</span>',
-        'hero.desc': 'We deliver your heartfelt money faster and cheaper.<br>Transparent with no hidden fees!',
+        'hero.title': 'International Remittance,<br><span>Now Easy and Simple</span>',
+        'hero.desc': 'We deliver your money with care, faster and more affordably. Anytime, anywhere, fast and secure global remittance solutions',
         'hero.badge1': '5 min transfer',
         'hero.badge2': 'SGI Guaranteed',
         'hero.badge3': 'Licensed (2018-7)',
@@ -109,6 +112,7 @@ const translations = {
         // Calculator
         'calc.title': 'Transfer Simulation',
         'calc.send': 'Send Amount',
+        'calc.maxAmount': 'Max {limit} KRW',
         'calc.rate': 'Real-time exchange rate',
         'calc.receive': 'Receive Amount',
         'calc.result': 'Recipient receives',
@@ -123,17 +127,17 @@ const translations = {
         
         // Features
         'features.title': 'Why withremit?',
-        'features.desc': 'We deliver your money with care, faster and cheaper.',
+        'features.desc': 'We deliver your money with care, faster and more affordably.',
         'features.fast.title': 'Faster',
-        'features.fast.desc': 'Transfer completed in as fast as 5 minutes. Track your transfer in real-time.',
-        'features.cheap.title': 'Cheaper',
-        'features.cheap.desc': 'Transparent rates with no hidden fees. Up to 5x cheaper than banks.',
-        'features.safe.title': 'Safer',
-        'features.safe.desc': 'Secured by SGI Seoul Guarantee Insurance. Licensed by Ministry of Economy and Finance.',
-        
+        'features.fast.desc': 'Transfer completed in as fast as 5 minutes! Send urgent payments without worry. Track your transfer status in real-time.',
+        'features.cheap.title': 'More Convenient',
+        'features.cheap.desc': 'No complicated paperwork or bank visits. Complete your international transfer anytime, anywhere with just a few clicks 24/7.',
+        'features.safe.title': 'Greater Benefits',
+        'features.safe.desc': 'Government-certified provider for peace of mind! Your assets are protected with guarantee insurance.',
+
         // Countries
         'countries.title': 'Available Countries',
-        'countries.desc': 'Send money safely to major Asian countries',
+        'countries.desc': 'Send money safely to major countries worldwide',
         'country.japan': 'Japan',
         'country.philippines': 'Philippines',
         'country.china': 'China',
@@ -142,16 +146,18 @@ const translations = {
         'country.hongkong': 'Hong Kong',
         'country.mongolia': 'Mongolia',
         'country.vietnam': 'Vietnam',
+        'country.srilanka': 'Sri Lanka',
+        'country.bangladesh': 'Bangladesh',
         
         // Trust
-        'trust.title': 'Trusted Partner',
-        'trust.desc': 'Customized B2B remittance solutions for business clients',
-        'trust.business.title': 'Business Service',
-        'trust.business.desc': 'Bulk transfers, recurring payments, and payroll solutions.',
-        'trust.report.title': 'Transparent Reports',
-        'trust.report.desc': 'Real-time status and detailed transaction reports.',
-        'trust.support.title': 'Dedicated Support',
-        'trust.support.desc': '1:1 dedicated support team for business clients.',
+        'trust.title': 'Peace of Mind Remittance',
+        'trust.desc': 'Faster, more convenient, and greater benefits for greater satisfaction!',
+        'trust.business.title': 'Personalized Remittance',
+        'trust.business.desc': 'Tuition, living expenses, gifts, and more - easily customized! We provide the remittance solution that fits you best.',
+        'trust.report.title': 'Transaction History at a Glance',
+        'trust.report.desc': 'Check your transfer status in real-time. Manage complex transactions like a ledger at a glance.',
+        'trust.support.title': 'Friendly Customer Service',
+        'trust.support.desc': 'Contact us anytime with questions. Our expert support team is here to help you kindly and quickly.',
         
         // CTA
         'cta.title': 'Get Started Today',
@@ -189,8 +195,8 @@ const translations = {
         'nav.language': '言語',
         
         // Hero
-        'hero.title': '海外送金、<br><span>もっと賢く</span>',
-        'hero.desc': '送る方の気持ちを込めて、より早く、より安くお届けします。<br>隠れた手数料なし、透明に！',
+        'hero.title': '海外送金、<br><span>今はもっと簡単に</span>',
+        'hero.desc': '送る方の気持ちを込めて、より速く、より安くお届けします。いつでもどこでも、グローバル基準の速くて安全な送金ソリューション',
         'hero.badge1': '最短5分送金',
         'hero.badge2': 'SGI保証保険',
         'hero.badge3': '政府認可 (2018-7)',
@@ -198,6 +204,7 @@ const translations = {
         // Calculator
         'calc.title': '送金シミュレーション',
         'calc.send': '送金額',
+        'calc.maxAmount': '最大送金額 {limit}ウォン',
         'calc.rate': 'リアルタイム為替レート適用',
         'calc.receive': '受取額',
         'calc.result': '受取人が受け取る金額',
@@ -212,17 +219,17 @@ const translations = {
         
         // Features
         'features.title': 'なぜwithremit？',
-        'features.desc': '送る方の気持ちを込めて、より早く、より安くお届けします。',
+        'features.desc': '送る方の気持ちを込めて、より速く、より安くお届けします。',
         'features.fast.title': 'より速く',
-        'features.fast.desc': '最短5分で送金完了。リアルタイムで送金状況を確認できます。',
-        'features.cheap.title': 'より安く',
-        'features.cheap.desc': '隠れた手数料なしの透明なレート。銀行より最大5倍お得。',
-        'features.safe.title': 'より安全に',
-        'features.safe.desc': 'SGIソウル保証保険で保護。政府正式認可業者。',
-        
+        'features.fast.desc': '最短5分で送金完了！急な送金も心配なく、速やかにお届けします。リアルタイムで送金状況を確認できます。',
+        'features.cheap.title': 'より便利に',
+        'features.cheap.desc': '複雑な書類や銀行訪問なしで、24時間いつでもどこでも数回のクリックで海外送金を簡単に完了できます。',
+        'features.safe.title': 'より大きな特典',
+        'features.safe.desc': '国が認証した業者で、より安心！保証保険加入で大切な資産を安全に守ります。',
+
         // Countries
         'countries.title': '送金可能国',
-        'countries.desc': 'アジア主要国へ安全に送金',
+        'countries.desc': '世界の主要国へ速くて安全に送金',
         'country.japan': '日本',
         'country.philippines': 'フィリピン',
         'country.china': '中国',
@@ -231,16 +238,18 @@ const translations = {
         'country.hongkong': '香港',
         'country.mongolia': 'モンゴル',
         'country.vietnam': 'ベトナム',
+        'country.srilanka': 'スリランカ',
+        'country.bangladesh': 'バングラデシュ',
         
         // Trust
-        'trust.title': '信頼できるパートナー',
-        'trust.desc': '法人向けB2B海外送金ソリューション',
-        'trust.business.title': '法人専用サービス',
-        'trust.business.desc': '大量送金、定期送金、給与支払いなど法人向けソリューション。',
-        'trust.report.title': '透明なレポート',
-        'trust.report.desc': 'リアルタイム送金状況と詳細レポートを提供。',
-        'trust.support.title': '専任サポート',
-        'trust.support.desc': '法人専任チームが1:1でサポート。',
+        'trust.title': 'いつでも安心の送金',
+        'trust.desc': 'より速く、より便利に、より大きな特典でさらに満足！',
+        'trust.business.title': '個人向けカスタム送金',
+        'trust.business.desc': '学費、生活費、贈り物まで状況に合わせて簡単に！あなたにぴったりの送金方法を提供します。',
+        'trust.report.title': '一目で分かる送金履歴',
+        'trust.report.desc': 'リアルタイムで送金状態を確認できます。複雑な履歴も家計簿のように一目で管理できます。',
+        'trust.support.title': '親切なカスタマーサービス',
+        'trust.support.desc': '疑問があればいつでもお問い合わせください。専門サポートチームが親切かつ迅速に対応します。',
         
         // CTA
         'cta.title': '今すぐ始めよう',
@@ -278,8 +287,8 @@ const translations = {
         'nav.language': '语言',
         
         // Hero
-        'hero.title': '海外汇款，<br><span>更明智的选择</span>',
-        'hero.desc': '用心传递您的心意，更快更便宜。<br>无隐藏费用，透明公开！',
+        'hero.title': '海外汇款，<br><span>现在更简单便捷</span>',
+        'hero.desc': '用心传递您的心意，更快更实惠。随时随地，全球标准的快速安全汇款解决方案',
         'hero.badge1': '最快5分钟',
         'hero.badge2': 'SGI保险担保',
         'hero.badge3': '政府许可 (2018-7)',
@@ -287,6 +296,7 @@ const translations = {
         // Calculator
         'calc.title': '汇款模拟',
         'calc.send': '汇款金额',
+        'calc.maxAmount': '最高 {limit} 韩元',
         'calc.rate': '实时汇率',
         'calc.receive': '收款金额',
         'calc.result': '收款人收到',
@@ -301,17 +311,17 @@ const translations = {
         
         // Features
         'features.title': '为什么选择withremit？',
-        'features.desc': '用心传递您的心意，更快更便宜。',
+        'features.desc': '用心传递您的心意，更快更实惠。',
         'features.fast.title': '更快',
-        'features.fast.desc': '最快5分钟完成汇款。实时追踪汇款状态。',
-        'features.cheap.title': '更便宜',
-        'features.cheap.desc': '无隐藏费用，透明汇率。比银行便宜5倍。',
-        'features.safe.title': '更安全',
-        'features.safe.desc': 'SGI首尔保证保险保障。政府正式许可。',
-        
+        'features.fast.desc': '最快5分钟完成汇款！紧急汇款也无需担心，快速送达。实时查看汇款状态。',
+        'features.cheap.title': '更便捷',
+        'features.cheap.desc': '无需复杂手续或银行访问，24小时随时随地，只需几次点击即可轻松完成海外汇款。',
+        'features.safe.title': '更多优惠',
+        'features.safe.desc': '国家认证机构，更放心！担保保险加持，安全守护您的宝贵资产。',
+
         // Countries
         'countries.title': '可汇款国家',
-        'countries.desc': '安全汇款至亚洲主要国家',
+        'countries.desc': '安全汇款至全球主要国家',
         'country.japan': '日本',
         'country.philippines': '菲律宾',
         'country.china': '中国',
@@ -320,16 +330,17 @@ const translations = {
         'country.hongkong': '香港',
         'country.mongolia': '蒙古',
         'country.vietnam': '越南',
+        'country.srilanka': '斯里兰卡',
         
         // Trust
-        'trust.title': '可信赖的合作伙伴',
-        'trust.desc': '为企业客户提供定制化B2B汇款解决方案',
-        'trust.business.title': '企业专属服务',
-        'trust.business.desc': '批量汇款、定期汇款、工资支付等企业解决方案。',
-        'trust.report.title': '透明报告',
-        'trust.report.desc': '实时汇款状态和详细报告。',
-        'trust.support.title': '专属客服',
-        'trust.support.desc': '企业专属团队1对1支持。',
+        'trust.title': '随时安心的汇款',
+        'trust.desc': '更快、更便捷、更多优惠，带来更大满足！',
+        'trust.business.title': '个性化定制汇款',
+        'trust.business.desc': '学费、生活费、礼物，根据情况轻松定制！为您提供最合适的汇款方式。',
+        'trust.report.title': '一目了然的汇款记录',
+        'trust.report.desc': '实时查看汇款状态。复杂记录也能像账本一样一目了然地管理。',
+        'trust.support.title': '贴心客户服务',
+        'trust.support.desc': '有疑问随时咨询我们。专业支持团队将亲切快速地为您解答。',
         
         // CTA
         'cta.title': '立即开始',
@@ -388,11 +399,13 @@ const exchangeRates = {
     AUD: { rate: 0.0011, name: '호주', currency: '달러', symbol: 'A$', flagImg: 'au' },
     HKD: { rate: 0.0059, name: '홍콩', currency: '달러', symbol: 'HK$', flagImg: 'hk' },
     MNT: { rate: 2.5830, name: '몽골', currency: '투그릭', symbol: '₮', flagImg: 'mn' },
-    VND: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', flagImg: 'vn' }
+    VND: { rate: 18.5200, name: '베트남', currency: '동', symbol: '₫', flagImg: 'vn' },
+    LKR: { rate: 0.2450, name: '스리랑카', currency: '루피', symbol: '௹', flagImg: 'lk' },
+    BDT: { rate: 0.0815, name: '방글라데시', currency: '타카', symbol: '৳', flagImg: 'bd' }
 };
 
 const currencySymbols = {
-    'JPY': '¥', 'PHP': '₱', 'CNY': '¥', 'NPR': 'रू', 'AUD': 'A$', 'HKD': 'HK$', 'MNT': '₮', 'VND': '₫'
+    'JPY': '¥', 'PHP': '₱', 'CNY': '¥', 'NPR': 'रू', 'AUD': 'A$', 'HKD': 'HK$', 'MNT': '₮', 'VND': '₫', 'LKR': '௹', 'BDT': '৳'
 };
 
 const withdrawalFees = {
@@ -403,7 +416,9 @@ const withdrawalFees = {
     'AUD': 0,
     'HKD': 0,
     'MNT': 0,
-    'VND': 0
+    'VND': 0,
+    'LKR': 0,
+    'BDT': 0
 };
 
 let selectedCurrency = 'JPY';
@@ -491,7 +506,14 @@ function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         const translation = t(key);
-        if (translation) el.innerHTML = translation;
+        if (translation) {
+            if (key === 'calc.maxAmount') {
+                // Replace {limit} placeholder with actual max limit
+                el.innerHTML = translation.replace('{limit}', MAX_KRW_LIMIT.toLocaleString('ko-KR'));
+            } else {
+                el.innerHTML = translation;
+            }
+        }
     });
     document.documentElement.lang = currentLang;
 
@@ -575,22 +597,24 @@ function handleAmountInput(e) {
 }
 
 function handleCurrencyChange(currency, flagUrl) {
-    selectedCurrency = currency; 
-    
+    selectedCurrency = currency;
+
     const receiveCurrencyFlag = document.getElementById('receiveCurrencyFlag');
     const receiveCurrencyCode = document.getElementById('receiveCurrencyCode');
     const receiveCurrencySymbol = document.getElementById('receiveCurrencySymbol');
-    
+    const receiveCurrencyInput = document.getElementById('receiveCurrency');
+
     if (receiveCurrencyFlag && flagUrl) receiveCurrencyFlag.src = flagUrl;
     if (receiveCurrencyCode) receiveCurrencyCode.textContent = currency;
     if (receiveCurrencySymbol) {
         receiveCurrencySymbol.textContent = currencySymbols[currency] || '¥';
     }
-    
+    if (receiveCurrencyInput) receiveCurrencyInput.value = currency;
+
     // 계산 실행
     const sendInput = document.getElementById('sendAmount');
     if (sendInput) handleSendAmountInput({ target: sendInput });
-    
+
     updateRateDisplay();
 }
 
@@ -612,9 +636,11 @@ function closeCurrencyDropdown(e) {
 function handleCountryClick(e) {
     const card = e.currentTarget;
     const currency = card.dataset.currency;
-    
+
     if (currency && exchangeRates[currency]) {
-        handleCurrencyChange(currency);
+        const flagImg = exchangeRates[currency].flagImg;
+        const flagUrl = `images/${flagImg}.png`;
+        handleCurrencyChange(currency, flagUrl);
         document.querySelector('.hero').scrollIntoView({ behavior: 'smooth' });
     }
 }
