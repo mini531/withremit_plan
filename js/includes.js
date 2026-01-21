@@ -46,6 +46,14 @@ function loadIncludes() {
                     }
                 }
 
+                // 홈 (Home)
+                if (currentPage === 'DB_01_01.html') {
+                    const navHome = document.getElementById('navHome');
+                    if (navHome) {
+                        navHome.classList.add('active');
+                    }
+                }
+
                 // 해외 송금 신청 (Remittance)
                 if (currentPage === 'RM_01_01.html') {
                     const navRemittance = document.getElementById('navRemittance');
