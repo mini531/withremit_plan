@@ -27,6 +27,12 @@
     <header class="header">
         <div class="container">
             <div class="header-inner">
+                <button class="mobile-menu-btn" aria-label="메뉴">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
                 <a href="#" class="logo">
                     <img src="images/logo-withremit.png" alt="withremit">
                 </a>
@@ -48,32 +54,62 @@
                     <a href="CM_04_03.html" class="btn btn-primary" data-i18n="nav.register">회원가입</a>
                     <a href="CM_03_01.html" class="btn btn-login-mobile" data-i18n="nav.login">로그인</a>
                 </div>
-
-                <button class="mobile-menu-btn" aria-label="메뉴">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </div>
 
-        <!-- Mobile Navigation -->
-        <nav class="mobile-nav">
-            <a href="CM_03_01.html?redirect=RM_01_01.html" class="nav-link" data-i18n="nav.personal">개인 송금</a>
-            <a href="CM_03_01.html?redirect=RM_01_01.html" class="nav-link" data-i18n="nav.business">기업 송금</a>
-            <a href="GU_01_01.html?guest=true" class="nav-link" data-i18n="nav.service">서비스 안내</a>
-            <div class="mobile-nav-divider"></div>
-            <div class="mobile-nav-lang">
-                <span class="mobile-nav-label" data-i18n="nav.language">언어</span>
-                <select class="mobile-lang-select" id="mobileLangSelect">
-                    <option value="ko">한국어</option>
-                    <option value="ja">日本語</option>
-                    <option value="en">English</option>
-                    <option value="zh">中文</option>
-                </select>
+        <!-- Guest Sidebar -->
+        <div class="guest-sidebar-overlay" id="guestSidebarOverlay"></div>
+        <aside class="guest-sidebar" id="guestSidebar">
+            <div class="guest-sidebar-header">
+                <a href="CM_02_01.html" class="guest-sidebar-logo">
+                    <img src="images/logo-withremit.png" alt="withremit">
+                </a>
+                <button class="guest-sidebar-close" id="guestSidebarClose" aria-label="사이드바 닫기">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
-            <a href="CM_04_03.html" class="mobile-nav-register" data-i18n="nav.register">회원가입</a>
-        </nav>
+
+            <div class="guest-sidebar-content">
+                <!-- Tablet/Mobile Only Components -->
+                <div class="guest-sidebar-mobile-only">
+                    <div class="guest-lang-group">
+                        <label class="guest-lang-label" data-i18n="nav.language">언어</label>
+                        <div class="guest-lang-select-wrapper">
+                            <select class="guest-lang-select" id="guestSidebarLangSelect">
+                                <option value="ko">한국어</option>
+                                <option value="ja">日本語</option>
+                                <option value="en">English</option>
+                                <option value="zh">中文</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <a href="CM_04_03.html" class="btn btn-primary btn-full" data-i18n="nav.register">회원가입</a>
+                </div>
+
+                <nav class="guest-side-nav">
+                    <div class="guest-nav-group">
+                        <div class="guest-nav-label" data-i18n="nav.remit">송금</div>
+                        <a href="CM_03_01.html?redirect=RM_01_01.html" class="guest-nav-link"
+                            data-i18n="nav.personal">개인 송금</a>
+                        <a href="CM_03_01.html?redirect=RM_01_01.html" class="guest-nav-link"
+                            data-i18n="nav.business">기업 송금</a>
+                    </div>
+
+                    <div class="guest-nav-group">
+                        <div class="guest-nav-label" data-i18n="nav.service">서비스</div>
+                        <a href="GU_01_01.html?guest=true" class="guest-nav-link" data-i18n="nav.serviceGuide">서비스
+                            안내</a>
+                        <a href="CS_01_01.html?guest=true" class="guest-nav-link" data-i18n="nav.notice">공지사항</a>
+                        <a href="CS_02_01.html?guest=true" class="guest-nav-link" data-i18n="nav.faq">자주 묻는 질문</a>
+                    </div>
+                </nav>
+            </div>
+        </aside>
     </header>
 
     <!-- Banner Slider -->

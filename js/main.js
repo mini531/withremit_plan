@@ -656,15 +656,47 @@ function handleScroll() {
 }
 
 // ===== Mobile Menu Toggle =====
+// ===== Mobile Menu Toggle (Guest) =====
 function toggleMobileMenu() {
-    const mobileNav = document.querySelector('.mobile-nav');
+    const sidebar = document.getElementById('guestSidebar');
+    const overlay = document.getElementById('guestSidebarOverlay');
     const menuBtn = document.querySelector('.mobile-menu-btn');
     
-    if (mobileNav) {
-        mobileNav.classList.toggle('active');
-        menuBtn.classList.toggle('active');
+    if (sidebar && overlay) {
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        
+        // Prevent body scroll when sidebar is open
+        if (sidebar.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     }
 }
+
+// Close sidebar event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const closeBtn = document.getElementById('guestSidebarClose');
+    const overlay = document.getElementById('guestSidebarOverlay');
+    const sidebar = document.getElementById('guestSidebar');
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+});
 
 // ===== Language Selection =====
 function handleLanguageChange(e) {
