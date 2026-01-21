@@ -4155,30 +4155,25 @@ textarea.error:focus {
   justify-content: center;
 }
 
-.db-sidebar-close {
-  display: none;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-  transition: background 0.2s ease;
-  z-index: 10;
-}
-
-.db-sidebar-close:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.db-sidebar-close:active {
-  background: rgba(0, 0, 0, 0.1);
-}
-
 .db-sidebar-close svg {
   color: var(--text-dark);
+}
+
+#dbOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1050;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#dbOverlay.active {
+  display: block;
+  opacity: 1;
 }
 
 .db-balance-pill {
@@ -4241,7 +4236,7 @@ textarea.error:focus {
   border-radius: 0;
   border: none;
   box-shadow: none;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
   overflow: visible;
 }
@@ -4370,22 +4365,7 @@ textarea.error:focus {
   gap: 12px;
 }
 
-.db-overlay-mask {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 950;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.db-overlay-mask.active {
-  display: block;
-  opacity: 1;
-}
+/* Dashbord Overlay Mask - consolidated above as #dbOverlay */
 
 .db-balance-badge {
   display: flex;
@@ -6414,20 +6394,36 @@ textarea.error:focus {
     position: fixed;
     top: 0;
     left: 0;
-    width: 240px;
+    width: 260px;
     height: 100vh;
-    transform: translateX(-100%);
-    z-index: 1000;
+    transform: translate3d(-100%, 0, 0);
+    z-index: 1100;
     background: #fff;
     border-radius: 0;
     box-shadow: var(--shadow-lg);
     overflow-y: auto;
-    padding-top: 80px;
+    padding: 0;
   }
 
   .db-sidebar.mobile-open {
-    transform: translateX(0);
-    padding: 80px 0 30px 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .db-side-nav {
+    padding: 15px 15px 40px;
+    margin-top: 72px;
+    /* Header Height */
+  }
+
+  .db-sidebar-close {
+    display: flex;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: #f1f5f9;
+    padding: 8px;
+    border-radius: 50%;
   }
 
   .db-grid {
@@ -6605,24 +6601,12 @@ textarea.error:focus {
 
 @media (max-width: 768px) {
   .db-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 240px;
-    height: 100vh;
-    max-height: 100vh;
-    transform: translateX(-100%);
-    z-index: 1100;
-    background: #fff;
-    box-shadow: var(--shadow-lg);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 70px 0 60px 0;
+    width: 260px;
+    z-index: 1200;
   }
 
   .db-sidebar.mobile-open {
-    transform: translateX(0);
-    left: 0;
+    transform: translate3d(0, 0, 0);
   }
 
   .db-side-nav {
