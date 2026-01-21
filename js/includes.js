@@ -77,6 +77,14 @@ function loadIncludes() {
                         navRemittanceList.classList.add('active');
                     }
                 }
+
+                // 송금 서비스 안내 (Service Guide)
+                if (currentPage === 'GU_01_01.html') {
+                    const navServiceGuide = document.getElementById('navServiceGuide');
+                    if (navServiceGuide) {
+                        navServiceGuide.classList.add('active');
+                    }
+                }
                 sidebarLoaded = true;
                 tryInitSidebar();
             })

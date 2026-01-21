@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 송금 서비스 안내</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guide.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h2 class="db-page-title">송금 서비스 안내</h2>
+                </div>
+
+                <div class="db-content-card">
+                    <div class="guide-tab-container">
+                        <div class="guide-tabs">
+                            <div class="guide-tab active" data-tab="service">송금 서비스</div>
+                            <div class="guide-tab" data-tab="countries">송금 가능 국가</div>
+                            <div class="guide-tab" data-tab="fees">송금 수수료</div>
+                            <div class="guide-tab" data-tab="fixed">수취 금액 확정 송금</div>
+                        </div>
+
+                        <!-- Tab 1: 송금 서비스 -->
+                        <div id="tab-service" class="tab-content active">
+
+                            <div class="service-intro">
+                                <h3 class="service-slogan">withremit, 더 가깝고 더 스마트한 글로벌 송금의 시작</h3>
+                                <p class="service-description">
+                                    (주)위드머니는 전 세계 주요 국가를 연결하는 독자적인 금융 네트워크를 통해,<br>
+                                    가장 저렴하고 빠르며 안전한 국제송금 서비스 <strong>withremit</strong>를 제공합니다.
+                                </p>
+                            </div>
+
+                            <div class="feature-grid">
+                                <!-- Direct -->
+                                <div class="feature-card glass-effect">
+                                    <div class="feature-icon-wrapper premium-icon-1">
+                                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                            <path d="M9 12l2 2 4-4" stroke-width="2" />
+                                        </svg>
+                                    </div>
+                                    <h4 class="feature-title">안전하고 투명한 송금 (Direct)</h4>
+                                    <div class="feature-desc">
+                                        <p>대한민국 정부의 공식 승인을 받은 정식 소액해외송금업자(제2017-1호)로서 법적 신뢰를 보장합니다.</p>
+                                        <p>서울신용보험 100% 가입으로 수취 완료 시점까지 자산이 완벽하게 보호됩니다.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Internet -->
+                                <div class="feature-card glass-effect">
+                                    <div class="feature-icon-wrapper premium-icon-2">
+                                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="3" width="20" height="14" rx="3" />
+                                            <path d="M8 21h8M12 17v4" />
+                                            <circle cx="12" cy="10" r="2" />
+                                        </svg>
+                                    </div>
+                                    <h4 class="feature-title">언제 어디서나 간편하게 (Internet)</h4>
+                                    <div class="feature-desc">
+                                        <p>PC, 스마트폰, 지점 방문, 전화, FAX 등 고객 지향적 옴니채널 서비스를 지원합니다.</p>
+                                        <p>365일 언제 어디서든 비대면으로 간편하게 송금을 시작하고 완료할 수 있습니다.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Global -->
+                                <div class="feature-card glass-effect">
+                                    <div class="feature-icon-wrapper premium-icon-3">
+                                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path
+                                                d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                                                opacity="0.6" />
+                                        </svg>
+                                    </div>
+                                    <h4 class="feature-title">글로벌 네트워크 (Global)</h4>
+                                    <div class="feature-desc">
+                                        <p>전 세계 주요국을 잇는 독자 금융망을 통해 초고속 송금 및 수취 서비스를 제공합니다.</p>
+                                        <p>계좌 입금, Cash Pick-up, 자택 배송 등 현지 상황에 맞는 최적의 옵션을 선택할 수 있습니다.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Interactive -->
+                                <div class="feature-card glass-effect">
+                                    <div class="feature-icon-wrapper premium-icon-4">
+                                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 11.5a8.5 8.5 0 11-17 0 8.5 8.5 0 0117 0z" />
+                                            <path d="M12 8v4l2.5 1.5" />
+                                        </svg>
+                                    </div>
+                                    <h4 class="feature-title">철저한 사후 관리 (Interactive)</h4>
+                                    <div class="feature-desc">
+                                        <p>다국어 고객센터와 실시간 알림톡 서비스를 통해 송금의 전 과정을 투명하게 케어합니다.</p>
+                                        <p>연말정산 및 세무 증빙을 위한 공식 거래 리포트를 온/오프라인으로 즉시 발급해 드립니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2: 송금 가능 국가 -->
+                        <div id="tab-countries" class="tab-content">
+                            <div class="guide-section">
+                                <h2 class="form-sec-head">
+                                    송금 가능 국가 (10개국)
+                                </h2>
+                                <p class="guide-text">withremit는 현재 아래 10개 국가로의 송금을 지원하며, 지속적으로 네트워크를 확장하고 있습니다.</p>
+
+                                <div class="guide-table-wrapper">
+                                    <table class="db-notice-table">
+                                        <thead>
+                                            <tr>
+                                                <th>국가</th>
+                                                <th>통화 단위</th>
+                                                <th>국가</th>
+                                                <th>통화 단위</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>일본</td>
+                                                <td>JPY (엔)</td>
+                                                <td>홍콩</td>
+                                                <td>HKD (달러)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>필리핀</td>
+                                                <td>PHP (페소)</td>
+                                                <td>몽골</td>
+                                                <td>MNT (투그릭)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>중국</td>
+                                                <td>CNY (위안)</td>
+                                                <td>베트남</td>
+                                                <td>VND (동)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>네팔</td>
+                                                <td>NPR (루피)</td>
+                                                <td>스리랑카</td>
+                                                <td>LKR (루피)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>호주</td>
+                                                <td>AUD (달러)</td>
+                                                <td>방글라데시</td>
+                                                <td>BDT (타카)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: 송금 수수료 -->
+                        <div id="tab-fees" class="tab-content">
+                            <div class="guide-section">
+                                <h2 class="form-sec-head">
+                                    송금 수수료 (일본 기준)
+                                </h2>
+                                <p class="guide-text">가장 수요가 높은 일본 송금 수수료 체계입니다. (타 국가의 경우 별도 문의)</p>
+
+                                <div class="guide-table-wrapper">
+                                    <table class="db-notice-table">
+                                        <thead>
+                                            <tr>
+                                                <th>송금 금액 구간</th>
+                                                <th>송금 수수료</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1원 ~ 300,000원</td>
+                                                <td><span class="guide-highlight">5,000원</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>300,001원 ~ 5,000,000원</td>
+                                                <td><span class="guide-highlight">10,000원</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="guide-note">
+                                    <p><strong>참고 사항</strong></p>
+                                    <ul class="guide-list" style="margin-top:10px;">
+                                        <li>수취 수수료: 0원 ~ 5,000원 (한국 수취 은행의 사정 및 송금액에 따라 상이할 수 있습니다.)</li>
+                                        <li>취소 수수료: (주)위드머니가 송금 자금을 수취하여 계약이 성립된 이후 취소 시에는 별도의 수수료가 부과됩니다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="guide-section">
+                                <h2 class="form-sec-head">
+
+                                    송금 한도
+                                </h2>
+                                <p class="guide-text">법규에 의거하여 아래와 같은 한도 내에서 자유롭게 이용 가능합니다.</p>
+                                <ul class="guide-list">
+                                    <li>1회 송금 한도: <span class="guide-highlight">미화 $5,000 상당액</span></li>
+                                    <li>연간 송금 한도: <span class="guide-highlight">미화 $50,000 상당액</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4: 수취 금액 확정 송금 -->
+                        <div id="tab-fixed" class="tab-content">
+                            <div class="empty-content">
+                                <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#ddd"
+                                    stroke-width="1" style="margin-bottom:20px;">
+                                    <path d="M12 2v20M2 12h20" />
+                                </svg>
+                                <p>수취 금액 확정 송금 안내는 추후 구성될 예정입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay-mask" id="dbOverlay"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.guide-tab');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-tab');
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    document.getElementById(`tab-${target}`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
