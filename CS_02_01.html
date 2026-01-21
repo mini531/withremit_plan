@@ -19,20 +19,9 @@
         /* FAQ specific styles */
         .faq-table {
             width: 100%;
-            border-collapse: collapse;
         }
 
-        .faq-table th,
-        .faq-table td {
-            text-align: left;
-            padding: 16px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .faq-table th {
-            border-bottom: 2px solid #333;
-            font-weight: 700;
-        }
+        /* Inheriting standard db-notice-table styles for th/td */
 
         .faq-row {
             cursor: pointer;
@@ -144,10 +133,15 @@
                     </div>
 
                     <div class="db-notice-list-page">
-                        <table class="faq-table">
+                        <table class="db-notice-table faq-table">
+                            <colgroup>
+                                <col style="width: 60px;">
+                                <col>
+                            </colgroup>
                             <thead>
                                 <tr>
-                                    <th colspan="2">질문</th>
+                                    <th class="th-num">구분</th> <!-- Using similar style to '번호' -->
+                                    <th>질문</th>
                                 </tr>
                             </thead>
                             <tbody>
