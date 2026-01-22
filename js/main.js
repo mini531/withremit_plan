@@ -385,6 +385,7 @@ const translations = {
         'country.mongolia': '蒙古',
         'country.vietnam': '越南',
         'country.srilanka': '斯里兰卡',
+        'country.bangladesh': '孟加拉国',
         'currency.jpy_desc': 'JPY · 日元',
         'currency.php_desc': 'PHP · 比索',
         'currency.cny_desc': 'CNY · 元',

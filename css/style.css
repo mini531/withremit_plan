@@ -9031,7 +9031,13 @@ textarea.error:focus {
 @media (max-width: 768px) {
   .guest-sidebar-mobile-only {
     display: block;
+    padding: 20px;
   }
+}
+
+.guest-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
 }
 
 /* PC Dashboard Context Override (e.g. GU_01_01.html) */
