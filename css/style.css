@@ -9466,3 +9466,12 @@ textarea.error:focus {
 .btn-blue {
   background-color: #1B5E9E;
 }
+
+/* Specificity Override for Modal Buttons */
+.modal-btn-group .btn-cancel {
+  flex: 1 !important;
+}
+
+.modal-btn-group .btn-confirm-action {
+  flex: 1.2 !important;
+}
