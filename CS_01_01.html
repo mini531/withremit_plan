@@ -298,7 +298,13 @@
                 const titleElement = row.querySelector('.notice-title');
                 if (titleElement) {
                     const title = titleElement.textContent.trim();
-                    window.location.href = `CS_01_02.html?title=${encodeURIComponent(title)}`;
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const isGuest = urlParams.get('guest') === 'true';
+                    let targetUrl = `CS_01_02.html?title=${encodeURIComponent(title)}`;
+                    if (isGuest) {
+                        targetUrl += '&guest=true';
+                    }
+                    window.location.href = targetUrl;
                 }
             });
         });
