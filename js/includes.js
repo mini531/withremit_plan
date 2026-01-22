@@ -103,6 +103,14 @@ function loadIncludes() {
                         navServiceGuide.classList.add('active');
                     }
                 }
+
+                // 가입 안내 (Sign Up Guide)
+                if (currentPage === 'GU_02_01.html') {
+                    const navSignupGuide = document.getElementById('navSignupGuide');
+                    if (navSignupGuide) {
+                        navSignupGuide.classList.add('active');
+                    }
+                }
                 sidebarLoaded = true;
 
                 // Init Guest Sidebar Close Event
