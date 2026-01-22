@@ -117,6 +117,8 @@
     font-weight: bold;
 }
 
+
+
 .guide-table-wrapper {
     background: white;
     border-radius: 12px;
@@ -278,7 +280,7 @@
 .feature-image-container {
     width: 100%;
     /* removed fixed height to let image scaling determine height, or keep it if needed but let's make it flexible */
-    padding: 30px 0 10px;
+    padding: 30px 0 0;
     /* Added whitespace at top */
     display: flex;
     justify-content: center;
@@ -300,7 +302,7 @@
 }
 
 .feature-content {
-    padding: 30px;
+    padding: 20px 25px 30px;
     width: 100%;
     text-align: left;
 }
