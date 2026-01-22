@@ -6097,6 +6097,89 @@ textarea.error:focus {
   margin-bottom: 20px;
 }
 
+/* SNS Login Buttons */
+.sns-separator {
+  border-top: 1px dashed #ddd;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.sns-login-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn-sns {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  border-radius: 24px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: filter 0.2s;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-sns:hover {
+  filter: brightness(0.95);
+}
+
+.sns-icon-wrap {
+  position: absolute;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sns-icon-wrap svg {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-line {
+  background-color: #06C755;
+}
+
+.btn-kakao {
+  background-color: #FEE500;
+  color: #fff;
+}
+
+/* Request asked for white text on Kakao too? Usually it's black/brown, but following prompt/image. Image shows white? No, image usually shows brown text on yellow, but user said 'Line, Kakao, Facebook, Viber' image. Let's check the image provided if possible. Actually, standard Kakao is yellow bg, brown text. But prompt image looks like white text on yellow button? Wait, standard is brown. The provided image shows WHITE text on LINE, and WHITE text on FACEBOOK. Kakao button in the image: Yellow BG, and WHITE text "카카오로 로그인". Okay, I will use white. */
+.btn-kakao {
+  color: #fff;
+}
+
+/* Wait, looking at the image in the prompt... The image shows:
+   Line: Green BG, White Text
+   Kakao: Yellow BG, White Text
+   Facebook: Blue BG, White Text
+   Viber: Purple BG, White Text
+   So color: #fff is correct for all.
+*/
+
+.btn-facebook {
+  background-color: #1877F2;
+}
+
+.btn-viber {
+  background-color: #7360f2;
+}
+
+/* Customizing Kakao Icon inner parts if needed via CSS? SVG fill handles it. */
+
 .remit-search-row {
   display: flex;
   justify-content: space-between;
