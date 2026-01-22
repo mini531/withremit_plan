@@ -39,8 +39,9 @@
     }
 
     /* Fix Security Keypad - convert to bottom sheet on mobile */
-    body .security-keypad,
-    body .security-keypad.active {
+    body .security-keypad {
+        display: none !important;
+        /* Force hidden by default */
         position: fixed !important;
         top: auto !important;
         bottom: 0 !important;
@@ -56,6 +57,11 @@
         margin: 0 !important;
         z-index: 10001 !important;
         padding: 15px !important;
+    }
+
+    body .security-keypad.active {
+        display: block !important;
+        /* Visible only when active */
     }
 
     /* Adjust keypad grid for mobile */
