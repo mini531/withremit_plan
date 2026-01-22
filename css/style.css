@@ -9430,11 +9430,13 @@ textarea.error:focus {
 .btn-cancel {
   background-color: #F3F4F6;
   color: #4B5563;
+  flex: 1;
 }
 
 .btn-confirm-action {
   background-color: #1B5E9E;
   color: #FFFFFF;
+  flex: 1.2;
 }
 
 .btn-confirm-action:hover {
