@@ -38,6 +38,36 @@
         display: none;
     }
 
+    /* Fix Security Keypad - convert to bottom sheet on mobile */
+    body .security-keypad,
+    body .security-keypad.active {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        border: 1px solid #d1d9e0;
+        border-bottom: none;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        margin: 0 !important;
+        z-index: 10001 !important;
+        padding: 15px !important;
+    }
+
+    /* Adjust keypad grid for mobile */
+    body .keypad-grid {
+        gap: 6px !important;
+    }
+
+    body .key-btn {
+        height: 48px !important;
+        /* Larger touch targets */
+    }
+
     /* Adjust the container to handle the grid properly */
     .login-footer-wrap {
         padding: 15px 0;
