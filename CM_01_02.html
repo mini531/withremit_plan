@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - Loading Demo</title>
+    <!-- Use same fonts/styles as main site for consistency underneath -->
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Loading Overlay Overlay Styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+            pointer-events: none;
+            /* Allow clicks to pass through when fading out */
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(74, 144, 226, 0.2);
+            border-top: 5px solid #4A90E2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Demo Content to show behind blur */
+        .demo-content {
+            padding: 2px;
+            /* Just some placeholder content styling */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Main Content (Same as CM_02_01 roughly, or just placeholder to show "empty screen" becoming visible) -->
+    <!-- User requested "Empty screen" initially but usually loading is over SOMETHING. 
+         If "empty screen" means blank body, the blur is on nothing. 
+         I will include the header/skeleton to make the blur visible, 
+         or just keep it simple as requested: "Empty screen with blur" -> likely means white bg with blur on top? 
+         But if it's empty, blur is invisible. 
+         Let's assume "content is loading" state. -->
+
+    <!-- Using a placeholder layout similar to main page for visual context -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="guest-header-left">
+                    <div class="logo">
+                        <img src="images/logo-withremit.png" alt="withremit" style="height:32px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top: 40px; text-align: center;">
+        <h2>환영합니다!</h2>
+        <p>로딩이 완료되었습니다.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('loadingOverlay');
+
+            // Simulate loading delay then hide
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+
+                // Optionally remove from DOM after transition
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 500);
+            }, 2000); // 2 seconds delay
+        });
+    </script>
+</body>
+
+</html>
