@@ -6143,9 +6143,12 @@ textarea.error:focus {
   justify-content: center;
 }
 
-.sns-icon-wrap svg {
+.sns-icon-img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  /* Converts black/dark icons to white */
 }
 
 .btn-line {
