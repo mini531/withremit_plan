@@ -2294,11 +2294,24 @@ textarea.error:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
   font-size: 12px;
   color: var(--text-dark);
   margin-bottom: 10px;
   font-weight: 600;
   color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  .contact-text-list {
+    flex-wrap: nowrap;
+    gap: 15px;
+  }
+
+  .contact-text-list .v-bar {
+    margin: 0 15px;
+  }
 }
 
 .v-bar {
