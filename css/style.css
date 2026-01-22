@@ -2709,14 +2709,13 @@ textarea.error:focus {
     margin: 0 5px;
   }
 
-  .contact-text-list,
-  .menu-text-list {
+  /* Removed conflicting .menu-text-list styles to allow mobile-footer.css to take precedence for CM_03_01 and CM_04_01 */
+  .contact-text-list {
     flex-direction: column;
     gap: 5px;
   }
 
-  .login-footer-wrap .bar,
-  .menu-text-list a::after {
+  .login-footer-wrap .bar {
     display: none;
   }
 
