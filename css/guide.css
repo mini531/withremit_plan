@@ -420,3 +420,67 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+
+/* Guide Countries Grid Overrides */
+.guide-countries-grid {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.guide-countries-grid .country-card {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.guide-countries-grid .country-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(74, 144, 226, 0.12);
+}
+
+.guide-countries-grid .country-flag {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.guide-countries-grid .country-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.guide-countries-grid .country-info span {
+    font-size: 0.9rem;
+}
+
+/* Responsive for Countries Grid */
+@media (max-width: 1024px) {
+    .guide-countries-grid.countries-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-countries-grid.countries-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .guide-countries-grid.countries-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guide-countries-grid .country-card {
+        padding: 20px 15px;
+    }
+
+    .guide-countries-grid .country-flag {
+        width: 48px;
+        height: 48px;
+    }
+}

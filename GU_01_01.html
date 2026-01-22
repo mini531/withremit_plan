@@ -132,49 +132,86 @@
                                 </h2>
                                 <p class="guide-text">withremit는 현재 아래 10개 국가로의 송금을 지원하며, 지속적으로 네트워크를 확장하고 있습니다.</p>
 
-                                <div class="guide-table-wrapper">
-                                    <table class="db-notice-table">
-                                        <thead>
-                                            <tr>
-                                                <th>국가</th>
-                                                <th>통화 단위</th>
-                                                <th>국가</th>
-                                                <th>통화 단위</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>일본</td>
-                                                <td>JPY (엔)</td>
-                                                <td>홍콩</td>
-                                                <td>HKD (달러)</td>
-                                            </tr>
-                                            <tr>
-                                                <td>필리핀</td>
-                                                <td>PHP (페소)</td>
-                                                <td>몽골</td>
-                                                <td>MNT (투그릭)</td>
-                                            </tr>
-                                            <tr>
-                                                <td>중국</td>
-                                                <td>CNY (위안)</td>
-                                                <td>베트남</td>
-                                                <td>VND (동)</td>
-                                            </tr>
-                                            <tr>
-                                                <td>네팔</td>
-                                                <td>NPR (루피)</td>
-                                                <td>스리랑카</td>
-                                                <td>LKR (루피)</td>
-                                            </tr>
-                                            <tr>
-                                                <td>호주</td>
-                                                <td>AUD (달러)</td>
-                                                <td>방글라데시</td>
-                                                <td>BDT (타카)</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="countries-grid guide-countries-grid">
+                                    <div class="country-card animate-fade-in" data-currency="JPY">
+                                        <img src="images/jp.png" alt="일본" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.japan">일본</h4>
+                                            <span data-i18n="currency.jpy_desc">JPY · 엔</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="PHP">
+                                        <img src="images/ph.png" alt="필리핀" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.philippines">필리핀</h4>
+                                            <span data-i18n="currency.php_desc">PHP · 페소</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="CNY">
+                                        <img src="images/cn.png" alt="중국" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.china">중국</h4>
+                                            <span data-i18n="currency.cny_desc">CNY · 위안</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="NPR">
+                                        <img src="images/np.png" alt="네팔" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.nepal">네팔</h4>
+                                            <span data-i18n="currency.npr_desc">NPR · 루피</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="AUD">
+                                        <img src="images/au.png" alt="호주" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.australia">호주</h4>
+                                            <span data-i18n="currency.aud_desc">AUD · 달러</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="HKD">
+                                        <img src="images/hk.png" alt="홍콩" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.hongkong">홍콩</h4>
+                                            <span data-i18n="currency.hkd_desc">HKD · 달러</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="MNT">
+                                        <img src="images/mn.png" alt="몽골" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.mongolia">몽골</h4>
+                                            <span data-i18n="currency.mnt_desc">MNT · 투그릭</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="VND">
+                                        <img src="images/vn.png" alt="베트남" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.vietnam">베트남</h4>
+                                            <span data-i18n="currency.vnd_desc">VND · 동</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="LKR">
+                                        <img src="images/lk.png" alt="스리랑카" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.srilanka">스리랑카</h4>
+                                            <span data-i18n="currency.lkr_desc">LKR · 루피</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="country-card animate-fade-in" data-currency="BDT">
+                                        <img src="images/bd.png" alt="방글라데시" class="country-flag">
+                                        <div class="country-info">
+                                            <h4 data-i18n="country.bangladesh">방글라데시</h4>
+                                            <span data-i18n="currency.bdt_desc">BDT · 타카</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
