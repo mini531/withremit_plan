@@ -685,6 +685,13 @@ function handleScroll() {
 // ===== Mobile Menu Toggle =====
 // ===== Mobile Menu Toggle (Guest) =====
 function toggleMobileMenu() {
+    // Desktop: Toggle Sidebar Collapse
+    if (window.innerWidth > 1024) {
+        document.body.classList.toggle('db-collapsed');
+        return;
+    }
+
+    // Mobile/Tablet: Toggle Drawer
     const sidebar = document.getElementById('guestSidebar');
     const overlay = document.getElementById('guestSidebarOverlay');
     const menuBtn = document.querySelector('.mobile-menu-btn');

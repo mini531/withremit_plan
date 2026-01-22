@@ -25,6 +25,18 @@ function loadIncludes() {
             .then(data => {
                 headerContainer.innerHTML = data;
                 headerLoaded = true;
+
+                // Initialize mobile menu toggle
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                if (mobileMenuBtn) {
+                    // Check if toggleMobileMenu is defined globally (from main.js)
+                    if (typeof toggleMobileMenu === 'function') {
+                        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+                    } else {
+                        console.error('toggleMobileMenu function not found');
+                    }
+                }
+
                 tryInitSidebar();
             })
             .catch(error => console.error('Error loading header:', error));
