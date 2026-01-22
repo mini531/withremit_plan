@@ -9,14 +9,14 @@ const translations = {
         'nav.login': '로그인',
         'nav.register': '회원가입',
         'nav.language': '언어',
-        
+
         // Hero
         'hero.title': '해외송금,<br><span>이제는 쉽고 간편하게</span>',
         'hero.desc': '보내시는 분의 마음을 담아, 더 빠르고 더 저렴하게 전해드립니다. 언제 어디서나, 글로벌 기준의 빠르고 안전한 송금 솔루션',
         'hero.badge1': '최단 5분 송금',
         'hero.badge2': 'SGI 서울보증보험',
         'hero.badge3': '기획재정부 인가 (2018-7)',
-        
+
         // Calculator
         'calc.title': '송금 시뮬레이션',
         'calc.send': '보내실 금액',
@@ -32,7 +32,7 @@ const translations = {
         'modal.limit.title': '송금 한도 초과',
         'modal.limit.memo': '외환거래법령에 따라 건당 최대 <b>$5,000(USD)</b>까지 송금이 가능합니다. 현재 환율 기준 송금 가능액인 <b>{limit}원</b>으로 조정되었습니다.',
         'modal.ok': '확인',
-        
+
         // Features
         'features.title': '왜 withremit인가요?',
         'features.desc': '보내시는 분의 마음을 담아, 더 빠르고 더 저렴하게 전해드립니다.',
@@ -42,7 +42,7 @@ const translations = {
         'features.cheap.desc': '복잡한 서류나 은행 방문 없이, 24시간 언제 어디서든 몇 번의 클릭만으로 해외 송금을 간단하게 완료하세요.',
         'features.safe.title': '보다 큰 혜택',
         'features.safe.desc': '국가가 인증한 업체라 더 든든하게! 보증보험 가입으로 소중한 자산을 안전하게 지켜드립니다.',
-        
+
         // Countries
         'countries.title': '송금 가능 국가',
         'countries.desc': '전 세계 주요 국가로 빠르고 안전하게 송금하세요',
@@ -56,7 +56,7 @@ const translations = {
         'country.vietnam': '베트남',
         'country.srilanka': '스리랑카',
         'country.bangladesh': '방글라데시',
-        
+
         // Trust
         'trust.title': '언제나 마음 편한 안심 송금',
         'trust.desc': '보다 빠르고, 보다 편리하게, 보다 큰 혜택으로 더 큰 만족!',
@@ -66,12 +66,12 @@ const translations = {
         'trust.report.desc': '실시간으로 송금 상태를 확인하세요. 복잡한 내역도 가계부처럼 한눈에 관리할 수 있습니다.',
         'trust.support.title': '친절한 고객 상담',
         'trust.support.desc': '궁금한 점이 생기면 언제든 문의해 주세요. 전문 상담팀이 친절하고 빠르게 도와드립니다.',
-        
+
         // CTA
         'cta.title': '지금 바로 시작하세요',
         'cta.desc': '회원가입 후 첫 송금 시 특별 혜택을 드립니다. 더 현명한 해외송금, withremit과 함께하세요.',
         'cta.btn': '무료로 가입하기',
-        
+
         // Contact
         'contact.section.title': '고객센터',
         'contact.section.desc': '궁금한 점이 있으시면 언제든지 문의해 주세요',
@@ -83,7 +83,7 @@ const translations = {
         'contact.weekday': '평일',
         'contact.weekend': '토요일 · 공휴일',
         'contact.closed': '* 일요일 휴무',
-        
+
         // Footer
         'footer.company': '회사소개',
         'footer.privacy': '개인정보처리방침',
@@ -101,14 +101,14 @@ const translations = {
         'nav.login': 'Login',
         'nav.register': 'Sign Up',
         'nav.language': 'Language',
-        
+
         // Hero
         'hero.title': 'International Remittance,<br><span>Now Easy and Simple</span>',
         'hero.desc': 'We deliver your money with care, faster and more affordably. Anytime, anywhere, fast and secure global remittance solutions',
         'hero.badge1': '5 min transfer',
         'hero.badge2': 'SGI Guaranteed',
         'hero.badge3': 'Licensed (2018-7)',
-        
+
         // Calculator
         'calc.title': 'Transfer Simulation',
         'calc.send': 'Send Amount',
@@ -124,7 +124,7 @@ const translations = {
         'modal.limit.title': 'Transfer Limit Exceeded',
         'modal.limit.memo': 'Under the Foreign Exchange Transactions Act, you can transfer up to <b>$5,000(USD)</b> per transaction. The amount has been adjusted to <b>{limit} KRW</b> based on the current exchange rate.',
         'modal.ok': 'Confirm',
-        
+
         // Features
         'features.title': 'Why withremit?',
         'features.desc': 'We deliver your money with care, faster and more affordably.',
@@ -148,7 +148,7 @@ const translations = {
         'country.vietnam': 'Vietnam',
         'country.srilanka': 'Sri Lanka',
         'country.bangladesh': 'Bangladesh',
-        
+
         // Trust
         'trust.title': 'Peace of Mind Remittance',
         'trust.desc': 'Faster, more convenient, and greater benefits for greater satisfaction!',
@@ -158,12 +158,12 @@ const translations = {
         'trust.report.desc': 'Check your transfer status in real-time. Manage complex transactions like a ledger at a glance.',
         'trust.support.title': 'Friendly Customer Service',
         'trust.support.desc': 'Contact us anytime with questions. Our expert support team is here to help you kindly and quickly.',
-        
+
         // CTA
         'cta.title': 'Get Started Today',
         'cta.desc': 'Special benefits for your first transfer. Smart remittance with withremit.',
         'cta.btn': 'Sign Up Free',
-        
+
         // Contact
         'contact.section.title': 'Contact Us',
         'contact.section.desc': 'Feel free to contact us anytime',
@@ -175,7 +175,7 @@ const translations = {
         'contact.weekday': 'Weekdays',
         'contact.weekend': 'Sat · Holidays',
         'contact.closed': '* Closed on Sundays',
-        
+
         // Footer
         'footer.company': 'About Us',
         'footer.privacy': 'Privacy Policy',
@@ -193,14 +193,14 @@ const translations = {
         'nav.login': 'ログイン',
         'nav.register': '会員登録',
         'nav.language': '言語',
-        
+
         // Hero
         'hero.title': '海外送金、<br><span>今はもっと簡単に</span>',
         'hero.desc': '送る方の気持ちを込めて、より速く、より安くお届けします。いつでもどこでも、グローバル基準の速くて安全な送金ソリューション',
         'hero.badge1': '最短5分送金',
         'hero.badge2': 'SGI保証保険',
         'hero.badge3': '政府認可 (2018-7)',
-        
+
         // Calculator
         'calc.title': '送金シミュレーション',
         'calc.send': '送金額',
@@ -216,7 +216,7 @@ const translations = {
         'modal.limit.title': '送金限度額超過',
         'modal.limit.memo': '外国為替取引法に基づき、1回につき最大<b>5,000米ドル(USD)</b>까지 送金可能です。現在の為替レートに基づく送金可能額の <b>{limit}ウォン</b>に調整されました。',
         'modal.ok': '確認',
-        
+
         // Features
         'features.title': 'なぜwithremit？',
         'features.desc': '送る方の気持ちを込めて、より速く、より安くお届けします。',
@@ -240,7 +240,7 @@ const translations = {
         'country.vietnam': 'ベトナム',
         'country.srilanka': 'スリランカ',
         'country.bangladesh': 'バングラデシュ',
-        
+
         // Trust
         'trust.title': 'いつでも安心の送金',
         'trust.desc': 'より速く、より便利に、より大きな特典でさらに満足！',
@@ -250,12 +250,12 @@ const translations = {
         'trust.report.desc': 'リアルタイムで送金状態を確認できます。複雑な履歴も家計簿のように一目で管理できます。',
         'trust.support.title': '親切なカスタマーサービス',
         'trust.support.desc': '疑問があればいつでもお問い合わせください。専門サポートチームが親切かつ迅速に対応します。',
-        
+
         // CTA
         'cta.title': '今すぐ始めよう',
         'cta.desc': '会員登録後、初回送金で特典あり。withremitで賢く送金。',
         'cta.btn': '無料で登録',
-        
+
         // Contact
         'contact.section.title': 'お問い合わせ',
         'contact.section.desc': 'お気軽にお問い合わせください',
@@ -267,7 +267,7 @@ const translations = {
         'contact.weekday': '平日',
         'contact.weekend': '土曜・祝日',
         'contact.closed': '* 日曜休業',
-        
+
         // Footer
         'footer.company': '会社概要',
         'footer.privacy': 'プライバシーポリシー',
@@ -285,14 +285,14 @@ const translations = {
         'nav.login': '登录',
         'nav.register': '注册',
         'nav.language': '语言',
-        
+
         // Hero
         'hero.title': '海外汇款，<br><span>现在更简单便捷</span>',
         'hero.desc': '用心传递您的心意，更快更实惠。随时随地，全球标准的快速安全汇款解决方案',
         'hero.badge1': '最快5分钟',
         'hero.badge2': 'SGI保险担保',
         'hero.badge3': '政府许可 (2018-7)',
-        
+
         // Calculator
         'calc.title': '汇款模拟',
         'calc.send': '汇款金额',
@@ -308,7 +308,7 @@ const translations = {
         'modal.limit.title': '汇款额度超限',
         'modal.limit.memo': '根据外汇交易法令，单笔最高可汇款 <b>5,000 美元 (USD)</b>。已根据当前汇率调整为最高汇款额 <b>{limit} 韩元</b>。',
         'modal.ok': '确认',
-        
+
         // Features
         'features.title': '为什么选择withremit？',
         'features.desc': '用心传递您的心意，更快更实惠。',
@@ -331,7 +331,7 @@ const translations = {
         'country.mongolia': '蒙古',
         'country.vietnam': '越南',
         'country.srilanka': '斯里兰卡',
-        
+
         // Trust
         'trust.title': '随时安心的汇款',
         'trust.desc': '更快、更便捷、更多优惠，带来更大满足！',
@@ -341,12 +341,12 @@ const translations = {
         'trust.report.desc': '实时查看汇款状态。复杂记录也能像账本一样一目了然地管理。',
         'trust.support.title': '贴心客户服务',
         'trust.support.desc': '有疑问随时咨询我们。专业支持团队将亲切快速地为您解答。',
-        
+
         // CTA
         'cta.title': '立即开始',
         'cta.desc': '注册后首次汇款享特惠。withremit智能汇款。',
         'cta.btn': '免费注册',
-        
+
         // Contact
         'contact.section.title': '客服中心',
         'contact.section.desc': '如有疑问请随时联系我们',
@@ -358,7 +358,7 @@ const translations = {
         'contact.weekday': '工作日',
         'contact.weekend': '周六·节假日',
         'contact.closed': '* 周日休息',
-        
+
         // Footer
         'footer.company': '公司简介',
         'footer.privacy': '隐私政策',
@@ -371,7 +371,7 @@ const translations = {
 };
 
 // 송금 한도 설정을 위한 상수 (기준: USD)
-const KRW_PER_USD = 1350; 
+const KRW_PER_USD = 1350;
 const MAX_USD = 5000;
 const MAX_KRW_LIMIT = MAX_USD * KRW_PER_USD; // 6,750,000원
 
@@ -442,7 +442,7 @@ function handleSendAmountInput(e) {
     let rawValue = e.target.value.replace(/[^\d]/g, '');
     if (!rawValue) {
         e.target.value = '';
-        if(document.getElementById('receiveAmount')) document.getElementById('receiveAmount').value = '';
+        if (document.getElementById('receiveAmount')) document.getElementById('receiveAmount').value = '';
         return;
     }
 
@@ -458,12 +458,12 @@ function handleSendAmountInput(e) {
 
     const rate = exchangeRates[selectedCurrency].rate;
     const convertedAmount = Math.floor(numValue * rate);
-    
+
     const receiveInput = document.getElementById('receiveAmount');
     if (receiveInput) {
         receiveInput.value = convertedAmount.toLocaleString('ko-KR');
     }
-    
+
     updateFees(numValue, convertedAmount);
     updateRateDisplay();
 }
@@ -478,7 +478,7 @@ function updateFees(krw, foreignAmount) {
     document.getElementById('depositAmount').textContent = `₩${depositTotal.toLocaleString()}`;
     document.getElementById('transferFee').textContent = `₩${transferFee.toLocaleString()}`;
     document.getElementById('withdrawalFee').textContent = `${symbol}${withdrawalFee.toLocaleString()}`;
-    
+
     updateSavings(krw, foreignAmount);
 }
 
@@ -525,12 +525,15 @@ function applyTranslations() {
 
 function changeLanguage(lang) {
     currentLang = lang;
-    
+
     const langSelect = document.getElementById('langSelect');
     const mobileLangSelect = document.getElementById('mobileLangSelect');
+    const guestSidebarLangSelect = document.getElementById('guestSidebarLangSelect');
+
     if (langSelect) langSelect.value = lang;
     if (mobileLangSelect) mobileLangSelect.value = lang;
-    
+    if (guestSidebarLangSelect) guestSidebarLangSelect.value = lang;
+
     applyTranslations();
 
     const sendInput = document.getElementById('sendAmount');
@@ -553,19 +556,19 @@ function calculateTransfer() {
     const sendAmount = parseFloat(sendAmountInput?.value.replace(/,/g, '')) || 0;
     const selectedCurrency = receiveCurrencySelect?.value || 'JPY';
     const rateInfo = exchangeRates[selectedCurrency];
-    
+
     if (!rateInfo || sendAmount <= 0) {
         if (receiveAmountEl) receiveAmountEl.textContent = `${rateInfo ? rateInfo.symbol : '¥'} 0`;
         return;
     }
-    
+
     // Calculate receive amount
     const receiveAmount = sendAmount / rateInfo.rate;
-    
+
     // Calculate bank comparison
     const bankReceiveAmount = receiveAmount * (1 - bankFeePercent / 100);
     const savings = receiveAmount - bankReceiveAmount;
-    
+
     // Update display
     if (receiveAmountEl) {
         receiveAmountEl.textContent = `${rateInfo.symbol} ${formatNumber(receiveAmount)}`;
@@ -579,7 +582,7 @@ function calculateTransfer() {
             .replace('{currency}', selectedCurrency);
         savingsEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>${compareText}</span>`;
     }
-    
+
     // Update 상대방이 받는 금액
     const receiveAmountDisplay = document.getElementById('receiveAmountDisplay');
     if (receiveAmountDisplay) {
@@ -661,11 +664,11 @@ function toggleMobileMenu() {
     const sidebar = document.getElementById('guestSidebar');
     const overlay = document.getElementById('guestSidebarOverlay');
     const menuBtn = document.querySelector('.mobile-menu-btn');
-    
+
     if (sidebar && overlay) {
         sidebar.classList.toggle('active');
         overlay.classList.toggle('active');
-        
+
         // Prevent body scroll when sidebar is open
         if (sidebar.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
@@ -709,7 +712,7 @@ function initAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -718,7 +721,7 @@ function initAnimations() {
             }
         });
     }, observerOptions);
-    
+
     document.querySelectorAll('.feature-card, .country-card, .trust-item').forEach(el => {
         observer.observe(el);
     });
@@ -731,11 +734,11 @@ function detectLanguage() {
         changeLanguage(savedLang);
         return;
     }
-    
+
     const userLang = navigator.language || navigator.userLanguage;
     const langMap = { 'ko': 'ko', 'ja': 'ja', 'zh': 'zh', 'en': 'en' };
     const detectedLang = langMap[userLang.split('-')[0]] || 'ko';
-    
+
     changeLanguage(detectedLang);
 }
 
@@ -744,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Calculator event listeners
     const sendAmountInput = document.getElementById('sendAmount');
     const receiveAmountInput = document.getElementById('receiveAmount');
-    
+
     if (sendAmountInput) {
         sendAmountInput.addEventListener('input', handleSendAmountInput);
         sendAmountInput.value = '1,000,000';
@@ -753,16 +756,16 @@ document.addEventListener('DOMContentLoaded', () => {
             handleSendAmountInput({ target: sendAmountInput });
         }, 100);
     }
-    
+
     if (receiveAmountInput) {
         receiveAmountInput.addEventListener('input', handleReceiveAmountInput);
     }
-    
+
     // Custom currency dropdown
     if (currencyBtn) {
         currencyBtn.addEventListener('click', toggleCurrencyDropdown);
     }
-    
+
     // Currency options click
     document.querySelectorAll('.calc-currency-option').forEach(option => {
         option.addEventListener('click', () => {
@@ -772,46 +775,51 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('currencyDropdown').classList.remove('open');
         });
     });
-    
+
     // Close dropdown when clicking outside
     document.addEventListener('click', closeCurrencyDropdown);
-    
+
     // Country cards click
     countryCards.forEach(card => {
         card.addEventListener('click', handleCountryClick);
     });
-    
+
     // Header scroll
     window.addEventListener('scroll', handleScroll);
-    
+
     // Mobile menu
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     }
-    
+
     // Language selection
     const langSelect = document.getElementById('langSelect');
     if (langSelect) {
         langSelect.addEventListener('change', handleLanguageChange);
     }
-    
+
     const mobileLangSelect = document.getElementById('mobileLangSelect');
     if (mobileLangSelect) {
         mobileLangSelect.addEventListener('change', handleLanguageChange);
     }
-    
+
+    const guestSidebarLangSelect = document.getElementById('guestSidebarLangSelect');
+    if (guestSidebarLangSelect) {
+        guestSidebarLangSelect.addEventListener('change', handleLanguageChange);
+    }
+
     // Initialize
     detectLanguage();
     initAnimations();
-    
+
     // Set initial selected state
     document.querySelector('.calc-currency-option[data-value="JPY"]')?.classList.add('selected');
 });
 
 // ===== Smooth Scroll =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -850,16 +858,16 @@ function handleReceiveAmountInput(e) {
 function updateSavings(krw, foreignAmount) {
     const savingsElement = document.getElementById('savings');
     if (!savingsElement) return;
-    
+
     const currentRate = exchangeRates[selectedCurrency].rate;
-    const bankAmount = Math.floor(krw * (currentRate * 0.965)); 
+    const bankAmount = Math.floor(krw * (currentRate * 0.965));
     const savings = foreignAmount - bankAmount;
     const symbol = currencySymbols[selectedCurrency] || '¥';
-    
+
     // 현재 언어의 템플릿 가져오기
     const template = translations[currentLang]['calc.savings'] || translations['ko']['calc.savings'];
     const savingsText = template.replace('{amount}', `<strong>${symbol} ${savings.toLocaleString()}</strong>`);
-    
+
     savingsElement.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -868,12 +876,12 @@ function updateSavings(krw, foreignAmount) {
     `;
 }
 
-let keypadMode = 'abc'; 
+let keypadMode = 'abc';
 let isShift = false;
 const keyboardLayouts = {
-    num: ['1','2','3','4','5','6','7','8','9','0','Del'],
-    abc: [['q','w','e','r','t','y','u','i','o','p'],['a','s','d','f','g','h','j','k','l'],['Shift','z','x','c','v','b','n','m']],
-    spec: [['-','/',':',';','(',')','$','&','@','"'],['.','?','!',"'",',','_','\\','|','~','<'],['>','`','[',']','{','}','#','%','^','*']]
+    num: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'Del'],
+    abc: [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'], ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'], ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm']],
+    spec: [['-', '/', ':', ';', '(', ')', '$', '&', '@', '"'], ['.', '?', '!', "'", ',', '_', '\\', '|', '~', '<'], ['>', '`', '[', ']', '{', '}', '#', '%', '^', '*']]
 };
 
 function toggleKeypad() {
@@ -947,7 +955,7 @@ function renderKeypad() {
 
 const loginForm = document.querySelector('.login-form');
 if (loginForm) { // 로그인 폼이 존재하는 페이지(login.html)에서만 실행
-    loginForm.addEventListener('submit', function(e) {
+    loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
         const fields = [

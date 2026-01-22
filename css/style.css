@@ -1,4 +1,4 @@
-/* ===== CSS Variables ===== */
+﻿/* ===== CSS Variables ===== */
 :root {
   --primary-blue: #1B5E9E;
   --primary-blue-dark: #154A7C;
@@ -1505,7 +1505,7 @@ p {
     font-size: 0.95rem;
   }
 
-  /* Features - 아이콘 좌측, 텍스트 우측 */
+  /* Features - ?꾩씠肄?醫뚯륫, ?띿뒪???곗륫 */
   .features-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1545,7 +1545,7 @@ p {
     font-size: 0.9rem;
   }
 
-  /* Countries - 2단 유지 */
+  /* Countries - 2???좎? */
   .countries-grid {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
@@ -1570,7 +1570,7 @@ p {
     font-size: 0.75rem;
   }
 
-  /* Trust - 아이콘 좌측, 텍스트 우측 */
+  /* Trust - ?꾩씠肄?醫뚯륫, ?띿뒪???곗륫 */
   .trust-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -1625,7 +1625,7 @@ p {
     font-size: 0.95rem;
   }
 
-  /* Contact - 1열로 변경 */
+  /* Contact - 1?대줈 蹂寃?*/
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -1688,7 +1688,7 @@ p {
     height: 120px;
   }
 
-  /* Footer - 2단 구성 */
+  /* Footer - 2??援ъ꽦 */
   .footer {
     padding: 36px 0 24px;
   }
@@ -2907,7 +2907,7 @@ textarea.error:focus {
 }
 
 
-/* 회원가입 전용 확장 레이아웃 */
+/* ?뚯썝媛???꾩슜 ?뺤옣 ?덉씠?꾩썐 */
 .register-max-wrap {
   max-width: 960px;
   width: 100%;
@@ -2959,7 +2959,7 @@ textarea.error:focus {
   grid-template-columns: repeat(4, 1fr);
 }
 
-/* 개인회원 2단 레이아웃 */
+/* 媛쒖씤?뚯썝 2???덉씠?꾩썐 */
 .reg-dual-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3273,7 +3273,7 @@ textarea.error:focus {
   font-weight: 500;
 }
 
-/* 필수/선택 badge styles */
+/* ?꾩닔/?좏깮 badge styles */
 .badge-required,
 .badge-optional {
   display: inline-block;
@@ -3606,7 +3606,7 @@ textarea.error:focus {
   }
 }
 
-/* 기업회원 주주명부 전용 스타일 */
+/* 湲곗뾽?뚯썝 二쇱＜紐낅? ?꾩슜 ?ㅽ???*/
 .form-sec-head-flex {
   display: flex;
   justify-content: space-between;
@@ -8869,214 +8869,200 @@ textarea.error:focus {
   }
 }
 
-/* ===== Guest Sidebar Styles (Left Aligned) ===== */
+/* ===== Guest Sidebar Styles (Matched to Member Sidebar) ===== */
 .guest-sidebar {
-  position: fixed;
-  top: 0;
-  left: -300px;
-  /* Hidden by default (Left side) */
-  width: 300px;
-  height: 100vh;
-  background: #fff;
-  z-index: 1100;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
-  /* Shadow to right */
-  transition: left 0.3s ease-in-out;
-  /* Animate left property */
-  display: flex;
-  flex-direction: column;
-  right: auto;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    z-index: 1100;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    right: auto;
 }
 
 .guest-sidebar.active {
-  left: 0;
-  /* Slide in to 0 */
+    left: 0;
 }
 
+/* Guest Sidebar Header (Mobile/Drawer Only) */
 .guest-sidebar-header {
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .guest-sidebar-logo img {
-  height: 40px;
+    height: 40px;
 }
 
 .guest-sidebar-close {
-  padding: 8px;
-  color: var(--text-dark);
-  border-radius: 8px;
-  transition: var(--transition);
-  cursor: pointer;
+    padding: 8px;
+    color: var(--text-dark);
+    border-radius: 8px;
+    transition: var(--transition);
+    cursor: pointer;
 }
 
 .guest-sidebar-close:hover {
-  background: var(--bg-light);
+    background: var(--bg-light);
 }
 
 .guest-sidebar-content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px; /* Default padding for mobile */
 }
 
+/* Mobile-only Sections */
 .guest-sidebar-mobile-only {
-  margin-bottom: 32px;
+    margin-bottom: 32px;
 }
 
 .guest-lang-group {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .guest-lang-label {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-  font-weight: 500;
-}
-
-.guest-lang-select-wrapper {
-  position: relative;
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 500;
 }
 
 .guest-lang-select {
-  width: 100%;
-  height: 44px;
-  padding: 0 16px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-dark);
-  appearance: none;
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    appearance: none;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
 }
 
 .btn-full {
-  width: 100%;
-  justify-content: center;
-  height: 44px;
+    width: 100%;
+    justify-content: center;
+    height: 44px;
 }
 
-/* Nav Group Styling to Match Member Sidebar */
+/* Nav Styles Matching Member Sidebar (.db-nav-link) */
 .guest-nav-group {
-  margin-bottom: 32px;
+    margin-bottom: 2px; /* Member sidebar has minimal gap between items? Or groups? */
+    /* Member nav labels have padding-bottom 8px */
 }
 
 .guest-nav-label {
-  font-size: 0.75rem;
-  /* Match db-nav-label */
-  color: var(--text-muted);
-  margin-bottom: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  /* Match typical sidebar label */
-  padding-left: 12px;
-  /* Indent label */
+    /* Match .db-nav-label */
+    font-size: 10px;
+    font-weight: 800;
+    color: #9ca3af;
+    text-transform: uppercase;
+    padding: 20px 16px 8px; /* Exact match */
+    margin-bottom: 0;
 }
 
 .guest-nav-link {
-  display: flex;
-  /* Flex for alignment */
-  align-items: center;
-  padding: 12px 12px;
-  /* Match db-nav-link padding */
-  font-size: 0.95rem;
-  /* Match db-nav-link font size */
-  font-weight: 500;
-  color: var(--text-body);
-  /* Normal state color */
-  border-bottom: none;
-  /* Remove bottom border if member sidebar doesn't have it */
-  border-radius: 8px;
-  /* Match member sidebar radius */
-  transition: var(--transition);
-  gap: 12px;
-  /* Space between icon and text if icons are added later */
+    /* Match .db-nav-link */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 36px;
+    padding: 0 16px;
+    color: var(--text-body);
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+    white-space: nowrap;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    border-bottom: none; /* Override previous guest style */
 }
 
 .guest-nav-link:hover {
-  background-color: var(--bg-light);
-  /* Hover background */
-  color: var(--primary-blue);
-  /* Hover color */
-  padding-left: 12px;
-  /* Reset padding shift from previous design */
+    /* Match .db-nav-link:hover */
+    background: #f8fafc;
+    color: var(--primary-blue);
+    padding-left: 16px; /* Reset shift */
 }
 
-/* Sidebar Overlay */
+/* Overlay */
 .guest-sidebar-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1050;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(2px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
 }
-
 .guest-sidebar-overlay.active {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Responsive Visibility Logic */
+/* Responsive Visibility */
 @media (min-width: 769px) {
-  .guest-sidebar-mobile-only {
-    display: none;
-  }
+    .guest-sidebar-mobile-only { display: none; }
+}
+@media (max-width: 768px) {
+    .guest-sidebar-mobile-only { display: block; }
 }
 
-@media (max-width: 768px) {
-  .guest-sidebar-mobile-only {
-    display: block;
-  }
-}
-/* ===== Guest Sidebar in Dashboard Layout (PC) ===== */
+/* PC Dashboard Context Override (e.g. GU_01_01.html) */
 @media (min-width: 1025px) {
     #sidebarContainer {
-        width: 280px; /* Standard sidebar width */
+        width: 200px; /* Match .db-sidebar width */
         flex-shrink: 0;
     }
 
     #sidebarContainer .guest-sidebar {
-        position: sticky; /* Sticky in the flex container */
-        top: 0;           /* Or margin-top if needed */
-        left: auto;
-        right: auto;
-        width: 100%;
-        height: 100vh;    /* Full height of view or container */
-        background: #fff;
+        position: static; /* Sit in flow, NOT sticky if db-sidebar is not sticky? */
+        /* .db-sidebar has "flex-shrink: 0", "overflow: visible". It seems static in flex. */
+        width: 200px;
+        height: auto;
+        min-height: 100vh; /* Fill height */
+        background: transparent;
         box-shadow: none;
-        border-right: 1px solid var(--border-color);
+        border: none;
         transform: none;
-        z-index: 90;
+        opacity: 1;
+        z-index: 1;
         visibility: visible;
         padding-top: 0;
+        left: auto;
+        display: block; /* Reset flex column if needed, or keep? */
     }
 
-    /* Hide header (Logo + Close) in sidebar on PC Dashboard */
+    /* Remove Mobile Drawer Header */
     #sidebarContainer .guest-sidebar-header {
         display: none;
     }
 
-    /* Hide Overlay on PC Dashboard */
+    /* Reset Content Padding */
+    #sidebarContainer .guest-sidebar-content {
+        padding: 0; /* Member sidebar likely has different padding logic */
+        /* .db-side-nav says padding: 0; padding-right: 15px; */
+        padding-right: 15px; 
+    }
+
+    /* Hide Overlay explicitly */
     #sidebarContainer .guest-sidebar-overlay,
     #guestSidebarOverlay { 
         display: none !important; 
-    }
-    
-    /* Ensure content is visible */
-    #sidebarContainer .guest-sidebar-content {
-        padding-top: 24px;
     }
 }
