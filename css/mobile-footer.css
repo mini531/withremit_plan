@@ -1,0 +1,45 @@
+@media (max-width: 480px) {
+    .footer-simple .menu-text-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px 10px;
+        /* Reduced specific gap: 4px row, 10px col */
+        text-align: center;
+        /* Center text */
+        justify-items: center;
+        /* Center items in their cells */
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .footer-simple .menu-text-list a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-size: 13px;
+        /* Slightly smaller font */
+        padding: 4px 0;
+        /* Reduced padding */
+        color: #888;
+        /* Ensure visible color */
+    }
+
+    /* Highlight important links if needed, matching original style */
+    .footer-simple .menu-text-list a.footer-link-important {
+        font-weight: bold;
+        color: #00A0DC;
+    }
+
+    /* Hide the vertical bars on mobile since we are using a grid */
+    .footer-simple .menu-text-list .v-bar {
+        display: none;
+    }
+
+    /* Adjust the container to handle the grid properly */
+    .login-footer-wrap {
+        padding: 15px 0;
+        /* Reduced container padding */
+    }
+}
+}
