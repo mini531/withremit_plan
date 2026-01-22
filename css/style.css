@@ -9137,17 +9137,17 @@ textarea.error:focus {
 
 /* Mobile Sidebar Styling Override */
 /* Remove excessive margins mentioned by user */
-@media (max-width: 1024px) {
-  .db-side-nav {
-    margin: 0 !important;
-    padding: 20px !important;
-  }
+/* Mobile Sidebar Styling Override - Applied Globally per user request */
+/* Remove excessive margins mentioned by user */
+.db-side-nav {
+  margin: 0 !important;
+  padding: 20px !important;
+}
 
-  /* Ensure links have correct padding if we reset container */
-  .db-side-nav .db-nav-link {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+/* Ensure links have correct padding if we reset container */
+.db-side-nav .db-nav-link {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 /* ===== Member Sidebar Logo & Header (Mobile/Tablet) ===== */
