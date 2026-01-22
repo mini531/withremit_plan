@@ -9471,7 +9471,7 @@ textarea.error:focus {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 8px 0;
+  padding: 2px 0;
   font-size: 0.95rem;
 }
 
@@ -9590,6 +9590,106 @@ textarea.error:focus {
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+}
+
+/* New Receipt Button Styles */
+.btn-receipt-print {
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-receipt-print:hover {
+  background: var(--primary-green-dark);
+}
+
+.btn-receipt-close {
+  background: #f1f3f5;
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-receipt-close:hover {
+  background: #e9ecef;
+}
+
+/* Receipt Mobile Typography & Layout Fixes */
+@media (max-width: 480px) {
+  .receipt-title {
+    font-size: 1.2rem;
+  }
+
+  .receipt-section-title {
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+  }
+
+  /* Stacked Layout: Label Top, Value Bottom, Left Align */
+  .receipt-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 12px;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .receipt-label {
+    width: 100%;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #7A8E96;
+  }
+
+  .receipt-value {
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+    font-size: 0.95rem;
+    word-break: break-all;
+  }
+
+  .receipt-value.highlight {
+    font-size: 1.1rem;
+  }
+
+  /* Total Section Layout */
+  .receipt-total-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .receipt-total-label {
+    font-size: 0.9rem;
+  }
+
+  .receipt-total-value {
+    font-size: 1.4rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  .remit-modal-body {
+    padding: 20px 15px !important;
+  }
+
+  .receipt-footer {
+    font-size: 0.7rem;
+    margin-top: 30px;
   }
 }
 
