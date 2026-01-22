@@ -685,13 +685,14 @@ function handleScroll() {
 // ===== Mobile Menu Toggle =====
 // ===== Mobile Menu Toggle (Guest) =====
 function toggleMobileMenu() {
-    // Desktop: Toggle Sidebar Collapse
-    if (window.innerWidth > 1024) {
+    // Desktop Dashboard: Toggle Sidebar Collapse
+    // Only applies if body has 'db-body' class (Dashboard pages)
+    if (window.innerWidth > 1024 && document.body.classList.contains('db-body')) {
         document.body.classList.toggle('db-collapsed');
         return;
     }
 
-    // Mobile/Tablet: Toggle Drawer
+    // Mobile/Tablet OR Landing Page: Toggle Drawer
     const sidebar = document.getElementById('guestSidebar');
     const overlay = document.getElementById('guestSidebarOverlay');
     const menuBtn = document.querySelector('.mobile-menu-btn');

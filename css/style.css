@@ -9092,23 +9092,30 @@ textarea.error:focus {
     margin-right: 20px;
   }
 
-  /* Collapse Container */
+  /* Collapse Container - Completely Hide */
   body.db-collapsed #sidebarContainer {
-    width: 80px;
+    width: 0;
+    overflow: hidden;
     transition: width 0.3s ease;
   }
 
-  /* Collapsed Sidebar Styles */
+  /* Collapsed Sidebar Styles - HIDDEN */
   body.db-collapsed .guest-sidebar {
-    width: 80px;
-    transition: width 0.3s ease;
+    width: 0;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    transition: width 0.3s ease, padding 0.3s ease;
   }
 
-  /* Hide Text Labels */
-  body.db-collapsed .guest-sidebar .db-nav-label,
-  body.db-collapsed .guest-sidebar .nav-text {
-    display: none;
+  /* Hide ALL Content */
+  body.db-collapsed .guest-sidebar * {
+    display: none !important;
+    opacity: 0;
+    transition: opacity 0.2s;
   }
+
+
 
   /* Center Icons */
   body.db-collapsed .guest-sidebar .db-nav-link {
@@ -9118,5 +9125,20 @@ textarea.error:focus {
 
   body.db-collapsed .guest-sidebar .db-nav-link svg {
     margin-right: 0;
+  }
+}
+
+/* Mobile Sidebar Styling Override */
+/* Remove excessive margins mentioned by user */
+@media (max-width: 768px) {
+  .db-side-nav {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ensure links have correct padding if we reset container */
+  .db-side-nav .db-nav-link {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
