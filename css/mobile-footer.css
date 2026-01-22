@@ -1,5 +1,5 @@
 @media (max-width: 480px) {
-    .footer-simple .menu-text-list {
+    body .footer-simple .menu-text-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 4px 10px;
@@ -10,9 +10,11 @@
         /* Center items in their cells */
         width: 100%;
         padding: 0 10px;
+        white-space: normal;
+        /* Ensure text wraps if needed */
     }
 
-    .footer-simple .menu-text-list a {
+    body .footer-simple .menu-text-list a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -26,13 +28,13 @@
     }
 
     /* Highlight important links if needed, matching original style */
-    .footer-simple .menu-text-list a.footer-link-important {
+    body .footer-simple .menu-text-list a.footer-link-important {
         font-weight: bold;
         color: #00A0DC;
     }
 
     /* Hide the vertical bars on mobile since we are using a grid */
-    .footer-simple .menu-text-list .v-bar {
+    body .footer-simple .menu-text-list .v-bar {
         display: none;
     }
 
