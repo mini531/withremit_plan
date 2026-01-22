@@ -133,11 +133,14 @@
                 <label class="input-label">비밀번호</label>
                 <div class="input-box-group">
                     <div class="password-wrap" style="width: 100%;">
-                        <input type="password" id="newPassword" class="login-input" placeholder="비밀번호를 입력하세요" readonly
-                            onclick="toggleKeypad()">
-                        <button type="button" class="keypad-btn" tabindex="-1">
-                            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' width='20' height='20' fill='none' stroke='%237A8E96' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z' /%3E%3C/svg%3E"
-                                alt="keypad">
+                        <input type="text" id="newPassword" class="login-input" placeholder="비밀번호를 입력하세요" readonly
+                            onclick="toggleKeypad('newPassword')">
+                        <button type="button" class="keypad-btn" tabindex="-1" onclick="toggleKeypad('newPassword')">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -147,23 +150,18 @@
                 <label class="input-label">비밀번호 확인</label>
                 <div class="input-box-group">
                     <div class="password-wrap" style="width: 100%;">
-                        <input type="password" id="confirmPassword" class="login-input" placeholder="비밀번호를 다시 입력하세요"
-                            readonly onclick="toggleKeypad()">
-                        <button type="button" class="keypad-btn" tabindex="-1">
-                            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' width='20' height='20' fill='none' stroke='%237A8E96' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z' /%3E%3C/svg%3E"
-                                alt="keypad">
+                        <input type="text" id="confirmPassword" class="login-input" placeholder="비밀번호를 다시 입력하세요"
+                            readonly onclick="toggleKeypad('confirmPassword')">
+                        <button type="button" class="keypad-btn" tabindex="-1"
+                            onclick="toggleKeypad('confirmPassword')">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                            </svg>
                         </button>
                     </div>
                 </div>
-            </div>
-
-            <!-- Security Keypad Container (Shared) -->
-            <div id="securityKeypad" class="security-keypad">
-                <div class="keypad-header">
-                    <span>보안 키보드</span>
-                    <button type="button" class="close-keypad" onclick="toggleKeypad()">&times;</button>
-                </div>
-                <div id="keypadContainer" class="keypad-grid"></div>
             </div>
 
             <div class="modal-btn-group">
@@ -174,10 +172,25 @@
         </div>
     </div>
 
+    <!-- Security Keypad Container (Moved to body for correct positioning) -->
+    <div id="securityKeypad" class="security-keypad">
+        <div class="keypad-header">
+            <span>보안 키보드</span>
+            <button type="button" class="close-keypad" onclick="toggleKeypad(null)">&times;</button>
+        </div>
+        <div id="keypadContainer" class="keypad-grid"></div>
+    </div>
+
     <script src="js/main.js"></script>
     <script>
         function openModal(id) { document.getElementById(id).classList.add('active'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            // Close keypad if open
+            if (typeof toggleKeypad === 'function') {
+                toggleKeypad(null);
+            }
+        }
         window.onclick = (e) => {
             if (e.target.classList.contains('modal-overlay')) closeModal(e.target.id);
             // Also close keypad if clicking outside

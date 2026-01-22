@@ -951,78 +951,246 @@ function updateSavings(krw, foreignAmount) {
 
 let keypadMode = 'abc';
 let isShift = false;
+let activeInputId = null;
+let passwordValues = {}; // Store real values: { 'inputID': 'actualValue' }
+let maskingTimers = {}; // Store timers for masking delay
+
 const keyboardLayouts = {
     num: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'Del'],
     abc: [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'], ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'], ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm']],
     spec: [['-', '/', ':', ';', '(', ')', '$', '&', '@', '"'], ['.', '?', '!', "'", ',', '_', '\\', '|', '~', '<'], ['>', '`', '[', ']', '{', '}', '#', '%', '^', '*']]
 };
 
-function toggleKeypad() {
-    // 보안 키패드의 표시 상태를 토글하며 중앙 정렬 상태로 렌더링함
+function toggleKeypad(targetId) {
     const keypad = document.getElementById('securityKeypad');
     if (!keypad) return;
-    keypad.classList.toggle('active');
-    if (keypad.classList.contains('active')) renderKeypad();
+
+    // Close logic
+    if (!targetId) {
+        keypad.classList.remove('active');
+        activeInputId = null;
+        return;
+    }
+
+    // Toggle off if clicking same input input closing is desired, 
+    // but usually tapping input opens it. 
+    // If we want to move between inputs, we just update position.
+
+    activeInputId = targetId;
+    const targetInput = document.getElementById(targetId);
+    if (!targetInput) return;
+
+    // Initialize storage for this input if needed
+    if (!passwordValues[targetId]) {
+        passwordValues[targetId] = '';
+    }
+
+    // Calculate Position
+    const rect = targetInput.getBoundingClientRect();
+
+    // Determine keypad width (Min 320px or based on design)
+    const keypadWidth = 320;
+
+    // Position keypad using Fixed positioning + Transform for centering
+    // This anchors the center of the keypad to the center of the input
+    keypad.style.position = 'fixed';
+    keypad.style.top = `${rect.bottom + 8}px`; // 8px gap
+
+    // Center point of input
+    const centerPos = rect.left + (rect.width / 2);
+
+    keypad.style.left = `${centerPos}px`;
+    keypad.style.width = `${keypadWidth}px`;
+    keypad.style.transform = 'translateX(-50%)'; // Shift back by 50% of keypad width
+
+    keypad.classList.add('active');
+    renderKeypad();
 }
 
 function switchMode(mode) {
-    // abc(영문) 모드와 spec(특수기호) 모드 사이를 전환함
     keypadMode = (keypadMode === 'abc' && mode === 'spec') ? 'spec' : 'abc';
     renderKeypad();
 }
 
 function toggleShift() {
-    // 영문 대소문자 입력 상태를 전환함
     isShift = !isShift;
     renderKeypad();
 }
 
+function handleKeyInput(char) {
+    if (!activeInputId) return;
+    const input = document.getElementById(activeInputId);
+    if (!input) return;
+
+    // Clear existing timer if user types fast
+    if (maskingTimers[activeInputId]) {
+        clearTimeout(maskingTimers[activeInputId]);
+        // Force full mask of previous state
+        updateInputDisplay(activeInputId, true);
+    }
+
+    // Update real value
+    passwordValues[activeInputId] += char;
+
+    // Update display: all stars + char
+    updateInputDisplay(activeInputId, false);
+
+    // Set timer to mask this char
+    maskingTimers[activeInputId] = setTimeout(() => {
+        updateInputDisplay(activeInputId, true);
+        maskingTimers[activeInputId] = null;
+    }, 500);
+}
+
+function handleDelete() {
+    if (!activeInputId) return;
+    const input = document.getElementById(activeInputId);
+    if (!input) return; // Should allow backspace even if empty?
+
+    if (passwordValues[activeInputId].length > 0) {
+        passwordValues[activeInputId] = passwordValues[activeInputId].slice(0, -1);
+        updateInputDisplay(activeInputId, true); // Immediate mask update
+    }
+}
+
+function updateInputDisplay(id, maskAll) {
+    const val = passwordValues[id];
+    if (maskAll) {
+        document.getElementById(id).value = '*'.repeat(val.length);
+    } else {
+        if (val.length > 0) {
+            // Mask all except last char
+            const masked = '*'.repeat(val.length - 1) + val.slice(-1);
+            document.getElementById(id).value = masked;
+        } else {
+            document.getElementById(id).value = '';
+        }
+    }
+}
+
 function renderKeypad() {
-    // Shift 텍스트를 고정하고 숫자와 영문이 포함된 키패드를 생성함
     const container = document.getElementById('keypadContainer');
     container.innerHTML = '';
+
+    // Container Styles
+    // MUST include 'keypad-grid' because auth.css uses .keypad-grid .key-btn selectors!
+    container.className = 'keypad-grid keypad-container';
+    container.style.display = 'flex';
+    container.style.flexDirection = 'column';
+    container.style.padding = '8px';
+    container.style.background = '#eef1f5';
+    container.style.gap = '6px';
+
     const createBtn = (key, isFunc = false, className = "") => {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = `key-btn ${isFunc ? 'func-key' : ''} ${className}`;
+        btn.style.flex = '1';
+        btn.style.margin = '2px';
+        btn.style.height = '42px';
+        btn.style.borderRadius = '5px';
+        btn.style.border = '1px solid #d1d5db';
+        // btn.style.background = '#fff'; // MOVED TO CSS to enable hover
+        btn.style.fontSize = '16px';
+        btn.style.fontWeight = '600';
+        btn.style.color = '#333';
+        btn.style.cursor = 'pointer';
+
+        // Touch highlight disable
+        btn.style.webkitTapHighlightColor = 'transparent';
+
         if (key === 'Shift') {
             btn.textContent = 'Shift';
             btn.classList.toggle('active', isShift);
+            if (isShift) {
+                btn.className += ' btn-active'; // Use class for active state
+                // btn.style.background = '#dbeafe'; // Handled by CSS .btn-active
+                // btn.style.color = '#1e40af';
+            } else {
+                btn.className += ' btn-func'; // Use class for func
+                // btn.style.background = '#e5e7eb';
+            }
+            btn.style.flex = '1.5';
             btn.onclick = toggleShift;
         } else if (key === 'Del') {
-            btn.textContent = '←';
-            btn.onclick = () => { const p = document.getElementById('userPassword'); p.value = p.value.slice(0, -1); };
+            // Backspace Icon (Arrow Left)
+            btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7" /></svg>';
+            btn.className += ' btn-func';
+            btn.style.flex = '1';
+            // btn.style.background = '#e5e7eb';
+            btn.onclick = handleDelete;
+        } else if (key === '!#1' || key === 'abc') {
+            btn.textContent = key;
+            btn.className += ' btn-func';
+            btn.style.flex = '1.2';
+            // btn.style.background = '#e5e7eb';
+            btn.onclick = () => switchMode(key === '!#1' ? 'spec' : 'abc');
+        } else if (key === 'Space') {
+            btn.textContent = 'Space';
+            btn.style.flex = '4';
+            btn.onclick = () => handleKeyInput(' ');
+        } else if (key === '확인') {
+            btn.textContent = '확인';
+            // Explicitly set class string vs appending to ensure precedence order isn't weird, 
+            // though with CSS selectors it shouldn't matter.
+            // Using `btn.classList.add` is cleaner.
+            btn.classList.add('btn-confirm');
+            btn.style.flex = '1.2';
+            btn.onclick = () => toggleKeypad(null);
         } else {
             let char = (keypadMode === 'abc' && isShift) ? key.toUpperCase() : key;
             btn.textContent = char;
-            btn.onclick = () => { document.getElementById('userPassword').value += char; };
+            btn.onclick = () => handleKeyInput(char);
         }
         return btn;
     };
-    const numRow = document.createElement('div');
-    numRow.className = 'keypad-row';
-    keyboardLayouts.num.forEach(k => numRow.appendChild(createBtn(k, k === 'Del', k === 'Del' ? 'del-btn' : '')));
-    container.appendChild(numRow);
-    keyboardLayouts[keypadMode].forEach((row, idx) => {
-        const rowDiv = document.createElement('div');
-        rowDiv.className = `keypad-row row-${idx}`;
-        row.forEach(key => {
-            if (key === 'Shift' && keypadMode !== 'abc') return;
-            rowDiv.appendChild(createBtn(key, key === 'Shift', key === 'Shift' ? 'shift-btn' : ''));
+
+    // 1. Top Row: Numbers + Backspace (Always present in password mode)
+    const numRowDiv = document.createElement('div');
+    numRowDiv.style.display = 'flex';
+    numRowDiv.style.width = '100%';
+    numRowDiv.style.justifyContent = 'center';
+
+    // Numbers 1-0
+    const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+    numbers.forEach(num => numRowDiv.appendChild(createBtn(num)));
+    // Backspace
+    numRowDiv.appendChild(createBtn('Del', true));
+    container.appendChild(numRowDiv);
+
+    // 2. Middle Rows: Letters or Special Chars
+    const layout = keyboardLayouts[keypadMode] || keyboardLayouts['abc'];
+
+    if (Array.isArray(layout[0])) {
+        layout.forEach(rowKeys => {
+            const rowDiv = document.createElement('div');
+            rowDiv.style.display = 'flex';
+            rowDiv.style.width = '100%';
+            rowDiv.style.justifyContent = 'center';
+
+            rowKeys.forEach(key => {
+                rowDiv.appendChild(createBtn(key));
+            });
+            container.appendChild(rowDiv);
         });
-        container.appendChild(rowDiv);
-    });
+    }
+
+    // 3. Bottom Row: [!#1/abc] [Space] [확인]
     const bottomRow = document.createElement('div');
-    bottomRow.className = 'keypad-row';
-    const modeBtn = createBtn(keypadMode === 'abc' ? '!#1' : 'abc', true, 'mode-btn');
-    modeBtn.onclick = () => switchMode('spec');
-    bottomRow.appendChild(modeBtn);
-    const spaceBtn = createBtn('Space', false, 'space-btn');
-    spaceBtn.onclick = () => { document.getElementById('userPassword').value += ' '; };
-    bottomRow.appendChild(spaceBtn);
-    const confirmBtn = createBtn('확인', true, 'confirm-btn');
-    confirmBtn.onclick = toggleKeypad;
-    bottomRow.appendChild(confirmBtn);
+    bottomRow.style.display = 'flex';
+    bottomRow.style.width = '100%';
+    bottomRow.style.justifyContent = 'center';
+
+    // Mode Switch Button
+    const modeLabel = keypadMode === 'abc' ? '!#1' : 'abc';
+    bottomRow.appendChild(createBtn(modeLabel, true));
+
+    // Space
+    bottomRow.appendChild(createBtn('Space'));
+
+    // Check
+    bottomRow.appendChild(createBtn('확인', false)); // Pass false to avoid func-key grey style conflict
+
     container.appendChild(bottomRow);
 }
 
