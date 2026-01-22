@@ -9076,10 +9076,13 @@ textarea.error:focus {
     padding-right: 15px;
   }
 
-  /* Hide Overlay explicitly - ONLY FOR DASHBOARD to allow Landing Page Blur */
-  #sidebarContainer .guest-sidebar-overlay,
-  body.db-body #guestSidebarOverlay {
-    display: none !important;
+  @media (min-width: 1025px) {
+
+    /* Hide guest sidebar toggle and overlay on Desktop, ONLY for Dashboard */
+    body.db-body .guest-sidebar-toggle,
+    body.db-body .guest-sidebar-overlay {
+      display: none !important;
+    }
   }
 }
 
@@ -9133,9 +9136,7 @@ textarea.error:focus {
 @media (max-width: 1024px) {
   .db-side-nav {
     margin: 0 !important;
-    padding: 0 !important;
-    padding-top: 10px !important;
-    /* Slight padding for visual balance */
+    padding: 20px !important;
   }
 
   /* Ensure links have correct padding if we reset container */
@@ -9183,4 +9184,10 @@ textarea.error:focus {
 .guest-header-left .logo {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 480px) {
+  .db-sidebar.mobile-open {
+    padding-top: 0 !important;
+  }
 }
