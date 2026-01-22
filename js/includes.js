@@ -104,6 +104,28 @@ function loadIncludes() {
                     }
                 }
                 sidebarLoaded = true;
+
+                // Init Guest Sidebar Close Event
+                const closeBtn = document.getElementById('guestSidebarClose');
+                const overlay = document.getElementById('guestSidebarOverlay');
+                const sidebar = document.getElementById('guestSidebar');
+
+                if (closeBtn && sidebar) {
+                    closeBtn.addEventListener('click', () => {
+                        sidebar.classList.remove('active');
+                        if (overlay) overlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+
+                if (overlay && sidebar) {
+                    overlay.addEventListener('click', () => {
+                        sidebar.classList.remove('active');
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+
                 tryInitSidebar();
             })
             .catch(error => console.error('Error loading sidebar:', error));

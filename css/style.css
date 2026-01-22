@@ -9076,9 +9076,9 @@ textarea.error:focus {
     padding-right: 15px;
   }
 
-  /* Hide Overlay explicitly */
+  /* Hide Overlay explicitly - ONLY FOR DASHBOARD to allow Landing Page Blur */
   #sidebarContainer .guest-sidebar-overlay,
-  #guestSidebarOverlay {
+  body.db-body #guestSidebarOverlay {
     display: none !important;
   }
 }
@@ -9130,10 +9130,12 @@ textarea.error:focus {
 
 /* Mobile Sidebar Styling Override */
 /* Remove excessive margins mentioned by user */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .db-side-nav {
     margin: 0 !important;
     padding: 0 !important;
+    padding-top: 10px !important;
+    /* Slight padding for visual balance */
   }
 
   /* Ensure links have correct padding if we reset container */
