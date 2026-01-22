@@ -4,73 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
-    <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-
-        .error-container {
-            text-align: center;
-            padding: 24px;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .error-icon {
-            margin-bottom: 24px;
-        }
-
-        .error-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 12px;
-        }
-
-        .error-desc {
-            font-size: 16px;
-            color: #6B7280;
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
-
-        .btn-confirm {
-            display: inline-flex;
-            /* Changed to inline-flex to work well with anchor tag */
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 48px;
-            background-color: #f59e0b;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            /* Remove underline for anchor */
-            transition: background-color 0.2s;
-        }
-
-        .btn-confirm:hover {
-            background-color: #d97706;
-            /* Darker shade of #f59e0b */
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="error-body">
     <div class="error-container">
         <div class="error-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
