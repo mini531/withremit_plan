@@ -2015,7 +2015,8 @@ p {
 
 .login-container {
   width: 100%;
-  min-width: 420px;
+  max-width: 420px;
+  /* Changed from min-width to max-width to allow shrinking on mobile */
   display: flex;
   flex-direction: column;
   align-items: center;
