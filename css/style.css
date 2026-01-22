@@ -8917,13 +8917,11 @@ textarea.error:focus {
 .guest-sidebar-content {
   flex: 1;
   overflow-y: auto;
-  padding: 24px;
-  /* Default padding for mobile */
 }
 
 /* Mobile-only Sections */
 .guest-sidebar-mobile-only {
-  margin-bottom: 32px;
+  padding: 32px;
 }
 
 .guest-lang-group {
