@@ -228,7 +228,8 @@
     border: 1px solid #edf2f7;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     border-radius: 20px;
-    padding: 35px;
+    padding: 0;
+    overflow: hidden;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;
@@ -266,90 +267,52 @@
     box-shadow: 0 12px 30px rgba(74, 144, 226, 0.08);
 }
 
-.feature-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
+.feature-image-container {
+    width: 100%;
+    /* removed fixed height to let image scaling determine height, or keep it if needed but let's make it flexible */
+    padding: 30px 0 10px;
+    /* Added whitespace at top */
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 25px;
-    position: relative;
-    transition: all 0.4s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    align-items: center;
+    background-color: #ffffff;
+    /* Ensure white background */
 }
 
-.feature-card:hover .feature-icon-wrapper {
-    transform: rotate(5deg);
+.feature-image {
+    width: 50%;
+    /* Reduced width */
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.5s ease;
 }
 
-/* Icon Color Tokens */
-.premium-icon-1 {
-    color: #4A90E2;
-    background: rgba(74, 144, 226, 0.08);
+.feature-card:hover .feature-image {
+    transform: scale(1.05);
 }
 
-.premium-icon-2 {
-    color: #6366f1;
-    background: rgba(99, 102, 241, 0.08);
-}
-
-.premium-icon-3 {
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.08);
-}
-
-.premium-icon-4 {
-    color: #f59e0b;
-    background: rgba(245, 158, 11, 0.08);
-}
-
-.feature-card:hover .premium-icon-1 {
-    color: #4A90E2;
-    background: #fff;
-    border-color: #4A90E2;
-}
-
-.feature-card:hover .premium-icon-2 {
-    color: #6366f1;
-    background: #fff;
-    border-color: #6366f1;
-}
-
-.feature-card:hover .premium-icon-3 {
-    color: #10b981;
-    background: #fff;
-    border-color: #10b981;
-}
-
-.feature-card:hover .premium-icon-4 {
-    color: #f59e0b;
-    background: #fff;
-    border-color: #f59e0b;
-}
-
-.feature-icon {
-    width: 32px;
-    height: 32px;
+.feature-content {
+    padding: 30px;
+    width: 100%;
 }
 
 .feature-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     color: #1a1a1a;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
     letter-spacing: -0.5px;
 }
 
 .feature-desc {
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
     color: #666;
     text-align: left;
 }
 
 .feature-desc p {
-    margin-bottom: 0px;
+    margin-bottom: 8px;
 }
 
 .feature-desc p:last-child {
