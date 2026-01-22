@@ -9440,3 +9440,27 @@ textarea.error:focus {
 .btn-confirm-action:hover {
   background-color: #154A7C;
 }
+
+/* Demo Guide Buttons */
+.demo-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  border: none;
+}
+
+.btn-success {
+  background-color: #00A0DC;
+}
+
+.btn-warning {
+  background-color: #f59e0b;
+}
+
+.btn-blue {
+  background-color: #1B5E9E;
+}
