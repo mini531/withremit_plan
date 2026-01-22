@@ -9,6 +9,12 @@ const translations = {
         'nav.login': '로그인',
         'nav.register': '회원가입',
         'nav.language': '언어',
+        'nav.remitGuide': '송금 서비스 안내',
+        'nav.signupGuide': '가입 안내',
+        'nav.customerCenter': '고객 센터',
+        'nav.notice': '공지사항',
+        'nav.faq': '자주 묻는 질문',
+        'nav.inquiry': '1:1 문의',
 
         // Hero
         'hero.title': '해외송금,<br><span>이제는 쉽고 간편하게</span>',
@@ -101,6 +107,12 @@ const translations = {
         'nav.login': 'Login',
         'nav.register': 'Sign Up',
         'nav.language': 'Language',
+        'nav.remitGuide': 'Remittance Service Guide',
+        'nav.signupGuide': 'Registration Guide',
+        'nav.customerCenter': 'Customer Center',
+        'nav.notice': 'Notice',
+        'nav.faq': 'FAQ',
+        'nav.inquiry': '1:1 Inquiry',
 
         // Hero
         'hero.title': 'International Remittance,<br><span>Now Easy and Simple</span>',
@@ -193,6 +205,12 @@ const translations = {
         'nav.login': 'ログイン',
         'nav.register': '会員登録',
         'nav.language': '言語',
+        'nav.remitGuide': '送金サービス案内',
+        'nav.signupGuide': '登録案内',
+        'nav.customerCenter': 'カスタマーセンター',
+        'nav.notice': 'お知らせ',
+        'nav.faq': 'よくある質問',
+        'nav.inquiry': '1:1 お問い合わせ',
 
         // Hero
         'hero.title': '海外送金、<br><span>今はもっと簡単に</span>',
@@ -285,6 +303,12 @@ const translations = {
         'nav.login': '登录',
         'nav.register': '注册',
         'nav.language': '语言',
+        'nav.remitGuide': '汇款服务介绍',
+        'nav.signupGuide': '注册指南',
+        'nav.customerCenter': '客服中心',
+        'nav.notice': '公告',
+        'nav.faq': '常见问题',
+        'nav.inquiry': '1:1 咨询',
 
         // Hero
         'hero.title': '海外汇款，<br><span>现在更简单便捷</span>',
