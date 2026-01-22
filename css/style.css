@@ -9142,3 +9142,43 @@ textarea.error:focus {
     margin-right: 0 !important;
   }
 }
+
+/* ===== Member Sidebar Logo & Header (Mobile/Tablet) ===== */
+.db-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  /* Match guest sidebar padding */
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0;
+}
+
+.db-sidebar-logo img {
+  height: 40px;
+}
+
+/* Hide on Desktop (Member Header already has logo) */
+@media (min-width: 1025px) {
+  .db-sidebar-header {
+    display: none !important;
+  }
+}
+
+/* ===== Guest Header Spacing Adjustment ===== */
+.guest-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Adjust gap to match member header */
+}
+
+.guest-header-left .mobile-menu-btn {
+  margin: 0 !important;
+  /* Reset margin as gap handles it */
+}
+
+.guest-header-left .logo {
+  display: flex;
+  align-items: center;
+}
