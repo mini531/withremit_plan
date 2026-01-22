@@ -384,3 +384,39 @@
         opacity: 0.1;
     }
 }
+
+@media (max-width: 1024px) {
+    .guide-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        overflow-x: visible;
+        white-space: normal;
+        border-bottom: none;
+    }
+
+    .guide-tab {
+        text-align: center;
+        padding: 12px 5px;
+        font-size: 14px;
+        background-color: #f5f7fa;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .guide-tab.active {
+        background-color: #4A90E2;
+        color: #fff;
+        border-color: #4A90E2;
+    }
+
+    .guide-tab.active::after {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .guide-tabs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
