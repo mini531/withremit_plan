@@ -9905,3 +9905,27 @@ textarea.error:focus {
 }
 
 
+
+/* Responsive: Move buttons below title on small screens */
+@media (max-width: 480px) {
+  .form-sec-head-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .form-sec-head-wrap .form-sec-head {
+    margin-bottom: 0;
+  }
+  
+  .head-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .quick-btn.small {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
