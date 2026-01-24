@@ -9898,3 +9898,7 @@ textarea.error:focus {
     flex: 1;
   }
 }
+/* Hide card list by default, show only on mobile */
+.account-card-list {
+  display: none;
+}
