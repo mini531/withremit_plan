@@ -397,24 +397,24 @@
 
     <!-- 계좌 선택 모달 (자주 쓰는 계좌 / 최근 입금 계좌 공용) -->
     <div id="accountSelectionModal" class="modal-overlay">
-        <div class="modal-content" style="max-width: 900px; width: 90%;">
+        <div class="modal-content account-modal-content">
             <div class="remit-modal-header">
                 <h2 class="remit-modal-title" id="accountModalTitle">계좌 선택</h2>
                 <button class="remit-modal-close" onclick="closeAccountModal()">&times;</button>
             </div>
 
             <!-- 테이블 영역 (스크롤 가능) -->
-            <div class="db-table-container" style="max-height: 500px; overflow-y: auto;">
+            <div class="db-table-container account-table-container">
                 <table class="db-notice-table hover-table" id="accountTable">
                     <colgroup>
-                        <col style="width: 60px;">
-                        <col style="width: 100px;">
-                        <col style="width: 150px;">
-                        <col style="width: 180px;">
-                        <col style="width: 180px;">
+                        <col class="account-col-num">
+                        <col class="account-col-country">
+                        <col class="account-col-name">
+                        <col class="account-col-bank">
+                        <col class="account-col-account">
                         <col>
                     </colgroup>
-                    <thead style="position: sticky; top: 0; z-index: 1;">
+                    <thead class="account-table-sticky-header">
                         <tr>
                             <th>번호</th>
                             <th>국가</th>

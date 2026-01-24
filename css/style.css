@@ -9737,3 +9737,28 @@ textarea.error:focus {
   min-width: auto;
   height: 32px;
 }
+
+/* Account Selection Modal Styles */
+.account-modal-content {
+  max-width: 900px;
+  width: 90%;
+}
+
+.account-table-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.account-table-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Account Table Column Widths */
+.account-col-num { width: 60px; }
+.account-col-country { width: 100px; }
+.account-col-name { width: 150px; }
+.account-col-bank { width: 180px; }
+.account-col-account { width: 180px; }
+
