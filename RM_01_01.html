@@ -398,9 +398,9 @@
     <!-- 계좌 선택 모달 (자주 쓰는 계좌 / 최근 입금 계좌 공용) -->
     <div id="accountSelectionModal" class="modal-overlay">
         <div class="modal-content" style="max-width: 900px; width: 90%;">
-            <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
-                <h3 id="accountModalTitle" style="margin: 0;">계좌 선택</h3>
-                <button type="button" class="btn-close-modal" onclick="closeAccountModal()">&times;</button>
+            <div class="remit-modal-header">
+                <h2 class="remit-modal-title" id="accountModalTitle">계좌 선택</h2>
+                <button class="remit-modal-close" onclick="closeAccountModal()">&times;</button>
             </div>
 
             <!-- 테이블 영역 (스크롤 가능) -->
@@ -428,6 +428,9 @@
                         <!-- 자바스크립트로 데이터 로드 -->
                     </tbody>
                 </table>
+            </div>
+            <div class="remit-modal-footer">
+                <button class="btn-receipt-close" onclick="closeAccountModal()">닫기</button>
             </div>
         </div>
     </div>
