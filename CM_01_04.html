@@ -24,6 +24,10 @@
             text-align: center;
         }
 
+        .password-wrap {
+            width: 100%;
+        }
+
         .password-confirm-title {
             font-size: 28px;
             font-weight: 700;
@@ -37,39 +41,53 @@
             margin-bottom: 40px;
         }
 
-        .password-input-area {
-            text-align: left;
-            margin-bottom: 24px;
-        }
-
-        .btn-full-width {
+        .btn-main-login {
             width: 100%;
-            padding: 14px;
-            border-radius: 4px;
+            height: 52px;
+            background-color: #00A0DC;
+            color: #fff;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
+            border-radius: 8px;
+            border: none;
             cursor: pointer;
             margin-bottom: 10px;
         }
 
-        .btn-primary-custom {
-            background-color: #00A0DC;
-            color: white;
-            border: none;
-        }
-
-        .btn-primary-custom:hover {
+        .btn-main-login:hover {
             background-color: #0089bd;
         }
 
-        .btn-outline-custom {
-            background-color: white;
-            color: #333;
+        .btn-back-cancel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 52px;
+            background-color: #fff;
+            color: #555;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
             border: 1px solid #ddd;
+            cursor: pointer;
         }
 
-        .btn-outline-custom:hover {
-            background-color: #f8f9fa;
+        .btn-back-cancel:hover {
+            background-color: #f5f5f5;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #7A8E96;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .input-box-group {
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -89,25 +107,26 @@
                         <h2 class="password-confirm-title">비밀번호 확인</h2>
                         <p class="password-confirm-desc">정보 보호를 위해 비밀번호 확인이 필요합니다.</p>
 
-                        <div class="password-input-area">
-                            <label class="input-label"
-                                style="font-weight: 700; color: #7A8E96; display: block; margin-bottom: 8px;">비밀번호</label>
-                            <div class="password-wrap" style="width: 100%;">
-                                <input type="text" id="passwordCheck" class="login-input" placeholder="비밀번호를 입력하세요"
-                                    readonly onclick="toggleKeypad('passwordCheck')">
-                                <button type="button" class="keypad-btn" tabindex="-1"
-                                    onclick="toggleKeypad('passwordCheck')">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path
-                                            d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
-                                    </svg>
-                                </button>
+                        <div class="field-group">
+                            <label class="field-label">비밀번호</label>
+                            <div class="input-box-group">
+                                <div class="password-wrap">
+                                    <input type="text" id="passwordCheck" class="login-input" placeholder="비밀번호를 입력하세요"
+                                        readonly onclick="toggleKeypad('passwordCheck')">
+                                    <button type="button" class="keypad-btn" tabindex="-1"
+                                        onclick="toggleKeypad('passwordCheck')">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path
+                                                d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
-                        <button class="btn-full-width btn-primary-custom" onclick="alert('확인되었습니다.')">확인</button>
-                        <button class="btn-full-width btn-outline-custom" onclick="history.back()">취소</button>
+                        <button class="btn-main-login" onclick="alert('확인되었습니다.')">확인</button>
+                        <button class="btn-back-cancel" onclick="history.back()">취소</button>
                     </div>
                 </div>
             </div>
