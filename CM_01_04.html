@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 비밀번호 확인</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guide.css">
+    <link rel='stylesheet' href='css/auth.css'>
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <script src='js/auth.js'></script>
+    <style>
+        .password-confirm-container {
+            max-width: 400px;
+            margin: 120px auto;
+            text-align: center;
+        }
+
+        .password-confirm-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 12px;
+        }
+
+        .password-confirm-desc {
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 40px;
+        }
+
+        .password-input-area {
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .btn-full-width {
+            width: 100%;
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary-custom {
+            background-color: #00A0DC;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #0089bd;
+        }
+
+        .btn-outline-custom {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <!-- db-page-header Removed -->
+
+                <div class="db-content-card" style="min-height: 600px;">
+                    <div class="password-confirm-container">
+                        <h2 class="password-confirm-title">비밀번호 확인</h2>
+                        <p class="password-confirm-desc">정보 보호를 위해 비밀번호 확인이 필요합니다.</p>
+
+                        <div class="password-input-area">
+                            <label class="input-label"
+                                style="font-weight: 700; color: #7A8E96; display: block; margin-bottom: 8px;">비밀번호</label>
+                            <div class="password-wrap" style="width: 100%;">
+                                <input type="text" id="passwordCheck" class="login-input" placeholder="비밀번호를 입력하세요"
+                                    readonly onclick="toggleKeypad('passwordCheck')">
+                                <button type="button" class="keypad-btn" tabindex="-1"
+                                    onclick="toggleKeypad('passwordCheck')">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h1m4 0h1M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button class="btn-full-width btn-primary-custom" onclick="alert('확인되었습니다.')">확인</button>
+                        <button class="btn-full-width btn-outline-custom" onclick="history.back()">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <div class="db-overlay-mask" id="dbOverlay"></div>
+
+    <!-- Security Keypad Container -->
+    <div id="securityKeypad" class="security-keypad">
+        <div class="keypad-header">
+            <span>보안 키보드</span>
+            <button type="button" class="close-keypad" onclick="toggleKeypad(null)">&times;</button>
+        </div>
+        <div id="keypadContainer" class="keypad-grid"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+</body>
+
+</html>
