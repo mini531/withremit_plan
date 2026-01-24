@@ -1303,6 +1303,13 @@
         document.getElementById('accountSelectionModal').classList.remove('active');
     }
 
+    // 모달 외부 클릭 시 닫기
+    document.getElementById('accountSelectionModal').addEventListener('click', function (e) {
+        if (e.target === this) {
+            closeAccountModal();
+        }
+    });
+
     // 계좌 선택 처리 (자동 입력)
     function selectAccount(item) {
         // 1. 국가 설정 및 이벤트 트리거

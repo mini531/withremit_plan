@@ -9778,6 +9778,11 @@ textarea.error:focus {
   width: 180px;
 }
 
+/* Hide card list by default, show only on mobile */
+.account-card-list {
+  display: none;
+}
+
 /* Account Modal Responsive Styles */
 @media (max-width: 1024px) {
   .account-modal-content {
@@ -9898,7 +9903,5 @@ textarea.error:focus {
     flex: 1;
   }
 }
-/* Hide card list by default, show only on mobile */
-.account-card-list {
-  display: none;
-}
+
+
