@@ -9993,51 +9993,26 @@ textarea.error:focus {
   border: none;
 }
 
-/* HI_02_01: 거래 내역 테이블 스타일 */
-.db-history-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-.db-history-table th,
-.db-history-table td {
-  padding: 12px 10px;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
-  vertical-align: middle;
-}
-
-.db-history-table th {
-  background-color: #f8f9fa;
-  color: #666;
-  font-weight: 600;
-  text-align: center;
-}
-
-.db-history-table td {
-  color: #333;
-  text-align: center;
-}
-
-.db-history-table td.text-right {
+/* HI_02_01: 거래 내역 테이블 스타일 (History Mode) */
+/* 기본 스타일은 db-notice-table 상속 */
+.db-notice-table.history-mode td.text-right {
   text-align: right;
 }
 
 /* 768px 이하: 카드형 (1단 구성 - 라벨 좌, 값 우) */
 @media (max-width: 768px) {
-  .db-history-table thead {
+  .db-notice-table.history-mode thead {
     display: none;
   }
 
-  .db-history-table,
-  .db-history-table tbody,
-  .db-history-table tr {
+  .db-notice-table.history-mode,
+  .db-notice-table.history-mode tbody,
+  .db-notice-table.history-mode tr {
     display: block;
     width: 100%;
   }
 
-  .db-history-table tr {
+  .db-notice-table.history-mode tr {
     margin-bottom: 12px;
     background: #fff;
     border: 1px solid #e2e8f0;
@@ -10048,10 +10023,9 @@ textarea.error:focus {
     flex-direction: column;
   }
 
-  .db-history-table td {
+  .db-notice-table.history-mode td {
     display: flex;
     flex-direction: row;
-    /* 라벨 좌, 값 우 */
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -10062,11 +10036,11 @@ textarea.error:focus {
     text-align: right;
   }
 
-  .db-history-table td:last-child {
+  .db-notice-table.history-mode td:last-child {
     border-bottom: none;
   }
 
-  .db-history-table td::before {
+  .db-notice-table.history-mode td::before {
     content: attr(data-label);
     font-weight: 600;
     color: #64748b;
@@ -10075,16 +10049,16 @@ textarea.error:focus {
     margin-bottom: 0;
   }
 
-  .db-history-table td.text-right {
+  .db-notice-table.history-mode td.text-right {
     text-align: right;
   }
 
-  .db-history-table .td-num {
+  .db-notice-table.history-mode .td-num {
     display: none !important;
   }
 
-  .db-history-table td[data-label="비고"],
-  .db-history-table td[data-label="거래일시"] {
+  .db-notice-table.history-mode td[data-label="비고"],
+  .db-notice-table.history-mode td[data-label="거래일시"] {
     width: 100%;
   }
 }
