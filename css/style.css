@@ -7316,6 +7316,7 @@ textarea.error:focus {
     border: 1px solid var(--border-color);
   }
 
+
   .db-notice-table th,
   .db-notice-table td {
     padding: 10px 8px;
@@ -7324,15 +7325,16 @@ textarea.error:focus {
 
   .db-notice-table .th-num,
   .db-notice-table .td-num {
-    display: none;
+    display: table-cell !important;
   }
+
+
 
   .db-notice-table .th-views,
   .db-notice-table .td-views {
     display: none;
   }
 
-  .db-notice-table .col-num,
   .db-notice-table .col-views {
     display: none;
   }
@@ -9999,67 +10001,112 @@ textarea.error:focus {
   text-align: right;
 }
 
-/* 768px 이하: 카드형 (1단 구성 - 라벨 좌, 값 우) */
+/* 768px 이하: 카드형 (HI_01_01 스타일 재구성) */
 @media (max-width: 768px) {
   .db-notice-table.history-mode thead {
     display: none;
   }
 
   .db-notice-table.history-mode,
-  .db-notice-table.history-mode tbody,
-  .db-notice-table.history-mode tr {
+  .db-notice-table.history-mode tbody {
     display: block;
     width: 100%;
+    border: none;
+    background: transparent;
+    border-collapse: separate;
   }
 
-  .db-notice-table.history-mode tr {
-    margin-bottom: 12px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 0 16px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  .db-notice-table.history-mode tbody {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    /* 카드 간격 좀 더 넓게 */
   }
 
-  .db-notice-table.history-mode td {
+  /* Card Container */
+  .db-notice-table.history-mode tr {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    /* remit-card border style */
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* remit-card shadow */
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Specific override for first-child radius issue */
+  .db-content .db-notice-table.history-mode tbody tr:first-child {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  /* Header Area: Date Only */
+  /* 번호 (No) - Hide again as per user feedback implications */
+  .db-notice-table.history-mode td:nth-child(1) {
+    display: none !important;
+  }
+
+  /* 거래일시 (Date) */
+  .db-notice-table.history-mode td:nth-child(2) {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    /* Left align date */
+    grid-column: 1 / -1;
+    /* Full width */
+    grid-row: 1;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    font-weight: 700;
+    border-bottom: 1px solid #f1f5f9;
+    background-color: #fff;
+  }
+
+  .db-notice-table.history-mode td:nth-child(2)::before {
+    content: none !important;
+    /* Hide data-label for date as requested */
+  }
+
+  /* Body Area: Details */
+  .db-notice-table.history-mode td:nth-child(n+3) {
+    grid-column: 1 / -1;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    padding: 8px 20px;
     border: none;
-    border-bottom: 1px dashed #f1f5f9;
-    background-color: transparent;
-    padding: 12px 0;
-    text-align: right;
+    font-size: 0.95rem;
+    color: #333;
+    background-color: #fff;
+  }
+
+  .db-notice-table.history-mode td:nth-child(3) {
+    padding-top: 16px;
+    /* First item padding */
   }
 
   .db-notice-table.history-mode td:last-child {
-    border-bottom: none;
+    padding-bottom: 20px;
+    /* Last item padding */
   }
 
-  .db-notice-table.history-mode td::before {
+  /* Label Styling */
+  .db-notice-table.history-mode td:nth-child(n+3)::before {
     content: attr(data-label);
-    font-weight: 600;
     color: #64748b;
-    font-size: 13px;
+    font-size: 0.85rem;
+    font-weight: 500;
     margin-right: auto;
-    margin-bottom: 0;
   }
 
   .db-notice-table.history-mode td.text-right {
     text-align: right;
-  }
-
-  .db-notice-table.history-mode .td-num {
-    display: none !important;
-  }
-
-  .db-notice-table.history-mode td[data-label="비고"],
-  .db-notice-table.history-mode td[data-label="거래일시"] {
-    width: 100%;
   }
 }
 
@@ -10348,4 +10395,51 @@ textarea.error:focus {
 .db-btn-outline:hover {
   background-color: #f9fafb;
   border-color: #9ca3af;
+}
+
+/* Refund Modal Specific Styles - Moving inline styles to CSS */
+#refundAccountModal .db-modal-content {
+  max-width: 600px;
+}
+
+#refundAccountModal .guide-tabs {
+  margin-bottom: 20px;
+}
+
+#refundAccountModal .db-modal-desc {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #666;
+}
+
+#refundAccountModal .db-table-responsive-wrapper {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#refundAccountModal #tab-direct {
+  padding: 10px 0;
+}
+
+#refundAccountModal .field-item {
+  margin-bottom: 20px;
+}
+
+/* FINAL OVERRIDE FOR MOBILE CARD RADIUS */
+@media (max-width: 768px) {
+  .db-content .db-notice-table.history-mode tbody tr:first-child {
+    border-radius: 8px !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    overflow: hidden !important;
+  }
+}
+
+
+#refundAccountModal .db-select {
+  padding-right: 30px;
+}
+
+#refundAccountModal .db-modal-footer .btn {
+  min-width: 80px;
 }
