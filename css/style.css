@@ -10123,3 +10123,70 @@ textarea.error:focus {
     text-align: right;
   }
 }
+
+/* Balance Round Box */
+.remit-balance-round-box {
+  background-color: #f1f8ff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #dbeafe;
+}
+
+.remit-balance-round-box .balance-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.remit-balance-round-box .label {
+  font-size: 15px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.remit-balance-round-box .value {
+  font-size: 20px;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.remit-balance-round-box .btn-refund-account {
+  background-color: #ffffff;
+  border: 1px solid #c7d2fe;
+  color: #3b82f6;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.remit-balance-round-box .btn-refund-account:hover {
+  background-color: #eff6ff;
+  border-color: #3b82f6;
+}
+
+@media (max-width: 480px) {
+  .remit-balance-round-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .remit-balance-round-box .btn-refund-account {
+    width: 100%;
+    text-align: center;
+  }
+
+  .remit-balance-round-box .balance-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
