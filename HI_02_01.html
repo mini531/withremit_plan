@@ -306,19 +306,34 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="center"><input type="radio" name="refundAccount" checked></td>
+                                    <td class="center">
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="refundAccount" checked>
+                                            <span class="custom-radio"></span>
+                                        </label>
+                                    </td>
                                     <td>기업은행 (IBK)</td>
                                     <td>064-146189-04-024</td>
                                     <td>홍길동</td>
                                 </tr>
                                 <tr>
-                                    <td class="center"><input type="radio" name="refundAccount"></td>
+                                    <td class="center">
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="refundAccount">
+                                            <span class="custom-radio"></span>
+                                        </label>
+                                    </td>
                                     <td>농협은행 (NH)</td>
                                     <td>301-0313-2544-01</td>
                                     <td>홍길동</td>
                                 </tr>
                                 <tr>
-                                    <td class="center"><input type="radio" name="refundAccount"></td>
+                                    <td class="center">
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="refundAccount">
+                                            <span class="custom-radio"></span>
+                                        </label>
+                                    </td>
                                     <td>신한은행</td>
                                     <td>110-456-789012</td>
                                     <td>홍길동</td>
@@ -339,6 +354,10 @@
                             <option>신한은행</option>
                             <option>우리은행</option>
                         </select>
+                    </div>
+                    <div class="db-form-group">
+                        <label class="db-label">지점명</label>
+                        <input type="text" class="db-input" placeholder="지점명 입력">
                     </div>
                     <div class="db-form-group">
                         <label class="db-label">계좌번호</label>
@@ -403,6 +422,19 @@
                     btn.classList.add('active');
                     const targetId = 'tab-' + btn.getAttribute('data-tab');
                     document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // Table Row Click Selection
+            const tableRows = document.querySelectorAll('.db-basic-table tbody tr');
+            tableRows.forEach(tr => {
+                tr.style.cursor = 'pointer'; // Make it look clickable
+                tr.addEventListener('click', (e) => {
+                    // Prevent double triggering if clicking directly on radio or label
+                    if (e.target.closest('.radio-wrap') || e.target.tagName === 'INPUT') return;
+
+                    const radio = tr.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = true;
                 });
             });
         });
