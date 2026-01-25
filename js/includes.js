@@ -88,6 +88,14 @@ function loadIncludes() {
                     }
                 }
 
+                // 정기 해외 송금 (Recurring Remittance)
+                if (['RM_02_01.html', 'RM_02_02.html', 'RM_02_03.html'].includes(currentPage)) {
+                    const navRecurringRemittance = document.getElementById('navRecurringRemittance');
+                    if (navRecurringRemittance) {
+                        navRecurringRemittance.classList.add('active');
+                    }
+                }
+
                 // 송금 내역 (History)
                 if (currentPage === 'HI_01_01.html') {
                     const navRemittanceList = document.getElementById('navRemittanceList');
