@@ -825,11 +825,14 @@
                 document.getElementById('ocrImagePreview').style.display = 'block';
                 document.getElementById('ocrUploadArea').style.display = 'none';
 
+                // OCR 기능 대상인지 확인
+                const isOCRTarget = (currentDocType === 'domestic-front' || currentDocType === 'passport-front');
+
                 if (isOCRTarget) {
-                    // OCR 시뮬레이션 (1초 후 결과 표시)
+                    // OCR 시뮬레이션 (빠른 응답을 위해 300ms로 단축)
                     setTimeout(function () {
                         simulateOCR();
-                    }, 1000);
+                    }, 300);
                 } else {
                     // 단순 이미지 업로드인 경우
                     document.getElementById('previewText').textContent = '이미지가 선택되었습니다. 확인 버튼을 눌러주세요.';
