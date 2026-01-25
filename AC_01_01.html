@@ -14,46 +14,8 @@
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
+    <link rel='stylesheet' href='css/account.css'>
     <script src='js/auth.js'></script>
-    <style>
-        /* Status Styles */
-        .status-verified {
-            color: #059669;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .status-unverified {
-            color: #dc2626;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        /* Delete Button */
-        .btn-sh-del {
-            background: #fef2f2;
-            color: #ef4444;
-            border: 1px solid #fca5a5;
-            padding: 6px 16px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .btn-sh-del:hover {
-            background: #fee2e2;
-        }
-
-        /* Hide delete label on mobile */
-        @media (max-width: 768px) {
-            .db-notice-table.history-mode td:last-child::before {
-                display: none !important;
-            }
-        }
-    </style>
 </head>
 
 <body class="db-body">
@@ -357,7 +319,6 @@
 
             tbody.insertBefore(newRow, tbody.firstChild);
             closeAccountModal();
-            document.getElementById('successModal').classList.add('active');
         }
 
         function removeRow(button) {
