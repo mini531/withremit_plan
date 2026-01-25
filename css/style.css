@@ -9992,3 +9992,134 @@ textarea.error:focus {
   background: transparent;
   border: none;
 }
+
+/* HI_02_01: 거래 내역 테이블 스타일 */
+.db-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.db-history-table th,
+.db-history-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.db-history-table th {
+  background-color: #f8f9fa;
+  color: #666;
+  font-weight: 600;
+  text-align: center;
+}
+
+.db-history-table td {
+  color: #333;
+  text-align: center;
+}
+
+.db-history-table td.text-right {
+  text-align: right;
+}
+
+/* 768px 이하: 카드형 (2단 구성 - 라벨 위, 값 아래) */
+@media (max-width: 768px) {
+  .db-history-table thead {
+    display: none;
+  }
+
+  .db-history-table,
+  .db-history-table tbody,
+  .db-history-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .db-history-table tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .db-history-table td {
+    display: flex;
+    flex-direction: column;
+    /* 라벨 위, 값 아래 */
+    align-items: flex-start;
+    width: calc(50% - 4px);
+    /* 2단 구성 */
+    border: none;
+    background-color: #f8fafc;
+    border-radius: 6px;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .db-history-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .db-history-table td.text-right {
+    text-align: left;
+  }
+
+  .db-history-table .td-num {
+    display: none !important;
+  }
+
+  /* 번호 숨김 */
+
+  /* 비고와 거래일시는 1단(100%) 차지 */
+  .db-history-table td[data-label="비고"],
+  .db-history-table td[data-label="거래일시"] {
+    width: 100%;
+  }
+}
+
+/* 480px 이하: 1단 구성 (라벨 좌, 값 우) */
+@media (max-width: 480px) {
+  .db-history-table tr {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 12px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .db-history-table td {
+    width: 100%;
+    flex-direction: row;
+    /* 라벨 좌, 값 우 */
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px dashed #f1f5f9;
+    padding: 12px 0;
+  }
+
+  .db-history-table td:last-child {
+    border-bottom: none;
+  }
+
+  .db-history-table td::before {
+    margin-bottom: 0;
+    font-size: 13px;
+  }
+
+  .db-history-table td.text-right {
+    text-align: right;
+  }
+}
