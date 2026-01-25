@@ -237,7 +237,7 @@
                                 <span class="badge-required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
-                                onclick="openOCRModal('domestic-front')">
+                                onclick="openOCRModal('domestic-front', '본인확인서류 앞면 업로드')">
                                 <span class="file-name-display" id="domestic-front-display">파일을 선택해 주세요</span>
                                 <span class="btn-file-trigger">찾아보기</span>
                             </button>
@@ -248,7 +248,7 @@
                                 <span class="badge-required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
-                                onclick="openOCRModal('domestic-back')">
+                                onclick="openOCRModal('domestic-back', '본인확인서류 뒷면 업로드')">
                                 <span class="file-name-display" id="domestic-back-display">파일을 선택해 주세요</span>
                                 <span class="btn-file-trigger">찾아보기</span>
                             </button>
@@ -267,7 +267,7 @@
                                 <span class="badge-required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
-                                onclick="openOCRModal('passport-front')">
+                                onclick="openOCRModal('passport-front', '여권 앞면 업로드')">
                                 <span class="file-name-display" id="passport-front-display">파일을 선택해 주세요</span>
                                 <span class="btn-file-trigger">찾아보기</span>
                             </button>
@@ -278,7 +278,7 @@
                                 <span class="badge-required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
-                                onclick="openOCRModal('passport-back')">
+                                onclick="openOCRModal('passport-back', '여권 뒷면 업로드')">
                                 <span class="file-name-display" id="passport-back-display">파일을 선택해 주세요</span>
                                 <span class="btn-file-trigger">찾아보기</span>
                             </button>
@@ -291,7 +291,7 @@
                                 <span class="badge-required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
-                                onclick="openOCRModal('alien-front')">
+                                onclick="openOCRModal('alien-front', '외국인등록증 앞면 업로드')">
                                 <span class="file-name-display" id="alien-front-display">파일을 선택해 주세요</span>
                                 <span class="btn-file-trigger">찾아보기</span>
                             </button>
@@ -302,7 +302,7 @@
                                 <span class="badge-required">필수</span>
                             </label>
                             <button type="button" class="file-upload-wrap upload-btn"
-                                onclick="openOCRModal('alien-back')">
+                                onclick="openOCRModal('alien-back', '외국인등록증 뒷면 업로드')">
                                 <span class="file-name-display" id="alien-back-display">파일을 선택해 주세요</span>
                                 <span class="btn-file-trigger">찾아보기</span>
                             </button>
@@ -556,7 +556,7 @@
         <div id="ocrModal" class="remit-modal">
             <div class="remit-modal-content">
                 <div class="remit-modal-header">
-                    <h2 class="remit-modal-title">신분증 업로드</h2>
+                    <h2 class="remit-modal-title" id="ocrModalTitle">신분증 업로드</h2>
                     <button type="button" class="remit-modal-close" onclick="closeOCRModal()">&times;</button>
                 </div>
 
@@ -697,6 +697,7 @@
     <script>
         // 전역 변수
         let currentDocType = '';
+        let currentFileName = '';
 
         // 1. 내/외국인 선택 이벤트
         document.addEventListener('DOMContentLoaded', function () {
@@ -707,18 +708,34 @@
                 // 폼 초기화
                 resetForm();
 
+                const natSelect = document.getElementById('nationalitySelect');
+                const krOption = natSelect.querySelector('option[value="KR"]');
+
                 if (domesticRadio.checked) {
                     document.getElementById('domesticDocSection').style.display = 'block';
                     document.getElementById('foreignDocSection').style.display = 'none';
                     document.getElementById('personalInfoSection').style.display = 'block';
                     document.getElementById('bankInfoSection').style.display = 'block';
                     document.getElementById('remittancePurposeSection').style.display = 'block';
+
+                    // 내국인: 대한민국 자동 선택 및 비활성화
+                    if (krOption) krOption.style.display = 'block'; // 혹시 숨겨져 있었다면 보임
+                    natSelect.value = 'KR';
+                    natSelect.disabled = true;
+                    // 비활성화 되면 폼 전송 시 값이 안 넘어갈 수 있으므로 hidden input 고려 필요하지만
+                    // 여기서는 UI 로직만 구현. 필요 시 disabled 풀어주는 로직이나 hidden input 추가.
+                    // (일단 UI 요구사항에 집중)
                 } else if (foreignRadio.checked) {
                     document.getElementById('domesticDocSection').style.display = 'none';
                     document.getElementById('foreignDocSection').style.display = 'block';
                     document.getElementById('personalInfoSection').style.display = 'block';
                     document.getElementById('bankInfoSection').style.display = 'block';
                     document.getElementById('remittancePurposeSection').style.display = 'block';
+
+                    // 외국인: 대한민국 선택 불가 (숨김 또는 제거)
+                    natSelect.disabled = false;
+                    natSelect.value = ''; // 초기화
+                    if (krOption) krOption.style.display = 'none';
                 }
             }
 
@@ -758,8 +775,11 @@
         });
 
         // 2. OCR 모달 열기
-        function openOCRModal(docType) {
+        function openOCRModal(docType, title) {
             currentDocType = docType;
+            if (title) {
+                document.getElementById('ocrModalTitle').textContent = title;
+            }
             const modal = document.getElementById('ocrModal');
             modal.classList.add('show');
             resetOCRModal();
@@ -771,7 +791,10 @@
             document.getElementById('ocrResultSection').style.display = 'none';
             document.getElementById('ocrUploadArea').style.display = 'block';
             document.getElementById('ocrFileInput').value = '';
+            document.getElementById('ocrUploadArea').style.display = 'block';
+            document.getElementById('ocrFileInput').value = '';
             document.getElementById('previewText').textContent = '이미지 확인 중...';
+            currentFileName = '';
         }
 
         // 3. OCR 모달 닫기
@@ -818,6 +841,7 @@
 
         // 파일 처리 공통 함수
         function processFile(file) {
+            currentFileName = file.name; // 파일명 저장
             // 이미지 미리보기
             const reader = new FileReader();
             reader.onload = function (e) {
@@ -929,8 +953,10 @@
             // 파일명 표시 업데이트
             const displayId = currentDocType + '-display';
             const displayElement = document.getElementById(displayId);
+
             if (displayElement) {
-                displayElement.textContent = '업로드 완료';
+                // 실제 파일 처리 로직이 있다면 여기서 수행 (예: FormData에 추가)
+                displayElement.textContent = currentFileName || '업로드 완료';
                 displayElement.style.color = '#00A0DC';
                 displayElement.style.fontWeight = 'bold';
             }
