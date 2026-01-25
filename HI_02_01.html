@@ -30,7 +30,7 @@
                             <span class="label">송금 가능 금액</span>
                             <span class="value">1,025,000원</span>
                         </div>
-                        <button type="button" class="btn-refund-account">환급 계좌 등록</button>
+                        <button type="button" class="btn-refund-account" onclick="openRefundModal()">환급 계좌 등록</button>
                     </div>
 
                     <!-- Mobile Search Filter Toggle -->
@@ -265,6 +265,98 @@
     <div id="footerContainer"></div>
     <div class="db-overlay" id="dbOverlay"></div>
 
+    <!-- Refund Account Registration Modal -->
+    <div class="db-modal" id="refundAccountModal">
+        <div class="db-modal-content" style="max-width: 600px;">
+            <div class="db-modal-header">
+                <h3>환급 계좌 등록</h3>
+                <button class="db-modal-close" onclick="closeRefundModal()">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="db-modal-body">
+                <!-- Tabs -->
+                <div class="db-tabs">
+                    <button class="db-tab-btn active" data-tab="agreed">출금 동의 계좌</button>
+                    <button class="db-tab-btn" data-tab="direct">직접 입력</button>
+                </div>
+
+                <!-- Tab Content: Withdrawal Agreed Accounts -->
+                <div class="db-tab-content active" id="tab-agreed">
+                    <p class="db-modal-desc" style="margin-bottom: 12px; font-size: 14px; color: #666;">출금 동의한 계좌 목록에서
+                        선택해 주세요.</p>
+                    <div class="db-table-responsive-wrapper" style="max-height: 300px; overflow-y: auto;">
+                        <table class="db-basic-table">
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>선택</th>
+                                    <th>은행</th>
+                                    <th>계좌 번호</th>
+                                    <th>계좌 명의</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="center"><input type="radio" name="refundAccount" checked></td>
+                                    <td>기업은행 (IBK)</td>
+                                    <td>064-146189-04-024</td>
+                                    <td>홍길동</td>
+                                </tr>
+                                <tr>
+                                    <td class="center"><input type="radio" name="refundAccount"></td>
+                                    <td>농협은행 (NH)</td>
+                                    <td>301-0313-2544-01</td>
+                                    <td>홍길동</td>
+                                </tr>
+                                <tr>
+                                    <td class="center"><input type="radio" name="refundAccount"></td>
+                                    <td>신한은행</td>
+                                    <td>110-456-789012</td>
+                                    <td>홍길동</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Direct Input -->
+                <div class="db-tab-content" id="tab-direct">
+                    <div class="db-form-group">
+                        <label class="db-label">은행</label>
+                        <select class="db-select">
+                            <option>은행 선택</option>
+                            <option>기업은행</option>
+                            <option>국민은행</option>
+                            <option>신한은행</option>
+                            <option>우리은행</option>
+                        </select>
+                    </div>
+                    <div class="db-form-group">
+                        <label class="db-label">계좌번호</label>
+                        <input type="text" class="db-input" placeholder="계좌번호 입력 (- 없이)">
+                    </div>
+                    <div class="db-form-group">
+                        <label class="db-label">예금주</label>
+                        <input type="text" class="db-input" placeholder="예금주 입력">
+                    </div>
+                </div>
+            </div>
+            <div class="db-modal-footer">
+                <button class="db-btn-outline" onclick="closeRefundModal()">취소</button>
+                <button class="db-btn-primary" onclick="closeRefundModal()">확인</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/sidebar.js"></script>
     <script src="js/includes.js"></script>
     <script>
@@ -298,7 +390,32 @@
                     toggleBtn.classList.toggle('active');
                 });
             }
+
+            // Refund Modal Tabs
+            const tabBtns = document.querySelectorAll('.db-tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all btns and contents
+                    document.querySelectorAll('.db-tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.db-tab-content').forEach(c => c.classList.remove('active'));
+
+                    // Activate clicked btn and target content
+                    btn.classList.add('active');
+                    const targetId = 'tab-' + btn.getAttribute('data-tab');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
         });
+
+        // Refund Modal Open/Close
+        function openRefundModal() {
+            document.getElementById('refundAccountModal').classList.add('show');
+            document.getElementById('dbOverlay').classList.add('show');
+        }
+        function closeRefundModal() {
+            document.getElementById('refundAccountModal').classList.remove('show');
+            document.getElementById('dbOverlay').classList.remove('show');
+        }
     </script>
 </body>
 
