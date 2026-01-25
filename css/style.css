@@ -9940,3 +9940,55 @@ textarea.error:focus {
     min-width: 0;
   }
 }
+
+/* RM_02_02 Recurring Remittance Form Styles */
+.field-flex-row {
+  display: flex;
+  gap: 8px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.text-hint {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+
+/* Table Column Width Classes */
+.col-select {
+  width: 50px;
+}
+
+.col-quarter {
+  width: 25%;
+}
+
+.col-40 {
+  width: 40%;
+}
+
+.col-auto {
+  width: auto;
+}
+
+
+/* Read-only field value text style */
+.field-value-text {
+  font-size: 1rem;
+  color: #333;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+}
