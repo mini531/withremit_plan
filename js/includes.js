@@ -112,6 +112,14 @@ function loadIncludes() {
                     }
                 }
 
+                // 수취 내역 (Receive History)
+                if (currentPage === 'HI_03_01.html') {
+                    const navReceiveHistory = document.getElementById('navReceiveHistory');
+                    if (navReceiveHistory) {
+                        navReceiveHistory.classList.add('active');
+                    }
+                }
+
                 // 송금 서비스 안내 (Service Guide)
                 if (currentPage === 'GU_01_01.html') {
                     const navServiceGuide = document.getElementById('navServiceGuide');
