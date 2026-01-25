@@ -94,6 +94,24 @@
             text-align: right;
             /* 모바일 아닌 경우 우측 정렬 유지 */
         }
+
+        /* 모달 상태 아이콘 정렬 */
+        #modalStatus {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: flex-end;
+            /* 우측 정렬 */
+        }
+
+        /* 모달 480px 이하에서 상태 값 정렬 */
+        @media (max-width: 480px) {
+            #modalStatus {
+                width: 100%;
+                justify-content: flex-end;
+                /* 모바일에서도 값은 우측 정렬 */
+            }
+        }
     </style>
     <style>
         /* 추가적인 커스텀 스타일이 필요한 경우에만 작성 */
@@ -191,7 +209,8 @@
             .remit-card-col-bank,
             .remit-card-col-type,
             .remit-card-col-amount,
-            .remit-card-col-cycle {
+            .remit-card-col-cycle,
+            .remit-card-status-wrapper {
                 min-width: auto;
                 flex: none;
                 width: 100%;
@@ -199,6 +218,15 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+            }
+
+            /* 상태 라벨 표시 (모바일) */
+            .remit-card-status-label {
+                display: inline-block !important;
+                color: #888;
+                font-size: 13px;
+                margin-right: 8px;
+                font-weight: 500;
             }
 
             /* Ensure pseudo-elements are removed since we use real labels now */
@@ -618,8 +646,9 @@
                             <span class="remit-card-detail-value">${item.cycle}</span>
                         </div>
 
-                        <!-- Col 5: Status (Right Aligned, No Label) -->
+                        <!-- Col 5: Status (Right Aligned, No Label -> Mobile: Label + Value) -->
                         <div class="remit-card-col remit-card-status-wrapper">
+                            <span class="remit-card-label remit-card-status-label" style="display: none;">상태</span>
                             <span class="remit-status ${statusClass}">
                                 ${statusSvg}
                                 ${item.statusText}
@@ -743,7 +772,9 @@
                 document.getElementById('modalWithdrawalAccount').textContent =
                     `${wa.bankName} / ${wa.accountNumber} / ${wa.holderName}`;
 
-                document.getElementById('modalStatus').textContent = data.statusText;
+                // 상태 아이콘과 텍스트 함께 표시
+                const statusIcon = getStatusSVG(data.status);
+                document.getElementById('modalStatus').innerHTML = `${statusIcon} <span>${data.statusText}</span>`;
 
                 // Status coloring in modal
                 const statusSpan = document.getElementById('modalStatus');
@@ -779,7 +810,8 @@
                 renderCards();
 
                 // Update Detail Modal View if open
-                document.getElementById('modalStatus').textContent = '정지';
+                const statusIcon = getStatusSVG('paused');
+                document.getElementById('modalStatus').innerHTML = `${statusIcon} <span>정지</span>`;
                 document.getElementById('modalStatus').style.color = '#6b7280';
             }
 
