@@ -120,6 +120,14 @@ function loadIncludes() {
                     }
                 }
 
+                // 개인 계좌 (Personal Account)
+                if (currentPage === 'AC_01_01.html') {
+                    const navPersonalAccount = document.getElementById('navPersonalAccount');
+                    if (navPersonalAccount) {
+                        navPersonalAccount.classList.add('active');
+                    }
+                }
+
                 // 송금 서비스 안내 (Service Guide)
                 if (currentPage === 'GU_01_01.html') {
                     const navServiceGuide = document.getElementById('navServiceGuide');
