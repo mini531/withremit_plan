@@ -897,7 +897,33 @@
             document.getElementById('ocrFirstNameEn').value = dummyData.firstNameEn;
             document.getElementById('ocrLastNameEn').value = dummyData.lastNameEn;
             document.getElementById('ocrBirthDate').value = dummyData.birthDate;
-            document.getElementById('ocrNationality').value = dummyData.nationality;
+            document.getElementById('ocrBirthDate').value = dummyData.birthDate;
+
+            // 국적 선택 로직 적용 (메인 폼과 동일하게)
+            const ocrNatSelect = document.getElementById('ocrNationality');
+            const ocrKrOption = ocrNatSelect.querySelector('option[value="KR"]');
+
+            // 현재 내/외국인 상태 확인
+            const isDomestic = document.getElementById('domesticRadio').checked;
+
+            if (isDomestic) {
+                // 내국인: 대한민국 고정 및 비활성화
+                if (ocrKrOption) ocrKrOption.style.display = 'block';
+                ocrNatSelect.value = 'KR';
+                ocrNatSelect.disabled = true;
+            } else {
+                // 외국인: 대한민국 제외 (숨김) 및 활성화
+                ocrNatSelect.disabled = false;
+                if (ocrKrOption) ocrKrOption.style.display = 'none';
+
+                // OCR 결과가 KR인 경우 (더미데이터 상의 오류 방지) 다른 값으로 변경하거나 안내
+                if (dummyData.nationality === 'KR') {
+                    // 외국인인데 KR로 인식된 경우 (시뮬레이션 데이터 오류 방지용)
+                    ocrNatSelect.value = '';
+                } else {
+                    ocrNatSelect.value = dummyData.nationality;
+                }
+            }
 
             if (dummyData.gender === 'male') {
                 document.getElementById('ocrGenderMale').checked = true;
