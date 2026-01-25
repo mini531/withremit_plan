@@ -10024,7 +10024,7 @@ textarea.error:focus {
   text-align: right;
 }
 
-/* 768px 이하: 카드형 (2단 구성 - 라벨 위, 값 아래) */
+/* 768px 이하: 카드형 (1단 구성 - 라벨 좌, 값 우) */
 @media (max-width: 768px) {
   .db-history-table thead {
     display: none;
@@ -10038,76 +10038,28 @@ textarea.error:focus {
   }
 
   .db-history-table tr {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
     margin-bottom: 12px;
     background: #fff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding: 12px;
+    padding: 0 16px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
   }
 
   .db-history-table td {
     display: flex;
-    flex-direction: column;
-    /* 라벨 위, 값 아래 */
-    align-items: flex-start;
-    width: calc(50% - 4px);
-    /* 2단 구성 */
-    border: none;
-    background-color: #f8fafc;
-    border-radius: 6px;
-    padding: 10px;
-    text-align: left;
-  }
-
-  .db-history-table td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #64748b;
-    font-size: 12px;
-    margin-bottom: 4px;
-  }
-
-  .db-history-table td.text-right {
-    text-align: left;
-  }
-
-  .db-history-table .td-num {
-    display: none !important;
-  }
-
-  /* 번호 숨김 */
-
-  /* 비고와 거래일시는 1단(100%) 차지 */
-  .db-history-table td[data-label="비고"],
-  .db-history-table td[data-label="거래일시"] {
-    width: 100%;
-  }
-}
-
-/* 480px 이하: 1단 구성 (라벨 좌, 값 우) */
-@media (max-width: 480px) {
-  .db-history-table tr {
-    flex-direction: column;
-    gap: 0;
-    padding: 0 12px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .db-history-table td {
-    width: 100%;
     flex-direction: row;
     /* 라벨 좌, 값 우 */
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
-    border-radius: 0;
+    width: 100%;
+    border: none;
     border-bottom: 1px dashed #f1f5f9;
+    background-color: transparent;
     padding: 12px 0;
+    text-align: right;
   }
 
   .db-history-table td:last-child {
@@ -10115,12 +10067,25 @@ textarea.error:focus {
   }
 
   .db-history-table td::before {
-    margin-bottom: 0;
+    content: attr(data-label);
+    font-weight: 600;
+    color: #64748b;
     font-size: 13px;
+    margin-right: auto;
+    margin-bottom: 0;
   }
 
   .db-history-table td.text-right {
     text-align: right;
+  }
+
+  .db-history-table .td-num {
+    display: none !important;
+  }
+
+  .db-history-table td[data-label="비고"],
+  .db-history-table td[data-label="거래일시"] {
+    width: 100%;
   }
 }
 
@@ -10128,8 +10093,8 @@ textarea.error:focus {
 .remit-balance-round-box {
   background-color: #f1f8ff;
   border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 24px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
