@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>withremit - 회사 소개</title>
+    <title>withremit - ?뚯궗 ?뚭컻</title>
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
@@ -17,331 +17,6 @@
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
     <link rel="stylesheet" href="css/utility.css">
-    <style>
-        :root {
-            --company-gradient: linear-gradient(135deg, #00A0DC 0%, #2563eb 100%);
-            --glass-bg: rgba(255, 255, 255, 0.8);
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .company-hero {
-            position: relative;
-            background: var(--company-gradient);
-            border-radius: 24px;
-            padding: 80px 40px;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 50px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 160, 220, 0.2);
-        }
-
-        .company-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 50%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(30deg);
-            pointer-events: none;
-        }
-
-        .hero-slogan {
-            font-size: 34px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            line-height: 1.3;
-            word-break: keep-all;
-            position: relative;
-            z-index: 1;
-            color: #ffffff;
-        }
-
-        .hero-description {
-            font-size: 19px;
-            opacity: 0.9;
-            line-height: 1.7;
-            max-width: 850px;
-            margin: 0 auto;
-            word-break: keep-all;
-            position: relative;
-            z-index: 1;
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        /* Core Values Section */
-        .section-title-wrap {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            background: #e0f2fe;
-            color: #0369a1;
-            font-size: 13px;
-            font-weight: 700;
-            border-radius: 50px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 60px;
-        }
-
-        .value-card {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid #f1f5f9;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            border-color: #00A0DC;
-            box-shadow: 0 20px 40px rgba(0, 160, 220, 0.1);
-        }
-
-        .value-icon-box {
-            width: 70px;
-            height: 70px;
-            background: #f0f9ff;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: #00A0DC;
-            transition: all 0.3s;
-        }
-
-        .value-card:hover .value-icon-box {
-            background: #00A0DC;
-            color: #fff;
-            transform: scale(1.1);
-        }
-
-        .value-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 12px;
-        }
-
-        .value-text {
-            font-size: 15px;
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Business Summary Section */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
-        .info-item-fancy {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid #f1f5f9;
-            box-shadow: var(--card-shadow);
-        }
-
-        .info-icon-circle {
-            width: 56px;
-            height: 56px;
-            min-width: 56px;
-            background: #f8fafc;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1B5E9E;
-            border: 1px solid #e2e8f0;
-        }
-
-        .info-content-box .label {
-            font-size: 13px;
-            color: #94a3b8;
-            font-weight: 600;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-
-        .info-content-box .value {
-            font-size: 16px;
-            color: #1e293b;
-            font-weight: 600;
-            line-height: 1.5;
-        }
-
-        /* Customer Center Area */
-        .center-card {
-            background: #fff;
-            border-radius: 24px;
-            border: 1px solid #f1f5f9;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 40px;
-        }
-
-        .center-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .location-info .title {
-            font-size: 22px;
-            font-weight: 800;
-            color: #1e293b;
-            margin-bottom: 8px;
-        }
-
-        .location-info .addr {
-            font-size: 15px;
-            color: #64748b;
-            line-height: 1.5;
-        }
-
-        .map-trigger {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: #1B5E9E;
-            color: #fff;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .map-trigger:hover {
-            background: #154A7C;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(27, 94, 158, 0.2);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .contact-box {
-            background: #f8fafc;
-            padding: 30px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            transition: background 0.2s;
-        }
-
-        .contact-box:hover {
-            background: #f1f5f9;
-        }
-
-        .contact-icon-flat {
-            width: 64px;
-            height: 64px;
-            background: #fff;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-icon-flat .lang-code {
-            font-size: 18px;
-            font-weight: 800;
-            color: #1B5E9E;
-        }
-
-        .contact-icon-flat .lang-name {
-            font-size: 10px;
-            color: #94a3b8;
-            font-weight: 700;
-        }
-
-        .contact-details .label {
-            font-size: 13px;
-            color: #64748b;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-
-        .contact-details .phone-num {
-            font-size: 22px;
-            font-weight: 800;
-            color: #1e293b;
-            letter-spacing: -0.5px;
-        }
-
-        @media (max-width: 1024px) {
-            .value-card {
-                padding: 30px 15px;
-            }
-
-            .value-title {
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            /* 992px 이하에서 2열로 변하는 것 제거하고 유지 */
-            /* .value-grid { grid-template-columns: repeat(2, 1fr); } 제거됨 */
-        }
-
-        @media (max-width: 768px) {
-            .hero-slogan {
-                font-size: 26px;
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .value-grid,
-            .info-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .center-card-header {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .map-trigger {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-    </style>
 </head>
 
 <body class="db-body">
@@ -353,26 +28,26 @@
 
             <div class="db-content">
                 <div class="db-page-header">
-                    <h1 class="db-page-title">회사 소개</h1>
+                    <h1 class="db-page-title">?뚯궗 ?뚭컻</h1>
                 </div>
 
                 <div class="db-content-card">
                     <!-- Premium Hero Section -->
                     <div class="company-hero">
                         <h2 class="hero-slogan">
-                            보다 싸고, 보다 빠르고, 보다 안전하게!<br>
-                            보내시는 분의 마음까지 함께 전해 드립니다.
+                            蹂대떎 ?멸퀬, 蹂대떎 鍮좊Ⅴ怨? 蹂대떎 ?덉쟾?섍쾶!<br>
+                            蹂대궡?쒕뒗 遺꾩쓽 留덉쓬源뚯? ?④퍡 ?꾪빐 ?쒕┰?덈떎.
                         </h2>
                         <p class="hero-description">
-                            (주)위드머니는 혁신적인 핀테크 기술과 글로벌 금융 파트너십을 바탕으로,<br>
-                            국경 없는 자유로운 금융 서비스를 실현하며 고객님의 소중한 가치를 전 세계 어디로든 가장 완벽하게 전달합니다.
+                            (二??꾨뱶癒몃땲???곸떊?곸씤 ??뚰겕 湲곗닠怨?湲濡쒕쾶 湲덉쑖 ?뚰듃?덉떗??諛뷀깢?쇰줈,<br>
+                            援?꼍 ?녿뒗 ?먯쑀濡쒖슫 湲덉쑖 ?쒕퉬?ㅻ? ?ㅽ쁽?섎ŉ 怨좉컼?섏쓽 ?뚯쨷??媛移섎? ???멸퀎 ?대뵒濡쒕뱺 媛???꾨꼍?섍쾶 ?꾨떖?⑸땲??
                         </p>
                     </div>
 
                     <!-- Core Values -->
                     <div class="section-title-wrap">
                         <span class="section-tag">Core Values</span>
-                        <h3 class="form-sec-head" style="font-size: 24px; margin: 0;">위드머니가 추구하는 핵심 가치</h3>
+                        <h3 class="form-sec-head" style="font-size: 24px; margin: 0;">?꾨뱶癒몃땲媛 異붽뎄?섎뒗 ?듭떖 媛移?/h3>
                     </div>
 
                     <div class="value-grid">
@@ -384,8 +59,8 @@
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                 </svg>
                             </div>
-                            <h4 class="value-title">고객의 신뢰 (Trust)</h4>
-                            <p class="value-text">기획재정부 정식 등록 업체로서 국가 기관 수준의 보안과 투명성을 보장합니다.</p>
+                            <h4 class="value-title">怨좉컼???좊ː (Trust)</h4>
+                            <p class="value-text">湲고쉷?ъ젙遺 ?뺤떇 ?깅줉 ?낆껜濡쒖꽌 援?? 湲곌? ?섏???蹂댁븞怨??щ챸?깆쓣 蹂댁옣?⑸땲??</p>
                         </div>
                         <div class="value-card">
                             <div class="value-icon-box">
@@ -395,8 +70,8 @@
                                     <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline>
                                 </svg>
                             </div>
-                            <h4 class="value-title">압도적 속도 (Speed)</h4>
-                            <p class="value-text">독자적인 페이먼트 브릿지 기술로 전 세계 어디든 실시간에 가까운 송금을 구현합니다.</p>
+                            <h4 class="value-title">?뺣룄???띾룄 (Speed)</h4>
+                            <p class="value-text">?낆옄?곸씤 ?섏씠癒쇳듃 釉뚮┸吏 湲곗닠濡????멸퀎 ?대뵒???ㅼ떆媛꾩뿉 媛源뚯슫 ?↔툑??援ы쁽?⑸땲??</p>
                         </div>
                         <div class="value-card">
                             <div class="value-icon-box">
@@ -409,8 +84,8 @@
                                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                 </svg>
                             </div>
-                            <h4 class="value-title">동반 성장 (Partnership)</h4>
-                            <p class="value-text">고객은 물론 글로벌 파트너들과 함께 성장하며 더 큰 가치를 창출해 나갑니다.</p>
+                            <h4 class="value-title">?숇컲 ?깆옣 (Partnership)</h4>
+                            <p class="value-text">怨좉컼? 臾쇰줎 湲濡쒕쾶 ?뚰듃?덈뱾怨??④퍡 ?깆옣?섎ŉ ????媛移섎? 李쎌텧???섍컩?덈떎.</p>
                         </div>
                     </div>
 
@@ -432,7 +107,7 @@
                             </div>
                             <div class="info-content-box">
                                 <div class="label">Corporate Identity</div>
-                                <div class="value">(주)위드머니 (WITHMONEY CO., LTD)</div>
+                                <div class="value">(二??꾨뱶癒몃땲 (WITHMONEY CO., LTD)</div>
                             </div>
                         </div>
                         <div class="info-item-fancy">
@@ -448,7 +123,7 @@
                             </div>
                             <div class="info-content-box">
                                 <div class="label">License Number</div>
-                                <div class="value">기획재정부 장관 등록번호 2018-7</div>
+                                <div class="value">湲고쉷?ъ젙遺 ?κ? ?깅줉踰덊샇 2018-7</div>
                             </div>
                         </div>
                         <div class="info-item-fancy">
@@ -480,7 +155,7 @@
                             </div>
                             <div class="info-content-box">
                                 <div class="label">Global Network</div>
-                                <div class="value">일본, 베트남, 필리핀 외 다수 해외 지사</div>
+                                <div class="value">?쇰낯, 踰좏듃?? ?꾨━? ???ㅼ닔 ?댁쇅 吏??/div>
                             </div>
                         </div>
                     </div>
@@ -489,10 +164,10 @@
                     <div class="center-card">
                         <div class="center-card-header">
                             <div class="location-info">
-                                <div class="title">고객센터 및 본사 위치</div>
-                                <div class="addr">서울특별시 중구 장충단로 263, 18층 6호 (을지로6가, 밀리오레상가건물)</div>
+                                <div class="title">怨좉컼?쇳꽣 諛?蹂몄궗 ?꾩튂</div>
+                                <div class="addr">?쒖슱?밸퀎??以묎뎄 ?μ땐?⑤줈 263, 18痢?6??(?꾩?濡?媛, 諛由ъ삤?덉긽媛嫄대Ъ)</div>
                             </div>
-                            <a href="https://map.kakao.com/link/search/서울특별시 중구 장충단로 263" target="_blank"
+                            <a href="https://map.kakao.com/link/search/?쒖슱?밸퀎??以묎뎄 ?μ땐?⑤줈 263" target="_blank"
                                 class="map-trigger">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -501,7 +176,7 @@
                                     <line x1="8" y1="2" x2="8" y2="18"></line>
                                     <line x1="16" y1="6" x2="16" y2="22"></line>
                                 </svg>
-                                실시간 지도 보기
+                                ?ㅼ떆媛?吏??蹂닿린
                             </a>
                         </div>
 
@@ -512,7 +187,7 @@
                                     <span class="lang-name">KOREAN</span>
                                 </div>
                                 <div class="contact-details">
-                                    <div class="label">국내 전용 상담</div>
+                                    <div class="label">援?궡 ?꾩슜 ?곷떞</div>
                                     <div class="phone-num">02-2285-2077</div>
                                 </div>
                             </div>
@@ -522,7 +197,7 @@
                                     <span class="lang-name">JAPANESE</span>
                                 </div>
                                 <div class="contact-details">
-                                    <div class="label">일본어 상담</div>
+                                    <div class="label">?쇰낯???곷떞</div>
                                     <div class="phone-num">070-8785-1799</div>
                                 </div>
                             </div>
