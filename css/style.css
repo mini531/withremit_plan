@@ -10483,8 +10483,9 @@ td.center {
 }
 
 .textarea-inquiry {
-  height: 300px;
-  resize: none;
+  height: 300px !important;
+  min-height: 300px !important;
+  resize: none !important;
 }
 
 .field-flex {
