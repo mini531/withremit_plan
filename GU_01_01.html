@@ -16,6 +16,331 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
+    <style>
+        :root {
+            --company-gradient: linear-gradient(135deg, #00A0DC 0%, #2563eb 100%);
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .guide-hero {
+            position: relative;
+            background: var(--company-gradient);
+            border-radius: 24px;
+            padding: 60px 40px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 160, 220, 0.2);
+        }
+
+        .guide-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 50%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #ffffff;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            opacity: 1;
+        }
+
+        /* Tabs Styling Override for Premium Look */
+        .guide-tab-container {
+            margin-top: 0;
+        }
+
+        .guide-tabs {
+            background: #f8fafc;
+            padding: 6px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            display: flex;
+            gap: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .guide-tab {
+            flex: 1;
+            padding: 14px 20px;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: transparent;
+            border: none;
+        }
+
+        .guide-tab.active {
+            background: #fff;
+            color: #00A0DC;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            font-weight: 700;
+        }
+
+        .guide-tab:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.5);
+            color: #475569;
+        }
+
+        /* Feature Cards (Adapted from Value Cards) */
+        .feature-grid-new {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card-new {
+            background: #fff;
+            padding: 35px;
+            border-radius: 24px;
+            border: 1px solid #f1f5f9;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .feature-card-new:hover {
+            transform: translateY(-8px);
+            border-color: #00A0DC;
+            box-shadow: 0 20px 40px rgba(0, 160, 220, 0.1);
+        }
+
+        .feature-icon-box {
+            width: 60px;
+            height: 60px;
+            background: #f0f9ff;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: #00A0DC;
+            transition: all 0.3s;
+        }
+
+        .feature-card-new:hover .feature-icon-box {
+            background: #00A0DC;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .feature-title-new {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .feature-desc-new {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Country Grid Polish */
+        .guide-countries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .country-card {
+            /* Override existing */
+            background: #fff;
+            border: 1px solid #f1f5f9;
+            box-shadow: var(--card-shadow);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.2s;
+        }
+
+        .country-card:hover {
+            transform: translateY(-4px);
+            border-color: #00A0DC;
+        }
+
+        .country-flag {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #f1f5f9;
+        }
+
+        .country-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .country-info span {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Content Box for Sections */
+        .content-box-premium {
+            background: #fff;
+            border-radius: 24px;
+            border: 1px solid #f1f5f9;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Centered */
+            gap: 12px;
+        }
+
+        .section-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+            text-align: center;
+            /* Centered */
+        }
+
+        .section-icon {
+            color: #00A0DC;
+        }
+
+        /* Table Premium */
+        .premium-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .premium-table th {
+            background: #f8fafc;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #475569;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .premium-table td {
+            padding: 16px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .premium-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .premium-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        @media (max-width: 992px) {
+
+            .feature-grid-new,
+            .guide-countries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid-new {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-countries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .guide-tabs {
+                flex-wrap: wrap;
+            }
+
+            .guide-tab {
+                min-width: 45%;
+                font-size: 14px;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .hero-desc {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .guide-countries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .country-card {
+                padding: 12px;
+                gap: 12px;
+            }
+
+            .country-flag {
+                width: 36px;
+                height: 36px;
+            }
+
+            .country-info h4 {
+                font-size: 14px;
+            }
+
+            .country-info span {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body class="db-body">
@@ -27,83 +352,95 @@
 
             <div class="db-content">
                 <div class="db-page-header">
-                    <h2 class="db-page-title">송금 서비스 안내</h2>
+                    <h1 class="db-page-title">송금 서비스 안내</h1>
                 </div>
 
                 <div class="db-content-card">
+                    <!-- Premium Hero Section -->
+                    <div class="guide-hero">
+                        <h2 class="hero-title">더 가깝고 더 스마트한<br>글로벌 송금의 시작</h2>
+                        <p class="hero-desc">
+                            (주)위드머니는 혁신적인 핀테크 기술과 글로벌 금융 파트너십을 바탕으로,<br>
+                            가장 저렴하고 빠르며 안전한 국제송금 서비스 <strong>withremit</strong>를 제공합니다.
+                        </p>
+                    </div>
+
                     <div class="guide-tab-container">
                         <div class="guide-tabs">
-                            <div class="guide-tab active" data-tab="service">송금 서비스</div>
-                            <div class="guide-tab" data-tab="countries">송금 가능 국가</div>
-                            <div class="guide-tab" data-tab="fees">송금 수수료</div>
-                            <div class="guide-tab" data-tab="fixed">수취 금액 확정 송금</div>
+                            <button class="guide-tab active" data-tab="service">송금 서비스 특징</button>
+                            <button class="guide-tab" data-tab="countries">송금 가능 국가</button>
+                            <button class="guide-tab" data-tab="fees">수수료 및 한도</button>
+                            <button class="guide-tab" data-tab="fixed">수취 금액 확정</button>
                         </div>
 
-                        <!-- Tab 1: 송금 서비스 -->
+                        <!-- Tab 1: 송금 서비스 특징 -->
                         <div id="tab-service" class="tab-content active">
-
-                            <div class="service-intro">
-                                <h3 class="service-slogan">withremit, 더 가깝고 더 스마트한 글로벌 송금의 시작</h3>
-                                <p class="service-description">
-                                    (주)위드머니는 전 세계 주요 국가를 연결하는 독자적인 금융 네트워크를 통해,<br>
-                                    가장 저렴하고 빠르며 안전한 국제송금 서비스 <strong>withremit</strong>를 제공합니다.
-                                </p>
-                            </div>
-
-                            <div class="feature-grid">
+                            <div class="feature-grid-new">
                                 <!-- Direct -->
-                                <div class="feature-card glass-effect">
-                                    <div class="feature-image-container">
-                                        <img src="images/guide_direct.png" alt="Direct" class="feature-image">
+                                <div class="feature-card-new">
+                                    <div class="feature-icon-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        </svg>
                                     </div>
-                                    <div class="feature-content">
-                                        <h4 class="feature-title">안전하고 투명한 송금 (Direct)</h4>
-                                        <div class="feature-desc">
-                                            <p>대한민국 정부의 공식 승인을 받은 정식 소액해외송금업자(제2017-1호)로서 법적 신뢰를 보장합니다.</p>
-                                            <p>서울신용보험 100% 가입으로 수취 완료 시점까지 자산이 완벽하게 보호됩니다.</p>
-                                        </div>
+                                    <h4 class="feature-title-new">안전하고 투명한 송금</h4>
+                                    <div class="feature-desc-new">
+                                        기획재정부 공식 승인(제2017-1호) 및 서울신용보험 가입으로 고객님의 자산을 완벽하게 보호합니다.
                                     </div>
                                 </div>
 
                                 <!-- Internet -->
-                                <div class="feature-card glass-effect">
-                                    <div class="feature-image-container">
-                                        <img src="images/guide_internet.png" alt="Internet" class="feature-image">
+                                <div class="feature-card-new">
+                                    <div class="feature-icon-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                                        </svg>
                                     </div>
-                                    <div class="feature-content">
-                                        <h4 class="feature-title">언제 어디서나 간편하게 (Internet)</h4>
-                                        <div class="feature-desc">
-                                            <p>PC, 스마트폰, 지점 방문, 전화, FAX 등 고객 지향적 옴니채널 서비스를 지원합니다.</p>
-                                            <p>365일 언제 어디서든 비대면으로 간편하게 송금을 시작하고 완료할 수 있습니다.</p>
-                                        </div>
+                                    <h4 class="feature-title-new">언제 어디서나 간편하게</h4>
+                                    <div class="feature-desc-new">
+                                        PC, 모바일 어디서든 365일 24시간. 비대면으로 간편하게 송금을 신청하고 내역을 확인할 수 있습니다.
                                     </div>
                                 </div>
 
                                 <!-- Global -->
-                                <div class="feature-card glass-effect">
-                                    <div class="feature-image-container">
-                                        <img src="images/guide_global.png" alt="Global" class="feature-image">
+                                <div class="feature-card-new">
+                                    <div class="feature-icon-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                                            <path
+                                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                            </path>
+                                        </svg>
                                     </div>
-                                    <div class="feature-content">
-                                        <h4 class="feature-title">글로벌 네트워크 (Global)</h4>
-                                        <div class="feature-desc">
-                                            <p>전 세계 주요국을 잇는 독자 금융망을 통해 초고속 송금 및 수취 서비스를 제공합니다.</p>
-                                            <p>계좌 입금, Cash Pick-up, 자택 배송 등 현지 상황에 맞는 최적의 옵션을 선택할 수 있습니다.</p>
-                                        </div>
+                                    <h4 class="feature-title-new">강력한 글로벌 네트워크</h4>
+                                    <div class="feature-desc-new">
+                                        전 세계 주요국을 잇는 직통 금융망으로 실시간에 가까운 속도와 다양한 수취 옵션을 제공합니다.
                                     </div>
                                 </div>
 
                                 <!-- Interactive -->
-                                <div class="feature-card glass-effect">
-                                    <div class="feature-image-container">
-                                        <img src="images/guide_interactive.png" alt="Interactive" class="feature-image">
+                                <div class="feature-card-new">
+                                    <div class="feature-icon-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                            </path>
+                                        </svg>
                                     </div>
-                                    <div class="feature-content">
-                                        <h4 class="feature-title">철저한 사후 관리 (Interactive)</h4>
-                                        <div class="feature-desc">
-                                            <p>다국어 고객센터와 실시간 알림톡 서비스를 통해 송금의 전 과정을 투명하게 케어합니다.</p>
-                                            <p>연말정산 및 세무 증빙을 위한 공식 거래 리포트를 온/오프라인으로 즉시 발급해 드립니다.</p>
-                                        </div>
+                                    <h4 class="feature-title-new">철저한 사후 관리</h4>
+                                    <div class="feature-desc-new">
+                                        다국어 고객센터 운영 및 실시간 알림톡 서비스, 증빙용 거래 리포트 발급까지 세심하게 케어합니다.
                                     </div>
                                 </div>
                             </div>
@@ -111,90 +448,88 @@
 
                         <!-- Tab 2: 송금 가능 국가 -->
                         <div id="tab-countries" class="tab-content">
-                            <div class="guide-section">
-                                <h2 class="form-sec-head">
-                                    송금 가능 국가
-                                </h2>
-                                <p class="guide-text">withremit는 현재 아래 10개 국가로의 송금을 지원하며, 지속적으로 네트워크를 확장하고 있습니다.</p>
+                            <div class="content-box-premium">
+                                <div class="section-header">
+                                    <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <h3>지원 국가 및 통화</h3>
+                                </div>
+                                <p class="guide-text" style="margin-bottom: 20px;">withremit는 전 세계 주요 국가로의 안정적인 송금을
+                                    지원합니다.</p>
 
-                                <div class="countries-grid guide-countries-grid">
-                                    <div class="country-card animate-fade-in">
+                                <div class="guide-countries-grid">
+                                    <div class="country-card">
                                         <img src="images/jp.png" alt="일본" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.japan">일본</h4>
-                                            <span data-i18n="currency.jpy_desc">JPY · 엔</span>
+                                            <h4>일본 (JAPAN)</h4>
+                                            <span>JPY · 엔</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/ph.png" alt="필리핀" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.philippines">필리핀</h4>
-                                            <span data-i18n="currency.php_desc">PHP · 페소</span>
+                                            <h4>필리핀 (PHILIPPINES)</h4>
+                                            <span>PHP · 페소</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/cn.png" alt="중국" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.china">중국</h4>
-                                            <span data-i18n="currency.cny_desc">CNY · 위안</span>
+                                            <h4>중국 (CHINA)</h4>
+                                            <span>CNY · 위안</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/np.png" alt="네팔" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.nepal">네팔</h4>
-                                            <span data-i18n="currency.npr_desc">NPR · 루피</span>
+                                            <h4>네팔 (NEPAL)</h4>
+                                            <span>NPR · 루피</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/au.png" alt="호주" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.australia">호주</h4>
-                                            <span data-i18n="currency.aud_desc">AUD · 달러</span>
+                                            <h4>호주 (AUSTRALIA)</h4>
+                                            <span>AUD · 달러</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/hk.png" alt="홍콩" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.hongkong">홍콩</h4>
-                                            <span data-i18n="currency.hkd_desc">HKD · 달러</span>
+                                            <h4>홍콩 (HONGKONG)</h4>
+                                            <span>HKD · 달러</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/mn.png" alt="몽골" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.mongolia">몽골</h4>
-                                            <span data-i18n="currency.mnt_desc">MNT · 투그릭</span>
+                                            <h4>몽골 (MONGOLIA)</h4>
+                                            <span>MNT · 투그릭</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/vn.png" alt="베트남" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.vietnam">베트남</h4>
-                                            <span data-i18n="currency.vnd_desc">VND · 동</span>
+                                            <h4>베트남 (VIETNAM)</h4>
+                                            <span>VND · 동</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/lk.png" alt="스리랑카" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.srilanka">스리랑카</h4>
-                                            <span data-i18n="currency.lkr_desc">LKR · 루피</span>
+                                            <h4>스리랑카 (SRI LANKA)</h4>
+                                            <span>LKR · 루피</span>
                                         </div>
                                     </div>
-
-                                    <div class="country-card animate-fade-in">
+                                    <div class="country-card">
                                         <img src="images/bd.png" alt="방글라데시" class="country-flag">
                                         <div class="country-info">
-                                            <h4 data-i18n="country.bangladesh">방글라데시</h4>
-                                            <span data-i18n="currency.bdt_desc">BDT · 타카</span>
+                                            <h4>방글라데시 (BANGLADESH)</h4>
+                                            <span>BDT · 타카</span>
                                         </div>
                                     </div>
                                 </div>
@@ -203,122 +538,150 @@
 
                         <!-- Tab 3: 송금 수수료 -->
                         <div id="tab-fees" class="tab-content">
-                            <div class="guide-section">
-                                <h2 class="form-sec-head">
-                                    송금 수수료 (일본 기준)
-                                </h2>
-                                <p class="guide-text">가장 수요가 높은 일본 송금 수수료 체계입니다. (타 국가의 경우 별도 문의)</p>
-
-                                <div class="guide-table-wrapper">
-                                    <table class="db-notice-table">
-                                        <thead>
-                                            <tr>
-                                                <th>송금 금액 구간</th>
-                                                <th>송금 수수료</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1원 ~ 300,000원</td>
-                                                <td><span class="guide-highlight">5,000원</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>300,001원 ~ 5,000,000원</td>
-                                                <td><span class="guide-highlight">10,000원</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="content-box-premium">
+                                <div class="section-header">
+                                    <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 1v22"></path>
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    </svg>
+                                    <h3>송금 수수료 (일본 기준)</h3>
                                 </div>
+                                <p class="guide-text" style="margin-bottom: 20px;">업계 최저 수준의 수수료를 제공합니다. 타 국가 수수료는 별도 문의
+                                    바랍니다.</p>
 
-                                <div class="guide-note">
-                                    <p><strong>참고 사항</strong></p>
+                                <table class="premium-table">
+                                    <thead>
+                                        <tr>
+                                            <th>송금 금액 구간 (KRW)</th>
+                                            <th>수수료</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1원 ~ 300,000원</td>
+                                            <td><span class="guide-highlight">5,000원</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>300,001원 ~ 5,000,000원</td>
+                                            <td><span class="guide-highlight">10,000원</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="guide-note"
+                                    style="margin-top: 20px; background: #f8fafc; padding: 20px; border-radius: 12px;">
+                                    <p><strong>💡 꼭 확인해주세요</strong></p>
                                     <ul class="guide-list" style="margin-top:10px;">
                                         <li>수취 수수료: 0원 ~ 5,000원 (한국 수취 은행의 사정 및 송금액에 따라 상이할 수 있습니다.)</li>
-                                        <li>취소 수수료: (주)위드머니가 송금 자금을 수취하여 계약이 성립된 이후 취소 시에는 별도의 수수료가 부과됩니다.</li>
+                                        <li>취소 수수료: 송금 계약이 성립된 이후 고객 변심에 의한 취소 시 별도의 수수료가 부과될 수 있습니다.</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="guide-section">
-                                <h2 class="form-sec-head">
-
-                                    송금 한도
-                                </h2>
-                                <p class="guide-text">법규에 의거하여 아래와 같은 한도 내에서 자유롭게 이용 가능합니다.</p>
-                                <ul class="guide-list">
-                                    <li>1회 송금 한도: <span class="guide-highlight">미화 $5,000 상당액</span></li>
-                                    <li>연간 송금 한도: <span class="guide-highlight">미화 $50,000 상당액</span></li>
-                                </ul>
+                            <div class="content-box-premium">
+                                <div class="section-header">
+                                    <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <h3>이용 한도 안내</h3>
+                                </div>
+                                <div class="feature-grid-new" style="margin-bottom: 0;">
+                                    <div class="feature-card-new" style="padding: 24px;">
+                                        <h4 class="feature-title-new" style="font-size: 16px;">1회 송금 한도</h4>
+                                        <div class="feature-desc-new"
+                                            style="font-size: 24px; font-weight: 800; color: #1e293b;">
+                                            $5,000 USD <span style="font-size:14px; color:#94a3b8; font-weight:500;">/
+                                                건</span>
+                                        </div>
+                                    </div>
+                                    <div class="feature-card-new" style="padding: 24px;">
+                                        <h4 class="feature-title-new" style="font-size: 16px;">연간 송금 한도</h4>
+                                        <div class="feature-desc-new"
+                                            style="font-size: 24px; font-weight: 800; color: #1e293b;">
+                                            $50,000 USD <span style="font-size:14px; color:#94a3b8; font-weight:500;">/
+                                                년</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Tab 4: 수취 금액 확정 송금 -->
                         <div id="tab-fixed" class="tab-content">
-                            <div class="guide-section">
-                                <p class="guide-text">
-                                    인터넷 쇼핑이나 대금 지불 등 수취인이 받게 될 금액을 정확히 지정해야 하는 경우, 송금 신청 시 <strong>[수취 금액 기준]</strong>을
-                                    선택해
-                                    주세요.
-                                </p>
-
-                                <h2 class="form-sec-head" style="margin-top: 30px;">
-                                    서비스 특징
-                                </h2>
-                                <ul class="guide-list">
-                                    <li><strong>정확한 금액 전달:</strong> 수취인이 현지 통화(예: 엔화)로 받게 될 확정 금액을 기준으로 송금을 진행합니다.</li>
-                                    <li><strong>송금 방식:</strong> 고객님이 입력하신 원화(KRW)를 실시간 환율을 적용하여 해당 국가의 통화로 변환 후 송금합니다.
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="guide-section">
-                                <h2 class="form-sec-head">
-                                    송금 목적별 필수 입력 항목
-                                </h2>
-                                <p class="guide-text">송금 목적이 '물품 구입'이나 '서비스 대금 지불'인 경우, 원활한 심사를 위해 아래 정보를 반드시 입력해 주셔야
-                                    합니다.</p>
-
-                                <div class="guide-table-wrapper">
-                                    <table class="db-notice-table">
-                                        <colgroup>
-                                            <col style="width: 30%;">
-                                            <col style="width: 70%;">
-                                        </colgroup>
-                                        <thead>
-                                            <tr>
-                                                <th>송금 목적</th>
-                                                <th>필수 입력 정보</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="center">물품 구입 대금</td>
-                                                <td>상품명, 선적지, 원산지</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">기타 대금</td>
-                                                <td>서비스 이용료, 학비 청구서 등 관련 증빙 내용</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="content-box-premium">
+                                <div class="section-header">
+                                    <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    <h3>수취 금액 확정 송금이란?</h3>
                                 </div>
+                                <p class="guide-text">
+                                    인터넷 쇼핑 결제, 학비 납부 등 <strong>수취인이 받아야 할 정확한 현지 통화 금액이 정해져 있는 경우</strong>에 유용한
+                                    서비스입니다.<br>
+                                    신청 시 '수취 금액 기준'을 선택하시면, 환율 변동을 고려하여 최종 입금액을 정확히 맞춰드립니다.
+                                </p>
                             </div>
 
-                            <div class="guide-note">
-                                <p><strong>송금 시 유의사항</strong></p>
-                                <p style="margin-top: 10px; margin-bottom: 10px; color: #555;">
-                                    모든 송금 건은 당사의 보안 가이드에 따라 소정의 심사를 거칩니다. 외환법 및 관련 법령에 따라 아래와 같은 목적으로는 송금이 불가능하오니 이용에
-                                    참고해
-                                    주시기 바랍니다.
-                                </p>
-                                <ul class="guide-list">
-                                    <li><strong>불법 물품 및 사행성:</strong> 마약, 각성제, 총기류, 위조지폐 등 불법 물품 구입</li>
-                                    <li>외국 발행 복권 구입 및 인터넷 카지노 등 도박 목적</li>
-                                    <li><strong>사회 질서 및 국제 협약 위반:</strong> 공안 풍속을 해치는 서적 등 수입 금지품 구입, 워싱턴 조약(CITES)에 의해
-                                        금지된 희귀 동식물
-                                        및 가공품 구입</li>
-                                    <li><strong>법적 제한 사항:</strong> 핵무기 제조 등 외환법상 송금이 제한되는 경우</li>
-                                    <li>기타 당사 내부 판단에 따라 부적절하다고 간주되는 목적의 송금</li>
+                            <div class="content-box-premium">
+                                <div class="section-header">
+                                    <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"><file-text></file-text>
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                    <h3>목적별 필수 증빙 정보</h3>
+                                </div>
+                                <table class="premium-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%;">송금 목적</th>
+                                            <th>필수 입력 정보</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>물품 구입 대금</td>
+                                            <td>상품명, 선적지, 원산지 정보</td>
+                                        </tr>
+                                        <tr>
+                                            <td>기타 대금</td>
+                                            <td>서비스 이용료 명세서, 학비 청구서 (Invoice) 등</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="guide-note"
+                                style="background: #fff5f5; border: 1px solid #fed7d7; padding: 20px; border-radius: 12px; color: #c53030;">
+                                <h4
+                                    style="margin: 0 0 10px 0; font-size: 16px; display: flex; align-items: center; gap: 8px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                        </path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                    송금 금지 대상 (주의)
+                                </h4>
+                                <ul style="padding-left: 20px; font-size: 14px; line-height: 1.6;">
+                                    <li>불법 물품(마약, 총기, 위조품 등) 구매 및 도박 자금</li>
+                                    <li>국제 협약(CITES) 위반 동식물 구매 및 법령에 저촉되는 거래</li>
+                                    <li>기타 자금세탁 등 불법적인 목적의 송금 시도 시 거래가 거절되며 관계 기관에 신고될 수 있습니다.</li>
                                 </ul>
                             </div>
                         </div>
