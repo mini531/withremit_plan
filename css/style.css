@@ -10462,3 +10462,27 @@ td.center {
 .db-notice-table td.center .radio-wrap {
   margin: 0 auto;
 }
+
+/* Notice Table Mobile Styles */
+@media screen and (max-width: 480px) {
+
+  .col-num,
+  .th-num,
+  .td-num {
+    display: none !important;
+  }
+}
+
+/* Inquiry Form Utility Classes */
+.mb-24 {
+  margin-bottom: 24px !important;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+.textarea-inquiry {
+  height: 300px;
+  resize: none;
+}
