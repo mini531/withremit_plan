@@ -236,3 +236,16 @@ function handleFooterAboutClick(e) {
         window.location.href = 'UT_02_01.html?guest=true';
     }
 }
+
+/**
+ * 푸터의 개인정보처리방침 클릭 시 게스트 모드면 파라미터 유지
+ */
+function handleFooterPrivacyClick(e) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isGuest = urlParams.get('guest') === 'true' || !document.getElementById('dbSidebar');
+
+    if (isGuest) {
+        e.preventDefault();
+        window.location.href = 'UT_02_02.html?guest=true';
+    }
+}
