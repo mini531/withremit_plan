@@ -10482,9 +10482,12 @@ td.center {
   width: 100% !important;
 }
 
-.textarea-inquiry {
+textarea.textarea-inquiry {
   height: 300px !important;
   min-height: 300px !important;
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
   resize: none !important;
 }
 
