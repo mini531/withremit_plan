@@ -131,10 +131,17 @@
     <script src="js/sidebar.js"></script>
     <script src="js/includes.js"></script>
     <script>
-        // Set active sidebar item (manually for this generated page if needed, or rely on auto-detection)
-        // Since it's a new page, sidebar.js might not know it unless we configure it or it defaults.
-        // Assuming sidebar.js might use exact path match, or we force it here if possible.
-        // For now, let's assume sidebar.js handles it or we'll add a script if needed.
+        // Manual override to ensure sidebar active state
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkSidebar = setInterval(() => {
+                const nav = document.getElementById('navWithdrawalAccount');
+                if (nav) {
+                    nav.classList.add('active');
+                    clearInterval(checkSidebar);
+                }
+            }, 100);
+            setTimeout(() => clearInterval(checkSidebar), 5000); // Stop after 5s if not found
+        });
 
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
