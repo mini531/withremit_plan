@@ -250,53 +250,49 @@
                         <div class="form-sec-head-flex"
                             style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                             <h2 class="form-sec-head" style="margin: 0;">주주 명부</h2>
-                            <button type="button" class="btn btn-sub-action" onclick="addShareholder()"
-                                style="height: 36px; padding: 0 16px;">주주 추가</button>
+                            <button type="button" class="btn-add-row" onclick="addShareholder()">주주 추가</button>
                         </div>
                         <div class="form-sec">
                             <div class="shareholder-table">
-                                <div class="sh-header"
-                                    style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 2fr 80px; gap: 10px; background: #f8fafc; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 13px; color: #64748b; margin-bottom: 12px;">
+                                <div class="sh-header">
                                     <div>이름(한글)</div>
                                     <div>이름(영문)</div>
                                     <div>생년월일</div>
                                     <div>지분율(%)</div>
                                     <div class="sh-addr-col">주소</div>
-                                    <div class="sh-action-col" style="text-align: center;">삭제</div>
+                                    <div class="sh-action-col">삭제</div>
                                 </div>
                                 <div id="shareholderContainer">
-                                    <div class="sh-row"
-                                        style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 2fr 80px; gap: 10px; margin-bottom: 12px; align-items: center;">
+                                    <div class="sh-row">
                                         <div class="sh-field">
-                                            <input type="text" value="홍길동" class="login-input"
-                                                style="height: 44px; font-size: 14px;">
+                                            <span class="sh-mobile-label">이름(한글)</span>
+                                            <input type="text" value="홍길동" class="sh-input">
                                         </div>
                                         <div class="sh-field">
-                                            <input type="text" value="HONG GILDONG" class="login-input"
-                                                style="height: 44px; font-size: 14px;">
+                                            <span class="sh-mobile-label">이름(영문)</span>
+                                            <input type="text" value="HONG GILDONG" class="sh-input">
                                         </div>
                                         <div class="sh-field">
-                                            <input type="text" value="19800101" class="login-input"
-                                                style="height: 44px; font-size: 14px;">
+                                            <span class="sh-mobile-label">생년월일</span>
+                                            <input type="text" value="19800101" class="sh-input">
                                         </div>
                                         <div class="sh-field">
-                                            <input type="text" value="100" class="login-input"
-                                                style="height: 44px; font-size: 14px;">
+                                            <span class="sh-mobile-label">지분율</span>
+                                            <input type="text" value="100" class="sh-input">
                                         </div>
                                         <div class="sh-field sh-addr">
-                                            <input type="text" value="서울특별시 중구 남대문로 120" class="login-input"
-                                                style="height: 44px; font-size: 14px;">
+                                            <span class="sh-mobile-label">주소</span>
+                                            <input type="text" value="서울특별시 중구 남대문로 120" class="sh-input">
                                         </div>
-                                        <div class="sh-action" style="text-align: center;">
-                                            <button type="button" class="btn-sh-del" onclick="removeRow(this)"
-                                                style="background: none; border: none; color: #ef4444; font-size: 13px; cursor: pointer; text-decoration: underline;">삭제</button>
+                                        <div class="sh-action">
+                                            <button type="button" class="btn-sh-del"
+                                                onclick="removeRow(this)">삭제</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <p class="field-desc accent-red" style="margin-top: 12px; font-size: 13px; color: #ef4444;">
-                                *
-                                주식 25% 이상 소유자를 입력해 주세요.</p>
+                                * 주식 25% 이상 소유자를 입력해 주세요.</p>
                         </div>
                     </div>
 
@@ -485,18 +481,13 @@
             const container = document.getElementById('shareholderContainer');
             const newRow = document.createElement('div');
             newRow.className = 'sh-row';
-            newRow.style.display = 'grid';
-            newRow.style.gridTemplateColumns = '1fr 1fr 1fr 1fr 2fr 80px';
-            newRow.style.gap = '10px';
-            newRow.style.marginBottom = '12px';
-            newRow.style.alignItems = 'center';
             newRow.innerHTML = `
-                <div class="sh-field"><input type="text" placeholder="이름(한글)" class="login-input" style="height: 44px; font-size: 14px;"></div>
-                <div class="sh-field"><input type="text" placeholder="이름(영문)" class="login-input" style="height: 44px; font-size: 14px;"></div>
-                <div class="sh-field"><input type="text" placeholder="YYYYMMDD" class="login-input" style="height: 44px; font-size: 14px;"></div>
-                <div class="sh-field"><input type="text" placeholder="00" class="login-input" style="height: 44px; font-size: 14px;"></div>
-                <div class="sh-field sh-addr"><input type="text" placeholder="주소" class="login-input" style="height: 44px; font-size: 14px;"></div>
-                <div class="sh-action" style="text-align: center;"><button type="button" class="btn-sh-del" onclick="removeRow(this)" style="background: none; border: none; color: #ef4444; font-size: 13px; cursor: pointer; text-decoration: underline;">삭제</button></div>
+                <div class="sh-field"><span class="sh-mobile-label">이름(한글)</span><input type="text" placeholder="이름(한글)" class="sh-input"></div>
+                <div class="sh-field"><span class="sh-mobile-label">이름(영문)</span><input type="text" placeholder="이름(영문)" class="sh-input"></div>
+                <div class="sh-field"><span class="sh-mobile-label">생년월일</span><input type="text" placeholder="YYYYMMDD" class="sh-input"></div>
+                <div class="sh-field"><span class="sh-mobile-label">지분율(%)</span><input type="text" placeholder="00" class="sh-input"></div>
+                <div class="sh-field sh-addr"><span class="sh-mobile-label">주소</span><input type="text" placeholder="주소" class="sh-input"></div>
+                <div class="sh-action"><button type="button" class="btn-sh-del" onclick="removeRow(this)">삭제</button></div>
             `;
             container.appendChild(newRow);
         }
