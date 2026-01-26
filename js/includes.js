@@ -242,7 +242,9 @@ function handleFooterAboutClick(e) {
  */
 function handleFooterPrivacyClick(e) {
     const urlParams = new URLSearchParams(window.location.search);
-    const isGuest = urlParams.get('guest') === 'true' || !document.getElementById('dbSidebar');
+    const isGuest = urlParams.get('guest') === 'true'
+        || !!document.getElementById('guestSidebar')
+        || !document.getElementById('dbSidebar');
 
     if (isGuest) {
         e.preventDefault();
