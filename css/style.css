@@ -5303,6 +5303,30 @@ textarea.error:focus {
   border-radius: 8px;
 }
 
+@media screen and (max-width: 760px) {
+  .db-mobile-search-toggle {
+    display: flex;
+  }
+
+  .db-search-box {
+    display: none;
+    margin-bottom: 20px;
+  }
+
+  .db-search-box.show {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .db-search-type,
+  .db-search-input,
+  .db-search-btn {
+    width: 100%;
+  }
+}
+
+
 .db-search-type {
   padding: 10px 32px 10px 14px;
   border: 1.5px solid var(--border-color);
@@ -10557,6 +10581,28 @@ td.center {
   font-size: 16px;
   margin-bottom: 4px;
 }
+
+@media screen and (max-width: 760px) {
+  .inquiry-bottom-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .inquiry-bottom-info .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inquiry-bottom-info {
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
 
 /* Common Divider */
 .divider-thin {
