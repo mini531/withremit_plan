@@ -4,44 +4,49 @@
 
 
 .guide-tabs {
-    display: flex;
-    box-shadow: inset 0 -2px 0 #eee;
+    background: #f8fafc;
+    padding: 6px;
+    border-radius: 16px;
     margin-bottom: 25px;
-    gap: 20px;
-    white-space: nowrap;
+    display: flex;
+    gap: 6px;
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
+    /* Removed old shadow */
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE/Edge */
-}
-
-.guide-tabs::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari, Opera */
+    /* Keep checking overflow */
 }
 
 .guide-tab {
-    padding: 12px 20px;
+    flex: 1;
+    padding: 14px 20px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    color: #666;
-    position: relative;
     transition: all 0.2s ease;
-    border-bottom: 2px solid transparent;
+    background: transparent;
+    border: none;
+    /* Removed border-bottom */
+    position: relative;
+    /* Keep relative if needed */
 }
 
-
-.guide-tab:hover {
-    color: #1B5E9E;
+.guide-tab:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.5);
+    color: #475569;
 }
 
 .guide-tab.active {
-    color: #1B5E9E;
+    background: #fff;
+    color: #00A0DC !important;
+    /* Force override */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     font-weight: 700;
-    border-bottom-color: #1B5E9E;
+    border-bottom: none;
+    /* Ensure no border */
 }
 
 .tab-content {
@@ -403,39 +408,27 @@
 
 @media (max-width: 768px) {
     .guide-tabs {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        overflow-x: visible;
-        white-space: normal;
-        border-bottom: none;
-        box-shadow: none;
+        flex-wrap: wrap;
+        height: auto;
+        display: flex;
+        /* Ensure it overrides any potential grid setting */
+        gap: 8px;
+        /* Slightly larger gap for touch */
     }
 
     .guide-tab {
-        text-align: center;
-        padding: 12px 5px;
+        min-width: 45%;
+        flex-grow: 1;
+        /* Allow growing to fill row */
         font-size: 14px;
-        background-color: #f5f7fa;
-        border-radius: 8px;
-        border: 1px solid #e2e8f0;
-    }
-
-    .guide-tab.active {
-        background-color: #4A90E2;
-        color: #fff;
-        border-color: #4A90E2;
-    }
-
-    .guide-tab.active::after {
-        display: none;
+        padding: 12px 10px;
+        /* Adjust padding */
     }
 }
 
 @media (max-width: 600px) {
-    .guide-tabs {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /* Optional: Ensure 2 items per row look good or just rely on wrap logic above */
+    /* If we rely on min-width 45%, it naturally becomes 2 per row */
 }
 
 
