@@ -5278,7 +5278,11 @@ textarea.error:focus {
 
 .db-page-header {
   margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 .db-page-title {
   font-size: 1.75rem;
@@ -10501,4 +10505,63 @@ td.center {
 
 .db-notice-table td.center .radio-wrap {
   margin: 0 auto;
+}
+
+/* Inquiry Status Badges */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge-status svg {
+  width: 14px;
+  height: 14px;
+}
+
+.badge-status.pending {
+  background-color: #FFF9E6;
+  color: #D97706;
+}
+
+.badge-status.completed {
+  background-color: #EBF5FF;
+  color: #1B5E9E;
+}
+
+/* Inquiry Bottom Info Box (CS_03_01) */
+.inquiry-bottom-info {
+  background: #F9FAFB;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #EDEDED;
+}
+
+.inquiry-info-text {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.inquiry-info-text strong {
+  color: #333;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+/* Common Divider */
+.divider-thin {
+  height: 1px;
+  background: #EEE;
+  margin: 24px 0;
+  border: none;
 }
