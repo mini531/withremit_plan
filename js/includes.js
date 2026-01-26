@@ -128,6 +128,14 @@ function loadIncludes() {
                     }
                 }
 
+                // 출금 계좌 (Withdrawal Account)
+                if (['AC_02_01.html', 'AC_02_02.html', 'AC_02_03.html'].includes(currentPage)) {
+                    const navWithdrawalAccount = document.getElementById('navWithdrawalAccount');
+                    if (navWithdrawalAccount) {
+                        navWithdrawalAccount.classList.add('active');
+                    }
+                }
+
                 // 송금 서비스 안내 (Service Guide)
                 if (currentPage === 'GU_01_01.html') {
                     const navServiceGuide = document.getElementById('navServiceGuide');
