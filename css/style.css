@@ -33,7 +33,7 @@
   width: 100% !important;
 }
 
-textarea.textarea-inquiry {
+#inquiryContent {
   height: 300px !important;
   min-height: 300px !important;
   display: block !important;
@@ -41,6 +41,7 @@ textarea.textarea-inquiry {
   box-sizing: border-box !important;
   resize: none !important;
 }
+
 
 .field-flex {
   display: flex;
