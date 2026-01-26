@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withremit - 회사 소개</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guide.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel='stylesheet' href='css/auth.css'>
+    <script src='js/auth.js'></script>
+    <style>
+        .company-intro-hero {
+            background: linear-gradient(135deg, #1B5E9E 0%, #00A0DC 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 160, 220, 0.2);
+        }
+
+        .hero-slogan {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            word-break: keep-all;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            word-break: keep-all;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .info-item-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .info-item-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: #7A8E96;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-label svg {
+            color: #1B5E9E;
+        }
+
+        .info-value {
+            font-size: 16px;
+            color: #1A2E35;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            background: #E8F1F8;
+            color: #1B5E9E;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-left: 8px;
+            transition: all 0.2s;
+        }
+
+        .map-link:hover {
+            background: #1B5E9E;
+            color: #fff;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .lang-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .lang-icon {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            font-weight: 700;
+            color: #1B5E9E;
+        }
+
+        .lang-info h4 {
+            font-size: 15px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .lang-info .phone {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        @media (max-width: 768px) {
+
+            .info-grid,
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .company-intro-hero {
+                padding: 40px 20px;
+            }
+
+            .hero-slogan {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body class="db-body">
+    <div id="headerContainer"></div>
+
+    <main class="db-main-container container">
+        <div class="db-layout-flex">
+            <div id="sidebarContainer"></div>
+
+            <div class="db-content">
+                <div class="db-page-header">
+                    <h1 class="db-page-title">회사 소개</h1>
+                </div>
+
+                <div class="db-content-card">
+                    <!-- Hero Section -->
+                    <div class="company-intro-hero">
+                        <h2 class="hero-slogan">
+                            (주)위드머니는 보다 싸고, 보다 빠르고, 보다 안전하게!<br>
+                            보내시는 분의 마음까지 함께 전해 드립니다.
+                        </h2>
+                        <p class="hero-description">
+                            저희 모든 임직원 및 각국 파트너들은 고객 여러분께 최고의 서비스를 제공 할 수 있도록 항상 최선의 노력을 다하고 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- Business Info Grid -->
+                    <div class="info-grid">
+                        <div class="info-item-card">
+                            <div class="info-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                본사 주소
+                            </div>
+                            <div class="info-value">
+                                서울특별시 중구 장충단로 263, 18층 6호<br>
+                                (을지로6가, 밀리오레상가건물)
+                            </div>
+                        </div>
+
+                        <div class="info-item-card">
+                            <div class="info-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                허가 번호
+                            </div>
+                            <div class="info-value">기획재정부장관 등록번호 2018-7</div>
+                        </div>
+
+                        <div class="info-item-card">
+                            <div class="info-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                주요 거점
+                            </div>
+                            <div class="info-value">내 지사 서비스 운영 중</div>
+                        </div>
+
+                        <div class="info-item-card">
+                            <div class="info-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.18-2.18a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                                대표 연락처
+                            </div>
+                            <div class="info-value">
+                                전화: 02-2285-2077<br>
+                                이메일: hana@oneremit.co.kr
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Center Section -->
+                    <div class="guide-section">
+                        <h2 class="form-sec-head">고객센터 안내</h2>
+                        <div class="info-item-card" style="margin-bottom: 24px;">
+                            <div class="info-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                고객센터 위치
+                            </div>
+                            <div class="info-value"
+                                style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                                <span>서울특별시 중구 장충단로 263, 18층 6호 (을지로6가, 밀리오레상가건물)</span>
+                                <a href="#" class="map-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                                        <line x1="8" y1="2" x2="8" y2="18"></line>
+                                        <line x1="16" y1="6" x2="16" y2="22"></line>
+                                    </svg>
+                                    MAP
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-section">
+                            <div class="lang-card">
+                                <div class="lang-icon">KO</div>
+                                <div class="lang-info">
+                                    <h4>한국어 상담</h4>
+                                    <div class="phone">02-2285-2077</div>
+                                </div>
+                            </div>
+                            <div class="lang-card">
+                                <div class="lang-icon">JP</div>
+                                <div class="lang-info">
+                                    <h4>일본어 상담</h4>
+                                    <div class="phone">070-8785-1799</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactContainer"></div>
+    <div id="footerContainer"></div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/includes.js"></script>
+    <script>
+        // 사이드바 메뉴 로드 후 회사소개 메뉴 활성화
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                const sidebarItems = document.querySelectorAll('.sidebar-menu-item');
+                sidebarItems.forEach(item => {
+                    if (item.getAttribute('onclick')?.includes('UT_02_01')) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
