@@ -526,21 +526,24 @@
     <div id="contactContainer"></div>
     <div id="footerContainer"></div>
 
+    <div class="db-overlay-mask" id="dbOverlay"></div>
+
+    <script src="js/main.js"></script>
     <script src="js/sidebar.js"></script>
     <script src="js/includes.js"></script>
     <script>
-        // 사이드바 메뉴 로드 후 회사소개 메뉴 활성화
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                const sidebarItems = document.querySelectorAll('.sidebar-menu-item');
-                sidebarItems.forEach(item => {
-                    if (item.getAttribute('onclick')?.includes('UT_02_01')) {
-                        item.classList.add('active');
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
-            }, 100);
+        // 사이드바 메뉴 활성화 (스크립트 로드 타이밍 고려)
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkSidebar = setInterval(function () {
+                const sidebarAboutUs = document.getElementById('navAboutUs');
+                if (sidebarAboutUs) {
+                    sidebarAboutUs.classList.add('active');
+                    clearInterval(checkSidebar);
+                }
+            }, 50);
+
+            // 5초 후에는 체크 중단 (타임아웃)
+            setTimeout(() => clearInterval(checkSidebar), 5000);
         });
     </script>
 </body>
