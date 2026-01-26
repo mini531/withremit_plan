@@ -232,21 +232,7 @@ function handleFooterAboutClick(e) {
 
     if (isGuest) {
         e.preventDefault();
-        // guestSidebar가 있는 경우 (landing, guest pages)
-        const guestSidebar = document.getElementById('guestSidebar');
-        if (guestSidebar) {
-            if (typeof toggleMobileMenu === 'function') {
-                toggleMobileMenu();
-            } else {
-                // Fallback
-                const overlay = document.getElementById('guestSidebarOverlay');
-                guestSidebar.classList.toggle('active');
-                if (overlay) overlay.classList.toggle('active');
-                document.body.style.overflow = guestSidebar.classList.contains('active') ? 'hidden' : '';
-            }
-        } else {
-            // guestSidebar가 없는 로그인 후 페이지라면 예정대로 이동
-            window.location.href = 'UT_02_01.html';
-        }
+        // guest 모드에서도 회사소개 페이지로 이동하되, guest 파라미터 유지
+        window.location.href = 'UT_02_01.html?guest=true';
     }
 }
