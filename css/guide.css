@@ -772,15 +772,10 @@
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+/* Default for > 767px is 3 columns for .cols-3 (defined in base styles) */
 
-    .feature-grid-new,
-    .feature-grid-new.cols-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
+/* Mobile Styles (Max-width 767px - strictly below 768px) */
+@media (max-width: 767px) {
 
     .feature-grid-new,
     .feature-grid-new.cols-3 {
@@ -791,7 +786,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Mobile Horizontal Layout */
+    /* Mobile Horizontal Layout for Feature Cards */
     .feature-card-new {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -867,4 +862,18 @@
     .country-info span {
         font-size: 12px;
     }
+}
+
+/* Override styles for cards inside content-box-premium (no icons, subtle design) */
+.content-box-premium .feature-card-new {
+    box-shadow: none;
+    border: none;
+    background-color: #f8fafc;
+}
+
+.content-box-premium .feature-card-new:hover {
+    transform: translateY(-2px);
+    box-shadow: none;
+    background-color: #f1f5f9;
+    border: none;
 }
