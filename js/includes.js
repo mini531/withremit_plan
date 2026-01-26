@@ -238,9 +238,9 @@ function handleFooterAboutClick(e) {
 }
 
 /**
- * 푸터의 개인정보처리방침 클릭 시 게스트 모드면 파라미터 유지
+ * 푸터의 링크 클릭 시 게스트 모드면 파라미터 유지 (공용)
  */
-function handleFooterPrivacyClick(e) {
+function handleGuestLinkClick(e) {
     const urlParams = new URLSearchParams(window.location.search);
     const isGuest = urlParams.get('guest') === 'true'
         || !!document.getElementById('guestSidebar')
@@ -248,6 +248,11 @@ function handleFooterPrivacyClick(e) {
 
     if (isGuest) {
         e.preventDefault();
-        window.location.href = 'UT_02_02.html?guest=true';
+        const targetUrl = e.currentTarget.getAttribute('href');
+        if (targetUrl) {
+            // 이미 query string이 있는지 확인
+            const separator = targetUrl.includes('?') ? '&' : '?';
+            window.location.href = targetUrl + separator + 'guest=true';
+        }
     }
 }
