@@ -159,6 +159,14 @@ function loadIncludes() {
                         navSignupGuide.classList.add('active');
                     }
                 }
+
+                // 1:1 문의 (1:1 Inquiry)
+                if (['CS_03_01.html', 'CS_03_02.html', 'CS_03_03.html'].includes(currentPage)) {
+                    const navInquiry = document.getElementById('navInquiry');
+                    if (navInquiry) {
+                        navInquiry.classList.add('active');
+                    }
+                }
                 sidebarLoaded = true;
 
                 // Init Guest Sidebar Close Event
