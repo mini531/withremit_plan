@@ -136,6 +136,14 @@ function loadIncludes() {
                     }
                 }
 
+                // 자주 쓰는 계좌 (Favorite Account)
+                if (['AC_03_01.html', 'AC_03_02.html'].includes(currentPage)) {
+                    const navFavorite = document.getElementById('navFavorite');
+                    if (navFavorite) {
+                        navFavorite.classList.add('active');
+                    }
+                }
+
                 // 송금 서비스 안내 (Service Guide)
                 if (currentPage === 'GU_01_01.html') {
                     const navServiceGuide = document.getElementById('navServiceGuide');
