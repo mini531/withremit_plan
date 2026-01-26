@@ -187,6 +187,17 @@
             document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
         }
 
+        // Check for guest mode and hide inquiry history link
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('guest') === 'true') {
+                const bottomInfo = document.querySelector('.inquiry-bottom-info');
+                if (bottomInfo) {
+                    bottomInfo.style.display = 'none';
+                }
+            }
+        });
+
         // Close modal when clicking overlay
         document.getElementById('confirmModal').addEventListener('click', function (e) {
             if (e.target === this) {

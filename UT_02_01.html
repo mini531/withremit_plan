@@ -300,10 +300,19 @@
             letter-spacing: -0.5px;
         }
 
-        @media (max-width: 992px) {
-            .value-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 1024px) {
+            .value-card {
+                padding: 30px 15px;
             }
+
+            .value-title {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            /* 992px 이하에서 2열로 변하는 것 제거하고 유지 */
+            /* .value-grid { grid-template-columns: repeat(2, 1fr); } 제거됨 */
         }
 
         @media (max-width: 768px) {
