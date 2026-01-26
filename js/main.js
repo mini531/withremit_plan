@@ -963,86 +963,13 @@ const keyboardLayouts = {
     spec: [['-', '/', ':', ';', '(', ')', '$', '&', '@', '"'], ['.', '?', '!', "'", ',', '_', '\\', '|', '~', '<'], ['>', '`', '[', ']', '{', '}', '#', '%', '^', '*']]
 };
 
-function toggleKeypad(targetId) {
-    const keypad = document.getElementById('securityKeypad');
-    if (!keypad) return;
-
-    // Close logic
-    if (!targetId) {
-        keypad.classList.remove('active');
-        activeInputId = null;
-        return;
-    }
-
-    // Toggle off if clicking same input input closing is desired, 
-    // but usually tapping input opens it. 
-    // If we want to move between inputs, we just update position.
-
-    activeInputId = targetId;
-    const targetInput = document.getElementById(targetId);
-    if (!targetInput) return;
-
-    // Initialize storage for this input if needed
-    if (!passwordValues[targetId]) {
-        passwordValues[targetId] = '';
-    }
-
-    // Calculate Position
-    const rect = targetInput.getBoundingClientRect();
-
-    // Determine keypad width (Min 320px or based on design)
-    const keypadWidth = 320;
-
-    // Position keypad using Fixed positioning + Transform for centering
-    // This anchors the center of the keypad to the center of the input
-    keypad.style.position = 'fixed';
-    keypad.style.top = `${rect.bottom + 8}px`; // 8px gap
-
-    // Center point of input
-    const centerPos = rect.left + (rect.width / 2);
-
-    keypad.style.left = `${centerPos}px`;
-    keypad.style.width = `${keypadWidth}px`;
-    keypad.style.transform = 'translateX(-50%)'; // Shift back by 50% of keypad width
-
-    keypad.classList.add('active');
-    renderKeypad();
-}
-
-function switchMode(mode) {
-    keypadMode = (keypadMode === 'abc' && mode === 'spec') ? 'spec' : 'abc';
-    renderKeypad();
-}
-
-function toggleShift() {
-    isShift = !isShift;
-    renderKeypad();
-}
-
-function handleKeyInput(char) {
-    if (!activeInputId) return;
-    const input = document.getElementById(activeInputId);
-    if (!input) return;
-
-    // Clear existing timer if user types fast
-    if (maskingTimers[activeInputId]) {
-        clearTimeout(maskingTimers[activeInputId]);
-        // Force full mask of previous state
-        updateInputDisplay(activeInputId, true);
-    }
-
-    // Update real value
-    passwordValues[activeInputId] += char;
-
-    // Update display: all stars + char
-    updateInputDisplay(activeInputId, false);
-
-    // Set timer to mask this char
-    maskingTimers[activeInputId] = setTimeout(() => {
-        updateInputDisplay(activeInputId, true);
-        maskingTimers[activeInputId] = null;
-    }, 500);
-}
+// function toggleKeypad moved to end of file
+// function handleKeyInput kept here as it is helper logic
+// But wait, the previous tool call ADDED the new toggleKeypad at the END.
+// So now I have TWO toggleKeypad functions.
+// I should remove the first one (lines 966-1010) AND likely correct the handleKeyInput since I claimed I would update it but I didn't in the previous block.
+// Actually handleKeyInput was fine, except I verified logic is correct.
+// So I just need to remove the first toggleKeypad.
 
 function handleDelete() {
     if (!activeInputId) return;
@@ -1230,4 +1157,109 @@ if (loginForm) { // 로그인 폼이 존재하는 페이지(login.html)에서만
             this.submit(); // 모든 검증 통과 시 실제 제출
         }
     });
+}
+
+// ===== Global Modal Functions =====
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.add('active');
+    }
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.remove('active');
+    }
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal-overlay')) {
+        closeModal(e.target.id);
+    }
+});
+
+// ===== Security Keypad Helper Functions =====
+function switchMode(mode) {
+    keypadMode = (keypadMode === 'abc' && mode === 'spec') ? 'spec' : 'abc';
+    renderKeypad();
+}
+
+function toggleShift() {
+    isShift = !isShift;
+    renderKeypad();
+}
+
+function handleKeyInput(char) {
+    if (!activeInputId) return;
+    const input = document.getElementById(activeInputId);
+    if (!input) return;
+
+    // Clear existing timer if user types fast
+    if (maskingTimers[activeInputId]) {
+        clearTimeout(maskingTimers[activeInputId]);
+        // Force full mask of previous state
+        updateInputDisplay(activeInputId, true);
+    }
+
+    // Update real value
+    passwordValues[activeInputId] += char;
+
+    // Update display: all stars + char
+    updateInputDisplay(activeInputId, false);
+
+    // Set timer to mask this char
+    maskingTimers[activeInputId] = setTimeout(() => {
+        updateInputDisplay(activeInputId, true);
+        maskingTimers[activeInputId] = null;
+    }, 500);
+}
+
+// ===== Security Keypad Functions =====
+function toggleKeypad(targetId) {
+    const keypad = document.getElementById('securityKeypad');
+    if (!keypad) return;
+
+    // Close logic
+    if (!targetId) {
+        keypad.classList.remove('active');
+        // Force full mask on close for security
+        if (activeInputId) {
+            updateInputDisplay(activeInputId, true);
+            // Revert type to password on close
+            const input = document.getElementById(activeInputId);
+            if (input) input.type = 'password';
+        }
+        activeInputId = null;
+        return;
+    }
+
+    activeInputId = targetId;
+    const targetInput = document.getElementById(targetId);
+    if (!targetInput) return;
+
+    // Change type to text to allow manual masking (showing last char)
+    targetInput.type = 'text';
+
+    // Initialize storage for this input if needed
+    if (!passwordValues[targetId]) {
+        passwordValues[targetId] = '';
+    }
+
+    // Calculate Position
+    const rect = targetInput.getBoundingClientRect();
+    const keypadWidth = 320;
+
+    keypad.style.position = 'fixed';
+    keypad.style.top = `${rect.bottom + 8}px`; // 8px gap
+    const centerPos = rect.left + (rect.width / 2);
+
+    keypad.style.left = `${centerPos}px`;
+    keypad.style.width = `${keypadWidth}px`;
+    keypad.style.transform = 'translateX(-50%)';
+
+    keypad.classList.add('active');
+    renderKeypad();
 }
