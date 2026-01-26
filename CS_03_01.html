@@ -33,9 +33,6 @@
 
                     <!-- 문의 내용 입력 -->
                     <div class="remit-form-section">
-                        <div class="form-sec-head-wrap">
-                            <h2 class="form-sec-head">문의 내용 입력</h2>
-                        </div>
 
                         <div class="form-sec">
                             <!-- 제목 -->
@@ -64,11 +61,18 @@
                             <div class="form-row-2">
                                 <div class="field-item">
                                     <label class="field-label">성별</label>
-                                    <select class="login-input select-styled" id="inquiryGender">
-                                        <option value="" selected>선택</option>
-                                        <option value="M">남성</option>
-                                        <option value="F">여성</option>
-                                    </select>
+                                    <div class="field-flex h-52">
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="g" id="genderMale">
+                                            <span class="custom-radio"></span>
+                                            <span>남성</span>
+                                        </label>
+                                        <label class="radio-wrap">
+                                            <input type="radio" name="g" id="genderFemale">
+                                            <span class="custom-radio"></span>
+                                            <span>여성</span>
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="field-item">
                                     <label class="field-label">직업</label>
@@ -135,15 +139,15 @@
             let hasError = false;
 
             const fields = [
-                { id: 'inquiryTitle', name: '제목' },
-                { id: 'inquiryEmail', name: '이메일' },
-                { id: 'inquiryName', name: '이름' }
+                { id: 'inquiryTitle', message: '제목을 입력해 주세요.' },
+                { id: 'inquiryEmail', message: '이메일을 입력해 주세요.' },
+                { id: 'inquiryName', message: '이름을 입력해 주세요.' }
             ];
 
             fields.forEach(field => {
                 const el = document.getElementById(field.id);
                 if (!el.value.trim()) {
-                    showFieldError(field.id, `${field.name}을(를) 입력해 주세요.`);
+                    showFieldError(field.id, field.message);
                     hasError = true;
                 }
             });

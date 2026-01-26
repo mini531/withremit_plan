@@ -10486,3 +10486,13 @@ td.center {
   height: 300px;
   resize: none;
 }
+
+.field-flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.h-52 {
+  height: 52px;
+}
