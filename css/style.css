@@ -10001,6 +10001,12 @@ textarea.error:focus {
   text-align: right;
 }
 
+.db-notice-table td.center,
+.db-basic-table td.center,
+td.center {
+  text-align: center;
+}
+
 /* 768px 이하: 카드형 (HI_01_01 스타일 재구성) */
 @media (max-width: 768px) {
   .db-notice-table.history-mode thead {
@@ -10442,4 +10448,17 @@ textarea.error:focus {
 
 #refundAccountModal .db-modal-footer .btn {
   min-width: 80px;
+}
+
+/* Radio Wrap Centering Fix */
+.radio-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.db-notice-table td.center .radio-wrap {
+  margin: 0 auto;
 }
