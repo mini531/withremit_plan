@@ -16,265 +16,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel='stylesheet' href='css/auth.css'>
     <script src='js/auth.js'></script>
-    <style>
-        :root {
-            --company-gradient: linear-gradient(135deg, #00A0DC 0%, #2563eb 100%);
-            --glass-bg: rgba(255, 255, 255, 0.8);
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
 
-        .guide-hero {
-            position: relative;
-            background: var(--company-gradient);
-            border-radius: 24px;
-            padding: 60px 40px;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 40px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 160, 220, 0.2);
-        }
-
-        .guide-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 50%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(30deg);
-            pointer-events: none;
-        }
-
-        .hero-title {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.3;
-            position: relative;
-            z-index: 1;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-desc {
-            font-size: 18px;
-            color: #ffffff;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            opacity: 1;
-        }
-
-        /* Tabs Styling Override for Premium Look */
-        .guide-tab-container {
-            margin-top: 0;
-        }
-
-        .guide-tabs {
-            background: #f8fafc;
-            padding: 6px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            display: flex;
-            gap: 6px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .guide-tab {
-            flex: 1;
-            padding: 14px 20px;
-            text-align: center;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            color: #64748b;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background: transparent;
-            border: none;
-        }
-
-        .guide-tab.active {
-            background: #fff;
-            color: #00A0DC;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            font-weight: 700;
-        }
-
-        .guide-tab:hover:not(.active) {
-            background: rgba(255, 255, 255, 0.5);
-            color: #475569;
-        }
-
-        /* Feature Cards (Adapted from Value Cards) */
-        .feature-grid-new {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .feature-card-new {
-            background: #fff;
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid #f1f5f9;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            height: 100%;
-        }
-
-        .feature-card-new:hover {
-            transform: translateY(-8px);
-            border-color: #00A0DC;
-            box-shadow: 0 20px 40px rgba(0, 160, 220, 0.1);
-        }
-
-        .feature-icon-box {
-            width: 56px;
-            height: 56px;
-            background: #f0f9ff;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: #00A0DC;
-            transition: all 0.3s;
-        }
-
-        .feature-card-new:hover .feature-icon-box {
-            background: #00A0DC;
-            color: #fff;
-            transform: scale(1.1);
-            /* No rotation as per request */
-        }
-
-        .feature-title-new {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 12px;
-        }
-
-        .feature-desc-new {
-            font-size: 14px;
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        .feature-desc-new ul {
-            padding-left: 20px;
-            margin: 0;
-            list-style-type: disc;
-        }
-
-        .feature-desc-new li {
-            margin-bottom: 6px;
-        }
-
-        /* Content Box for Sections */
-        .content-box-premium {
-            background: #fff;
-            border-radius: 24px;
-            border: 1px solid #f1f5f9;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 30px;
-        }
-
-        .section-header {
-            margin-bottom: 24px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* Centered */
-            gap: 12px;
-        }
-
-        .section-header h3 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1e293b;
-            margin: 0;
-            text-align: center;
-            /* Centered */
-        }
-
-        .section-icon {
-            color: #00A0DC;
-        }
-
-
-        @media (max-width: 768px) {
-            .feature-grid-new {
-                grid-template-columns: 1fr;
-            }
-
-            /* Mobile: Horizontal Layout (Icon Left, Text Right) */
-            .feature-card-new {
-                display: grid;
-                grid-template-columns: auto 1fr;
-                grid-template-rows: auto auto;
-                column-gap: 20px;
-                padding: 24px;
-                align-items: start;
-            }
-
-            .feature-icon-box {
-                grid-row: 1 / span 2;
-                margin-bottom: 0;
-                width: 48px;
-                height: 48px;
-                border-radius: 12px;
-            }
-
-            .feature-icon-box svg {
-                width: 24px;
-                height: 24px;
-            }
-
-            .feature-title-new {
-                grid-column: 2;
-                margin-bottom: 6px;
-                font-size: 17px;
-                align-self: center;
-                /* Center title with top of icon potentially, or just follow flow */
-                margin-top: 0;
-            }
-
-            .feature-desc-new {
-                grid-column: 2;
-                font-size: 14px;
-            }
-
-            .guide-tabs {
-                flex-wrap: wrap;
-            }
-
-            .guide-tab {
-                min-width: 45%;
-                font-size: 14px;
-            }
-
-            .hero-title {
-                font-size: 24px;
-            }
-
-            .hero-desc {
-                font-size: 15px;
-            }
-        }
-    </style>
 </head>
 
 <body class="db-body">
@@ -310,7 +52,7 @@
                             <h3
                                 style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 20px; padding-left: 10px; border-left: 4px solid #00A0DC;">
                                 가입 절차 및 방법</h3>
-                            <div class="feature-grid-new">
+                            <div class="feature-grid-new cols-3">
                                 <!-- Step 1 -->
                                 <div class="feature-card-new">
                                     <div class="feature-icon-box">
@@ -385,7 +127,7 @@
                                     </svg>
                                     <h3>회원 혜택 및 관리</h3>
                                 </div>
-                                <div class="feature-grid-new" style="margin-bottom: 0;">
+                                <div class="feature-grid-new cols-3" style="margin-bottom: 0;">
                                     <div class="feature-card-new">
                                         <h4 class="feature-title-new">특별한 회원 혜택</h4>
                                         <div class="feature-desc-new">
@@ -413,7 +155,7 @@
                             <h3
                                 style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 20px; padding-left: 10px; border-left: 4px solid #00A0DC;">
                                 법인 가입 절차</h3>
-                            <div class="feature-grid-new">
+                            <div class="feature-grid-new cols-3">
                                 <!-- Step 1 -->
                                 <div class="feature-card-new">
                                     <div class="feature-icon-box">
@@ -487,8 +229,7 @@
                                     </svg>
                                     <h3>관리 및 유의사항</h3>
                                 </div>
-                                <div class="feature-grid-new"
-                                    style="grid-template-columns: repeat(2, 1fr); margin-bottom: 0;">
+                                <div class="feature-grid-new" style="margin-bottom: 0;">
                                     <div class="feature-card-new">
                                         <h4 class="feature-title-new">계좌 및 결과 관리</h4>
                                         <div class="feature-desc-new">
@@ -518,24 +259,7 @@
     <script src="js/main.js"></script>
     <script src="js/sidebar.js"></script>
     <script src="js/includes.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('.guide-tab');
-            const contents = document.querySelectorAll('.tab-content');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const target = tab.getAttribute('data-tab');
-
-                    tabs.forEach(t => t.classList.remove('active'));
-                    contents.forEach(c => c.classList.remove('active'));
-
-                    tab.classList.add('active');
-                    document.getElementById(`tab-${target}`).classList.add('active');
-                });
-            });
-        });
-    </script>
+    <script src="js/guide.js"></script>
 </body>
 
 </html>
