@@ -10511,27 +10511,27 @@ td.center {
 .badge-status {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 13px;
+  gap: 4px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .badge-status svg {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .badge-status.pending {
-  background-color: #FFF9E6;
   color: #D97706;
+  /* Orange for Processing */
 }
 
 .badge-status.completed {
-  background-color: #EBF5FF;
-  color: #1B5E9E;
+  color: #059669;
+  /* Green for Completed, matching status-verified */
 }
+
 
 /* Inquiry Bottom Info Box (CS_03_01) */
 .inquiry-bottom-info {
