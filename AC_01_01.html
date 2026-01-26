@@ -34,6 +34,11 @@
                 </div>
 
                 <div class="db-content-card">
+                    <!-- Total Count -->
+                    <div class="db-table-info">
+                        <span class="db-total-count">총 <strong id="totalCount">0</strong>건</span>
+                    </div>
+
                     <!-- Table Container -->
                     <div class="db-table-responsive">
                         <table class="db-notice-table history-mode">
@@ -325,8 +330,10 @@
                 </td>
             `;
 
+
             tbody.insertBefore(newRow, tbody.firstChild);
             closeAccountModal();
+            updateTotalCount();
         }
 
         function removeRow(button) {
@@ -344,6 +351,7 @@
                     row.querySelector('td:first-child').textContent = rows.length - index;
                 });
                 currentDeleteButton = null;
+                updateTotalCount();
             }
             closeDeleteModal();
         }
@@ -356,6 +364,18 @@
         function closeValidationModal() {
             document.getElementById('validationModal').classList.remove('active');
         }
+
+        function updateTotalCount() {
+            const tbody = document.getElementById('accountTableBody');
+            const count = tbody ? tbody.querySelectorAll('tr').length : 0;
+            const countElement = document.getElementById('totalCount');
+            if (countElement) {
+                countElement.textContent = count;
+            }
+        }
+
+        // Initialize count on load
+        document.addEventListener('DOMContentLoaded', updateTotalCount);
     </script>
 </body>
 
