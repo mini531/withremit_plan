@@ -531,21 +531,6 @@
     <script src="js/main.js"></script>
     <script src="js/sidebar.js"></script>
     <script src="js/includes.js"></script>
-    <script>
-        // 사이드바 메뉴 활성화 (스크립트 로드 타이밍 고려)
-        document.addEventListener('DOMContentLoaded', function () {
-            const checkSidebar = setInterval(function () {
-                const sidebarAboutUs = document.getElementById('navAboutUs');
-                if (sidebarAboutUs) {
-                    sidebarAboutUs.classList.add('active');
-                    clearInterval(checkSidebar);
-                }
-            }, 50);
-
-            // 5초 후에는 체크 중단 (타임아웃)
-            setTimeout(() => clearInterval(checkSidebar), 5000);
-        });
-    </script>
 </body>
 
 </html>
