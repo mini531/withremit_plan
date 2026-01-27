@@ -35,6 +35,124 @@
             justify-content: center;
             margin: 0;
         }
+
+        /* Default: Hide card list on desktop */
+        .account-card-list.mobile-only {
+            display: none;
+        }
+
+        /* Responsive Mobile Card View (< 480px) */
+        @media (max-width: 480px) {
+
+            /* Hide Table */
+            .db-table-container {
+                display: none;
+            }
+
+            /* Show Card List */
+            .account-card-list.mobile-only {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .account-card {
+                background: #fff;
+                border: 1px solid #e5e7eb;
+                border-radius: 12px;
+                padding: 16px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .account-card.selected {
+                border-color: #00A0DC;
+                background-color: #f0f9ff;
+                box-shadow: 0 0 0 1px #00A0DC;
+            }
+
+            .account-card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 12px;
+                padding-bottom: 12px;
+                border-bottom: 1px solid #f3f4f6;
+            }
+
+            .account-card-radio {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 600;
+                color: #1f2937;
+            }
+
+            .account-card-body {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .account-card-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 14px;
+            }
+
+            .account-card-label {
+                color: #6b7280;
+            }
+
+            .account-card-value {
+                color: #111827;
+                font-weight: 500;
+            }
+        }
+
+        /* Ensure 2-column layout on Tablet/Mobile (< 768px) */
+        @media (max-width: 768px) {
+            .form-row-2 {
+                display: grid;
+                /* Ensure it uses grid */
+                grid-template-columns: 1fr 1fr !important;
+                /* Force 2 columns */
+                gap: 12px;
+            }
+        }
+
+        /* Adjustments for Small Mobile (< 480px) */
+        @media (max-width: 480px) {
+            .form-row-2 {
+                grid-template-columns: 1fr 1fr !important;
+                /* Force 2 columns even on small mobile */
+                gap: 8px;
+            }
+
+            /* Smaller font sizes for compact 2-column layout */
+            .field-label {
+                font-size: 13px !important;
+                margin-bottom: 4px;
+            }
+
+            .field-value-text {
+                font-size: 14px !important;
+                padding: 10px 0;
+            }
+
+            /* Inputs adjustments if needed */
+            .login-input {
+                font-size: 14px !important;
+                padding: 10px;
+            }
+
+            .select-styled {
+                font-size: 14px !important;
+            }
+        }
+
+        /* Default: Hide card list on desktop */
     </style>
 </head>
 
@@ -220,6 +338,90 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                            </div>
+
+                            <!-- Mobile Card View -->
+                            <div class="account-card-list mobile-only" id="withdrawalAccountCards">
+                                <!-- Card 1 -->
+                                <div class="account-card selected" onclick="selectCard(1)">
+                                    <div class="account-card-header">
+                                        <div class="account-card-radio">
+                                            <label class="radio-wrap">
+                                                <input type="radio" name="withdrawalAccountMobile" value="1" checked>
+                                                <span class="custom-radio"></span>
+                                            </label>
+                                            <span>선택</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-card-body">
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">은행</span>
+                                            <span class="account-card-value">기업은행 (IBK)</span>
+                                        </div>
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">계좌 번호</span>
+                                            <span class="account-card-value">064-146189-04-024</span>
+                                        </div>
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">계좌 명의</span>
+                                            <span class="account-card-value">홍길동</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="account-card" onclick="selectCard(2)">
+                                    <div class="account-card-header">
+                                        <div class="account-card-radio">
+                                            <label class="radio-wrap">
+                                                <input type="radio" name="withdrawalAccountMobile" value="2">
+                                                <span class="custom-radio"></span>
+                                            </label>
+                                            <span>선택</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-card-body">
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">은행</span>
+                                            <span class="account-card-value">농협은행 (NH)</span>
+                                        </div>
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">계좌 번호</span>
+                                            <span class="account-card-value">301-0313-2544-01</span>
+                                        </div>
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">계좌 명의</span>
+                                            <span class="account-card-value">홍길동</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="account-card" onclick="selectCard(3)">
+                                    <div class="account-card-header">
+                                        <div class="account-card-radio">
+                                            <label class="radio-wrap">
+                                                <input type="radio" name="withdrawalAccountMobile" value="3">
+                                                <span class="custom-radio"></span>
+                                            </label>
+                                            <span>선택</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-card-body">
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">은행</span>
+                                            <span class="account-card-value">신한은행</span>
+                                        </div>
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">계좌 번호</span>
+                                            <span class="account-card-value">110-456-789012</span>
+                                        </div>
+                                        <div class="account-card-row">
+                                            <span class="account-card-label">계좌 명의</span>
+                                            <span class="account-card-value">홍길동</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <span class="field-error" id="withdrawalAccountError"></span>
                         </div>
@@ -1562,6 +1764,60 @@
                     remitDate.value = '';
                 }
             });
+        }
+    });
+</script>
+<script>
+    function selectCard(id) {
+        // Update Mobile Radios and Styling
+        document.querySelectorAll('input[name="withdrawalAccountMobile"]').forEach(radio => {
+            if (radio.value == id) radio.checked = true;
+        });
+        document.querySelectorAll('.account-card').forEach(card => card.classList.remove('selected'));
+        event.currentTarget.classList.add('selected');
+
+        // Sync with Desktop Table Radios
+        const desktopRadio = document.querySelector(`input[name="withdrawalAccount"][value="${id}"]`);
+        if (desktopRadio) desktopRadio.checked = true;
+    }
+
+    // Sync Desktop Table selection to Mobile Cards
+    const desktopRadios = document.querySelectorAll('input[name="withdrawalAccount"]');
+    desktopRadios.forEach(radio => {
+        radio.addEventListener('change', function () {
+            // Trigger click on corresponding mobile card to sync state
+            selectCard(this.value);
+
+            // Also update the UI manually if selectCard relies on event.currentTarget which might not exist here
+            // Re-selecting logic to be safe if called programmatically
+            document.querySelectorAll('input[name="withdrawalAccountMobile"]').forEach(mRadio => {
+                if (mRadio.value == this.value) mRadio.checked = true;
+            });
+            document.querySelectorAll('.account-card').forEach(card => {
+                const radio = card.querySelector('input');
+                if (radio && radio.value == this.value) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+        });
+    });
+
+    // Initialize sync (if needed, e.g. pre-selected)
+    window.addEventListener('DOMContentLoaded', () => {
+        const checkedDesktop = document.querySelector('input[name="withdrawalAccount"]:checked');
+        if (checkedDesktop) {
+            const cards = document.querySelectorAll('.account-card');
+            cards.forEach(card => {
+                const radio = card.querySelector('input');
+                if (radio && radio.value == checkedDesktop.value) {
+                    card.classList.add('selected');
+                    radio.checked = true;
+                } else {
+                    card.classList.remove('selected');
+                }
+            })
         }
     });
 </script>
