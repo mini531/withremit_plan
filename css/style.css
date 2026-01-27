@@ -396,6 +396,8 @@ p {
   align-items: center;
   height: 100%;
   z-index: 1;
+  padding-left: 40px;
+  box-sizing: border-box;
 }
 
 .banner-image-group img {
@@ -443,6 +445,7 @@ a.db-banner-slide {
     height: 120px;
     width: 100%;
     flex: 0 0 auto;
+    padding-left: 0;
   }
 
   .banner-image-group img {
