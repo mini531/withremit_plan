@@ -105,9 +105,19 @@ const translations = {
         'footer.privacy': '개인정보처리방침',
         'footer.terms': '이용약관',
         'footer.antisocial': '반사회적세력에 대한 방침',
-        'footer.settlement': '자금결제법에 근거한 표시',
         'footer.fraud': '사기피해주의',
-        'footer.license': '기획재정부 인가 소액해외송금업체 (등록번호: 2018-7)'
+        'footer.license': '기획재정부 인가 소액해외송금업체 (등록번호: 2018-7)',
+
+        // Banners
+        'banner.referral.title': '친구도 나도, 송금 수수료 0원!',
+        'banner.referral.desc': '친구가 가입 후 첫 송금을 마치면 두 분 모두에게 수수료 무료 쿠폰을 드립니다.',
+        'banner.referral.alt': '친구 추천 이벤트',
+        'banner.birthday.title': '해피 벌스데이! 위드레미트가 드리는 생일 선물',
+        'banner.birthday.desc': '생일인 달에는 송금 수수료가 무료! 지금 쿠폰함에서 확인해 보세요.',
+        'banner.birthday.alt': '생일 쿠폰 이벤트',
+        'banner.security.title': '국가가 인증하고 서울보증보험이 약속합니다.',
+        'banner.security.desc': '기획재정부 인가 및 SGI 서울보증보험 가입으로 단 1원도 안심하고 보내세요.',
+        'banner.security.alt': '보안 안심 송금'
     },
     en: {
         // Navigation
@@ -213,9 +223,19 @@ const translations = {
         'footer.privacy': 'Privacy Policy',
         'footer.terms': 'Terms of Service',
         'footer.antisocial': 'Anti-Social Forces Policy',
-        'footer.settlement': 'Payment Services Act',
         'footer.fraud': 'Fraud Warning',
-        'footer.license': 'Licensed Remittance Provider (Reg. No: 2018-7)'
+        'footer.license': 'Licensed Remittance Provider (Reg. No: 2018-7)',
+
+        // Banners
+        'banner.referral.title': 'Zero fees for both you and your friend!',
+        'banner.referral.desc': 'Receive a free fee coupon for both when your friend completes their first transfer.',
+        'banner.referral.alt': 'Referral Event',
+        'banner.birthday.title': 'Happy Birthday! A gift from WithRemit',
+        'banner.birthday.desc': 'Free transfer fees during your birthday month! Check your coupon box now.',
+        'banner.birthday.alt': 'Birthday Coupon Event',
+        'banner.security.title': 'Certified by the government, guaranteed by SGI.',
+        'banner.security.desc': 'Send even a single won with peace of mind, fully licensed and insured.',
+        'banner.security.alt': 'Security & Trust'
     },
     ja: {
         // Navigation
@@ -321,9 +341,19 @@ const translations = {
         'footer.privacy': 'プライバシーポリシー',
         'footer.terms': '利用規約',
         'footer.antisocial': '反社会的勢力への方針',
-        'footer.settlement': '資金決済法に基づく表示',
         'footer.fraud': '詐欺被害注意',
-        'footer.license': '政府認可送金業者 (登録番号: 2018-7)'
+        'footer.license': '政府認可送金業者 (登録番号: 2018-7)',
+
+        // Banners
+        'banner.referral.title': '友達も私も、送金手数料0円！',
+        'banner.referral.desc': '友達が登録後に初送金を完了すると、お二人に手数料無料クーポンを差し上げます。',
+        'banner.referral.alt': '友達招待イベント',
+        'banner.birthday.title': 'ハッピーバースデー！WithRemitからの誕生日プレゼント',
+        'banner.birthday.desc': '誕生月は送金手数料が無料！今すぐクーポンボックスを確認してください。',
+        'banner.birthday.alt': '誕生日クーポンイベント',
+        'banner.security.title': '政府公認、ソウル保証保険が約束します。',
+        'banner.security.desc': '政府認可およびSGIソウル保証保険加入で、1円からでも安心してお送りください。',
+        'banner.security.alt': '安心・安全送金'
     },
     zh: {
         // Navigation
@@ -429,9 +459,19 @@ const translations = {
         'footer.privacy': '隐私政策',
         'footer.terms': '服务条款',
         'footer.antisocial': '反社会势力政策',
-        'footer.settlement': '资金结算法相关说明',
         'footer.fraud': '诈骗警示',
-        'footer.license': '政府许可汇款机构 (登记号: 2018-7)'
+        'footer.license': '政府许可汇款机构 (登记号: 2018-7)',
+
+        // Banners
+        'banner.referral.title': '好友和你，转账手续费全免！',
+        'banner.referral.desc': '好友注册并完成首次转账后，双方均可获得免手续费优惠券。',
+        'banner.referral.alt': '好友推荐活动',
+        'banner.birthday.title': '生日快乐！WithRemit 送出的生日礼物',
+        'banner.birthday.desc': '生日月份转账手续费全免！请立即查看您的优惠券。',
+        'banner.birthday.alt': '生日优惠券活动',
+        'banner.security.title': '政府认证，首尔保证保险承诺保驾护航。',
+        'banner.security.desc': '持政府许可并加入 SGI 首尔保证保险，每一分钱都能放心汇出。',
+        'banner.security.alt': '安全可靠汇款'
     }
 };
 
@@ -572,7 +612,11 @@ function applyTranslations() {
         const key = el.getAttribute('data-i18n');
         const translation = t(key);
         if (translation) {
-            if (key === 'calc.maxAmount') {
+            if (el.tagName === 'IMG') {
+                el.alt = translation;
+            } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = translation;
+            } else if (key === 'calc.maxAmount') {
                 // Replace {limit} placeholder with actual max limit
                 el.innerHTML = translation.replace('{limit}', MAX_KRW_LIMIT.toLocaleString('ko-KR'));
             } else {
