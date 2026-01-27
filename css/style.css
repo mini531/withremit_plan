@@ -385,6 +385,10 @@ p {
   padding-right: 20px;
 }
 
+.db-banner-content .banner-text-group {
+  padding-left: 30px;
+}
+
 .banner-image-group {
   flex: 0 0 380px;
   display: flex;
@@ -429,6 +433,10 @@ a.db-banner-slide {
   .banner-text-group {
     padding-right: 0;
     margin-bottom: 20px;
+  }
+
+  .db-banner-content .banner-text-group {
+    padding-left: 0;
   }
 
   .banner-image-group {
