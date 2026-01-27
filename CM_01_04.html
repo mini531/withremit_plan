@@ -125,7 +125,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-main-login">확인</button>
+                        <button class="btn-main-login" id="confirmBtn">확인</button>
                         <button class="btn-back-cancel" onclick="history.back()">취소</button>
                     </div>
                 </div>
@@ -150,6 +150,23 @@
     <script src="js/main.js"></script>
     <script src="js/sidebar.js"></script>
     <script src="js/includes.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectTarget = urlParams.get('redirect');
+
+            if (redirectTarget === 'mypage') {
+                const confirmBtn = document.getElementById('confirmBtn');
+                if (confirmBtn) {
+                    confirmBtn.addEventListener('click', (e) => {
+                        // In a real app, you'd validate the password first.
+                        // For this UI demo, we just redirect on click as requested.
+                        window.location.href = 'UT_01_01.html';
+                    });
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
